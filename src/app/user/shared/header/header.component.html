@@ -1,0 +1,64 @@
+  <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand title" href="#">
+        <img src="https://getbootstrap.com/docs/4.4/assets/brand/bootstrap-solid.svg" width="30"  class="d-inline-block align-top" height="30" alt="">
+          Sprintrip
+      </a>
+
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a routerLink="/user/booking/flight" routerLinkActive="active" class="nav-link">Home </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Features</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Pricing</a>
+              </li>
+
+              <li class="nav-item">
+                <a (click)="open(content)" class="nav-link" href="#">Login</a>
+              </li>
+              
+        </ul>
+    </div>
+  </nav>
+  
+  
+  
+  <!-- login modal -->
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div align="center" class="modal-body">
+     Login here
+
+     <small (click)="open(content2); modal.dismiss('Cross click')">Sign up here</small>
+    </div>
+    <div class="modal-footer">
+    </div>
+  </ng-template>
+
+
+  <!-- sign up modal -->
+  <ng-template #content2 let-modal>
+    <div class="modal-header">
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div align="center" class="modal-body">
+    Sign up here
+
+     <small (click)="open(content); modal.dismiss('Cross click')">Log in</small>
+    </div>
+    <div class="modal-footer">
+    </div>
+  </ng-template>

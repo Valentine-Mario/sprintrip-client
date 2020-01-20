@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import {UserModule} from './user/user.module'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { HttpClientModule } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
+
 
 @NgModule({
   declarations: [
@@ -13,7 +15,11 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
-    UserModule
+    UserModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule, 
+    HttpClientModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
