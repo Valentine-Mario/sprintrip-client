@@ -25,6 +25,7 @@ import {TripsComponent} from './components/trips/trips/trips.component'
 import {UpcomingTripsComponent} from './components/trips/upcoming-trips/upcoming-trips.component'
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { NavigationComponent } from './components/bookings/navigation/navigation.component';
 
 
 @NgModule({
@@ -32,7 +33,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
      HotelsComponent, VenuesComponent, TrainsComponent, CarsComponent, CruiseComponent,
       AirbnbComponent, OthersComponent, CompanySettingComponent, HelpComponent, InvoiceComponent,
       PaymentComponent, ProfileComponent, ReportingComponent, PastTripsComponent, TravellingNowComponent,
-      TripsComponent, UpcomingTripsComponent
+      TripsComponent, UpcomingTripsComponent, NavigationComponent
     ],
   imports: [
     CommonModule,

@@ -1,0 +1,13 @@
+
+ul{
+    display: flex;
+    padding-top: 30px;
+}
+li{
+    list-style: none;
+    padding-left: 20px;
+}
+
+.input-group-text{
+    background-color: white;
+}

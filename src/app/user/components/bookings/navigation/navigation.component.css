@@ -1,0 +1,20 @@
+ul{
+    display: flex;
+    margin-bottom: 0rem;
+}
+li{
+    list-style: none;
+    padding-top: 25px;
+    width: 40%;
+    background-color: rgb(189, 185, 185);
+    height: 80px;
+}
+a{
+    color: black;
+}
+.navigation{
+    width:100%;
+}
+.active{
+    background-color: rgb(92, 151, 92);
+}
