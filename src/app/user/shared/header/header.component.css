@@ -1,4 +1,58 @@
-.active{
+a:link {
+    color: white;
+}
+
+a:visited {
+    color: white;
     text-decoration: underline;
     text-decoration-color:rgb(33, 122, 33);
+}
+
+a:hover {
+    color: grey;
+    text-decoration: underline;
+    text-decoration-color:rgb(33, 122, 33);
+}
+
+a:active{
+    text-decoration: underline;
+    text-decoration-color:rgb(33, 122, 33);
+}
+
+.navbar-custom {
+    height: 80px;
+    text-align: center;
+    background-color: rgb(18, 41, 18);
+}
+
+@media (max-width: 768px) {
+    .collapse {
+        background-color: rgb(18, 41, 18);
+    }
+
+    .navbar-collapse {
+        position: absolute;
+        top: 54px;
+        left: 0;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 15px;
+        width: 100%;
+        background-color: rgb(18, 41, 18);
+    }
+    .navbar-collapse.collapsing {
+        height: auto;
+        -webkit-transition: left 0.3s ease;
+        -o-transition: left 0.3s ease;
+        -moz-transition: left 0.3s ease;
+        transition: left 0.3s ease;
+        left: -100%;
+    }
+    .navbar-collapse.show {
+        left: 0;
+        -webkit-transition: left 0.3s ease-in;
+        -o-transition: left 0.3s ease-in;
+        -moz-transition: left 0.3s ease-in;
+        transition: left 0.3s ease-in;
+    }
 }

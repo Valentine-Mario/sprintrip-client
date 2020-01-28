@@ -1,0 +1,29 @@
+.footer {
+    background-color: rgb(18, 41, 18);
+    color: white;
+}
+
+a:link {
+    color: white;
+}
+
+a:visited {
+    color: white;
+    text-decoration: underline;
+    text-decoration-color:rgb(33, 122, 33);
+}
+
+a:hover {
+    color: grey;
+    text-decoration: underline;
+    text-decoration-color:rgb(33, 122, 33);
+}
+
+a:active{
+    text-decoration: underline;
+    text-decoration-color:rgb(33, 122, 33);
+}
+
+.custom-font {
+    color: rgb(33, 122, 33);
+}
