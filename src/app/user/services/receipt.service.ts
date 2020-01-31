@@ -19,6 +19,7 @@ export class ReceiptService {
    getReceipt(page, limit){
     let authToken= localStorage.getItem('user-token')
      return this.http.get(AppEndpoint.API_ENDPOINT+`/receipt/get?page=${page}&limit=${limit}`, {
+      observe: 'response',
       headers: new HttpHeaders({'Content-Type': 'application/json', 'authorization': "bearer "+authToken}),
     })
    }
@@ -26,17 +27,21 @@ export class ReceiptService {
    deleteReceipt(id){
     let authToken= localStorage.getItem('user-token')
      return this.http.get(AppEndpoint.API_ENDPOINT+`/receipt/delete/`+id, {
+      observe: 'response',
       headers: new HttpHeaders({'Content-Type': 'application/json', 'authorization': "bearer "+authToken}),
     })
    }
 
    getReceiptDetails(id){
-     return this.http.get(AppEndpoint.API_ENDPOINT+`/receipt/get/`+id)
+     return this.http.get(AppEndpoint.API_ENDPOINT+`/receipt/get/`+id, {
+      observe: 'response',
+     })
    }
 
    deleteReceiptImage(id, data){
     let authToken= localStorage.getItem('user-token')
      return this.http.post(AppEndpoint.API_ENDPOINT+`/receipt/removeimage/`+id, data, {
+      observe: 'response',
       headers: new HttpHeaders({'Content-Type': 'application/json', 'authorization': "bearer "+authToken}),
     })
    }
@@ -44,6 +49,7 @@ export class ReceiptService {
    EditReceipt(id, data){
     let authToken= localStorage.getItem('user-token')
      return this.http.post(AppEndpoint.API_ENDPOINT+`/receipt/edit/`+id, data, {
+      observe: 'response',
       headers: new HttpHeaders({'Content-Type': 'application/json', 'authorization': "bearer "+authToken}),
     })
    }
@@ -51,6 +57,7 @@ export class ReceiptService {
    AddImages(id, images){
     let authToken= localStorage.getItem('user-token')
      return this.http.post(AppEndpoint.API_ENDPOINT+`/receipt/addimages/`+id, images, {
+      observe: 'response',
       headers: new HttpHeaders({'authorization': "bearer "+authToken}),
     })
    }
@@ -58,6 +65,7 @@ export class ReceiptService {
    getReceiptByDate(date){
     let authToken= localStorage.getItem('user-token')
      return this.http.get(AppEndpoint.API_ENDPOINT+`/receipt/getbydate/${date}`, {
+      observe: 'response',
       headers: new HttpHeaders({'Content-Type': 'application/json', 'authorization': "bearer "+authToken}),
     })
    }
@@ -65,6 +73,7 @@ export class ReceiptService {
    getReceiptByLocation(location){
     let authToken= localStorage.getItem('user-token')
     return this.http.get(AppEndpoint.API_ENDPOINT+`/receipt/getbylocation/${location}`, {
+      observe: 'response',
      headers: new HttpHeaders({'Content-Type': 'application/json', 'authorization': "bearer "+authToken}),
    })
    }

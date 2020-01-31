@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './components/home/home.component';
 import { FlightsComponent } from './components/bookings/flights/flights.component';
 import { HotelsComponent } from './components/bookings/hotels/hotels.component';
 import { VenuesComponent } from './components/bookings/venues/venues.component';
@@ -24,7 +24,6 @@ export const UserRoutes: Routes = [
     {
         path:'',
         component:HomeComponent,
-        
     },
     {
         path:'user',
