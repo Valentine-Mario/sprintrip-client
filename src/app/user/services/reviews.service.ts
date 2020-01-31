@@ -20,7 +20,7 @@ export class ReviewsService {
     return this.http.get(AppEndpoint.API_ENDPOINT+`/carreview/get/`+id+`?page=${page}&limit=${limit}`)
   }
   addHotelRating(id, data){
-    let authToken= localStorage.getItem('token')
+    let authToken= localStorage.getItem('user-token')
      return this.http.post(AppEndpoint.API_ENDPOINT+'/hotelreview/add/'+id, data, {
       headers: new HttpHeaders({'Content-Type': 'application/json', 'authorization': "bearer "+authToken}),
     })
@@ -29,7 +29,7 @@ export class ReviewsService {
     return this.http.get(AppEndpoint.API_ENDPOINT+`/hotelreview/get/`+id+`?page=${page}&limit=${limit}`)
   }
   addVenueRating(id, data){
-    let authToken= localStorage.getItem('token')
+    let authToken= localStorage.getItem('user-token')
      return this.http.post(AppEndpoint.API_ENDPOINT+'/venuereview/add/'+id, data, {
       headers: new HttpHeaders({'Content-Type': 'application/json', 'authorization': "bearer "+authToken}),
     })
