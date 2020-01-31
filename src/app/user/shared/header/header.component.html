@@ -1,4 +1,5 @@
-  <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-custom navbar-expand-lg">
+    <div class="d-md-flex d-block flex-row mx-md-auto mx-0">
     <a class="navbar-brand title" href="#">
         <img src="https://getbootstrap.com/docs/4.4/assets/brand/bootstrap-solid.svg" width="30"  class="d-inline-block align-top" height="30" alt="">
           Sprintrip
@@ -14,13 +15,16 @@
                 <a routerLink="/user/booking/flight" routerLinkActive="active" class="nav-link">Book </a>
               </li>
               <li class="nav-item">
+                <a routerLink="/user/booking" routerLinkActive="active" class="nav-link" href="#">Book</a>
+              </li>
+              <li class="nav-item">
                 <a routerLink="/user/trips/travellingnow" routerLinkActive="active" class="nav-link" href="#">Trips</a>
               </li>
               <li class="nav-item">
                 <a routerLink="/user/invoice" routerLinkActive="active" class="nav-link" href="#">Invoices</a>
               </li>
               <li class="nav-item">
-                <a routerLink="/user/setting" routerLinkActive="active" class="nav-link" href="#">Settings</a>
+                <a routerLink="/user/setting" routerLinkActive="active" class="nav-link" href="#">Company Settings</a>
               </li>
               <li class="nav-item">
                 <a routerLink="/user/reporting" routerLinkActive="active" class="nav-link" href="#">Reporting</a>
@@ -43,10 +47,16 @@
                 </div>
               </li>
               <li class="nav-item">
+                <a routerLink="." routerLinkActive="active" class="nav-link" href=".">
+                  About
+                </a>
+              </li>
+              <li class="nav-item">
                 <a (click)="open(content)" class="nav-link" href="#">Login</a>
               </li>
               
         </ul>
+    </div>
     </div>
   </nav>
   

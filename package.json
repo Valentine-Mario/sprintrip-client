@@ -28,6 +28,8 @@
     "@nguniversal/express-engine": "^8.2.6",
     "@nguniversal/module-map-ngfactory-loader": "v8.2.6",
     "express": "^4.15.2",
+    "font-awesome": "^4.7.0",
+    "mdbootstrap": "^4.12.0",
     "ngx-pagination": "^5.0.0",
     "ngx-toastr": "^11.3.2",
     "rxjs": "~6.4.0",
