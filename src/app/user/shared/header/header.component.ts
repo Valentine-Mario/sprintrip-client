@@ -4,6 +4,7 @@ import {UserService} from '../../services/user.service'
 import { Validators, FormGroup, FormBuilder} from '@angular/forms';
 import {HelpersService} from '../../services/helpers.service'
 import {Router} from '@angular/router'
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -12,14 +13,32 @@ import {Router} from '@angular/router'
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private modalService: NgbModal, private userService:UserService, 
+  constructor(private modalService: NgbModal, private userService:UserService, private ActiveRoute:ActivatedRoute,
     private helper: HelpersService, private fb: FormBuilder, private router:Router) { }
 closeResult:string;
 LoginForm:FormGroup;
 BusinessAccForm:FormGroup;
 UserAccForm:FormGroup
 spin:Boolean=false
+loggedIn:Boolean;
+loggedOut:Boolean;
+user:any
   ngOnInit() {
+    if(localStorage.getItem('user-token')){
+      this.user= this.ActiveRoute.snapshot.data['user'].body.message;
+    }
+
+    if(localStorage.getItem('user-token')){
+      this.loggedIn=true;
+    }else{
+      this.loggedIn=false;
+    }
+    if(localStorage.getItem('user-token')){
+      this.loggedOut=false
+    }else{
+      this.loggedOut=true
+    }
+
     this.BusinessAccForm=this.fb.group({
       name:['', Validators.required],
       email:['', [Validators.required, Validators.email]],
@@ -42,7 +61,10 @@ spin:Boolean=false
     })
 
   }
-
+  logout(){
+    localStorage.clear();
+    this.router.navigate([''])
+  }
   AddPersonalAcc(){
     var formData= this.UserAccForm.value;
     this.spin=true
