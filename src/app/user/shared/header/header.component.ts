@@ -23,11 +23,14 @@ spin:Boolean=false
 loggedIn:Boolean;
 loggedOut:Boolean;
 user:any
+invite_acc:Boolean
   ngOnInit() {
     if(localStorage.getItem('user-token')){
       this.user= this.ActiveRoute.snapshot.data['user'].body.message;
     }
-
+    if(localStorage.getItem('invite-token')){
+      this.invite_acc=true;
+    }
     if(localStorage.getItem('user-token')){
       this.loggedIn=true;
     }else{
@@ -64,6 +67,7 @@ user:any
   logout(){
     localStorage.clear();
     this.router.navigate([''])
+    this.helper.infoToast('', 'Logout successful')
   }
   AddPersonalAcc(){
     var formData= this.UserAccForm.value;

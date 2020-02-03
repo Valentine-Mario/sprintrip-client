@@ -20,7 +20,7 @@
               <li *ngIf="loggedIn" class="nav-item">
                 <a routerLink="/user/invoice" routerLinkActive="active" class="nav-link">Invoices</a>
               </li>
-              <li *ngIf="loggedIn" class="nav-item">
+              <li *ngIf="loggedIn && user.account_type === 'Business' && !invite_acc" class="nav-item">
                 <a routerLink="/user/setting" routerLinkActive="active" class="nav-link" >Company Settings</a>
               </li>
               <li *ngIf="loggedIn" class="nav-item">
@@ -34,17 +34,17 @@
               </li>
               <li *ngIf="loggedIn" class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <img src="https://getbootstrap.com/docs/4.4/assets/brand/bootstrap-solid.svg" width="30"  class="d-inline-block align-top" height="30" alt="">
+                  <img src="{{user.pics}}" width="30"  class="d-inline-block align-top" height="30" alt="">
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" routerLinkActive="active" routerLink="/user/profile">Profile</a>
-                  <a class="dropdown-item"><small>email@gmail.com</small></a>
+                  <a style="color: black;" class="dropdown-item" routerLink="/user/profile">Profile</a>
+                  <a class="dropdown-item"><small>{{user.name}}</small></a>
                   <div class="dropdown-divider"></div>
                   <a (click)="logout()" class="dropdown-item">Sign out</a>
                 </div>
               </li>
               <li class="nav-item">
-                <a routerLink="." routerLinkActive="active" class="nav-link" >
+                <a routerLink="/user/about" routerLinkActive="active" class="nav-link" >
                   About
                 </a>
               </li>

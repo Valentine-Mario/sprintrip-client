@@ -21,6 +21,7 @@ import {UpcomingTripsComponent} from './components/trips/upcoming-trips/upcoming
 import {GetUser} from './resolvers/user.resolvers'
 import {HeaderComponent} from './shared/header/header.component'
 import {AuthGuard} from './auth/auth.guard'
+import { AboutComponent } from './components/about/about.component';
 
 export const UserRoutes: Routes = [
     {
@@ -80,6 +81,11 @@ export const UserRoutes: Routes = [
                         resolve:{user:GetUser}
                     }
                 ]
+            },
+            {
+                path:'about',
+                component:AboutComponent,
+                resolve:{user:GetUser}
             },
             {
                 path:'trips',
