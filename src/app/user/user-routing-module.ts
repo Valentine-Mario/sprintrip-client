@@ -18,12 +18,21 @@ import {PastTripsComponent} from './components/trips/past-trips/past-trips.compo
 import {TravellingNowComponent} from './components/trips/travelling-now/travelling-now.component'
 import {TripsComponent} from './components/trips/trips/trips.component'
 import {UpcomingTripsComponent} from './components/trips/upcoming-trips/upcoming-trips.component'
-
+import {GetUser} from './resolvers/user.resolvers'
+import {HeaderComponent} from './shared/header/header.component'
+import {AuthGuard} from './auth/auth.guard'
+import { AboutComponent } from './components/about/about.component';
 
 export const UserRoutes: Routes = [
     {
         path:'',
         component:HomeComponent,
+        resolve:{user:GetUser}
+    },
+    {
+        path:'head',
+        component:HeaderComponent,
+        resolve:{user:GetUser}
     },
     {
         path:'user',
@@ -33,79 +42,112 @@ export const UserRoutes: Routes = [
                 children:[
                     {
                         path:'flight',
-                        component:FlightsComponent
+                        component:FlightsComponent,
+                        resolve:{user:GetUser}
                     },
                     {
                         path:'hotel',
-                        component:HotelsComponent
+                        component:HotelsComponent,
+                        resolve:{user:GetUser}
                     },
                     {
                         path:'venue',
-                        component:VenuesComponent
+                        component:VenuesComponent,
+                        resolve:{user:GetUser}
                     },
                     {
                         path:'train',
-                        component:TrainsComponent
+                        component:TrainsComponent,
+                        resolve:{user:GetUser}
                     },
                     {
                         path:'car',
-                        component:CarsComponent
+                        component:CarsComponent,
+                        resolve:{user:GetUser}
                     },
                     {
                         path:'cruise',
-                        component:CruiseComponent
+                        component:CruiseComponent,
+                        resolve:{user:GetUser}
                     },
                     {
                         path:'airbnb',
-                        component:AirbnbComponent
+                        component:AirbnbComponent,
+                        resolve:{user:GetUser}
                     },
                     {
                         path:'others',
-                        component:OthersComponent
+                        component:OthersComponent,
+                        resolve:{user:GetUser}
                     }
                 ]
             },
             {
+                path:'about',
+                component:AboutComponent,
+                resolve:{user:GetUser}
+            },
+            {
                 path:'trips',
                 component:TripsComponent,
+                resolve:{user:GetUser},
+                canActivate:[AuthGuard],
                 children:[
                     {
                         path:'travellingnow',
-                        component:TravellingNowComponent
+                        component:TravellingNowComponent,
+                        resolve:{user:GetUser},
+                        canActivate:[AuthGuard],
                     },
                     {
                         path:'pasttrips',
-                        component:PastTripsComponent
+                        component:PastTripsComponent,
+                        resolve:{user:GetUser},
+                        canActivate:[AuthGuard],
                     },
                     {
                         path:'upcomingtrips',
-                        component:UpcomingTripsComponent
+                        component:UpcomingTripsComponent,
+                        resolve:{user:GetUser},
+                        canActivate:[AuthGuard],
                     }
                 ]
             },
             {
                 path:'invoice',
-                component:InvoiceComponent
+                component:InvoiceComponent,
+                resolve:{user:GetUser},
+                canActivate:[AuthGuard],
             },
             {
                 path:'reporting',
-                component:ReportingComponent
+                component:ReportingComponent,
+                resolve:{user:GetUser},
+                canActivate:[AuthGuard],
             },
             {
                 path:'payment',
-                component:PaymentComponent
+                component:PaymentComponent,
+                resolve:{user:GetUser},
+                canActivate:[AuthGuard],
             },
             {
                 path:'help',
-                component:HelpComponent
+                component:HelpComponent,
+                resolve:{user:GetUser},
+                
             },
             {
                 path:'setting',
-                component:CompanySettingComponent
+                component:CompanySettingComponent,
+                resolve:{user:GetUser},
+                canActivate:[AuthGuard],
             },
             {
                 path:'profile',
-                component:ProfileComponent
+                component:ProfileComponent,
+                resolve:{user:GetUser},
+                canActivate:[AuthGuard],
             }
         ]
     }

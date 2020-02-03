@@ -1,6 +1,6 @@
   <nav class="navbar navbar-custom navbar-expand-lg">
     <div class="d-md-flex d-block flex-row mx-md-auto mx-0">
-    <a class="navbar-brand title" href="#">
+    <a style="color:white;" class="navbar-brand title">
         <img src="https://getbootstrap.com/docs/4.4/assets/brand/bootstrap-solid.svg" width="30"  class="d-inline-block align-top" height="30" alt="">
           Sprintrip
       </a>
@@ -14,42 +14,42 @@
             <li class="nav-item">
                 <a routerLink="/user/booking/flight" routerLinkActive="active" class="nav-link">Book </a>
               </li>
-              <li class="nav-item">
-                <a routerLink="/user/trips/travellingnow" routerLinkActive="active" class="nav-link" href="#">Trips</a>
+              <li *ngIf="loggedIn" class="nav-item">
+                <a routerLink="/user/trips/travellingnow" routerLinkActive="active" class="nav-link" >Trips</a>
+              </li>
+              <li *ngIf="loggedIn" class="nav-item">
+                <a routerLink="/user/invoice" routerLinkActive="active" class="nav-link">Invoices</a>
+              </li>
+              <li *ngIf="loggedIn && user.account_type === 'Business' && !invite_acc" class="nav-item">
+                <a routerLink="/user/setting" routerLinkActive="active" class="nav-link" >Company Settings</a>
+              </li>
+              <li *ngIf="loggedIn" class="nav-item">
+                <a routerLink="/user/reporting" routerLinkActive="active" class="nav-link">Reporting</a>
+              </li>
+              <li *ngIf="loggedIn" class="nav-item">
+                <a routerLink="/user/payment" routerLinkActive="active" class="nav-link">Pay</a>
               </li>
               <li class="nav-item">
-                <a routerLink="/user/invoice" routerLinkActive="active" class="nav-link" href="#">Invoices</a>
+                <a routerLink="/user/help" routerLinkActive="active" class="nav-link" >Help</a>
               </li>
-              <li class="nav-item">
-                <a routerLink="/user/setting" routerLinkActive="active" class="nav-link" href="#">Company Settings</a>
-              </li>
-              <li class="nav-item">
-                <a routerLink="/user/reporting" routerLinkActive="active" class="nav-link" href="#">Reporting</a>
-              </li>
-              <li class="nav-item">
-                <a routerLink="/user/payment" routerLinkActive="active" class="nav-link" href="#">Pay</a>
-              </li>
-              <li class="nav-item">
-                <a routerLink="/user/help" routerLinkActive="active" class="nav-link" href="#">Help</a>
-              </li>
-              <li class="nav-item dropdown">
+              <li *ngIf="loggedIn" class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <img src="https://getbootstrap.com/docs/4.4/assets/brand/bootstrap-solid.svg" width="30"  class="d-inline-block align-top" height="30" alt="">
+                  <img src="{{user.pics}}" width="30"  class="d-inline-block align-top" height="30" alt="">
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" routerLinkActive="active" routerLink="/user/profile">Profile</a>
-                  <a class="dropdown-item"><small>email@gmail.com</small></a>
+                  <a style="color: black;" class="dropdown-item" routerLink="/user/profile">Profile</a>
+                  <a class="dropdown-item"><small>{{user.name}}</small></a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item">Sign out</a>
+                  <a (click)="logout()" class="dropdown-item">Sign out</a>
                 </div>
               </li>
               <li class="nav-item">
-                <a routerLink="." routerLinkActive="active" class="nav-link" href=".">
+                <a routerLink="/user/about" routerLinkActive="active" class="nav-link" >
                   About
                 </a>
               </li>
-              <li class="nav-item">
-                <a (click)="open(content)" class="nav-link" href="#">Login</a>
+              <li *ngIf="loggedOut" class="nav-item">
+                <a style="color:white" (click)="open(content)" class="nav-link">Login</a>
               </li>
               
         </ul>
@@ -67,9 +67,21 @@
       </button>
     </div>
     <div align="center" class="modal-body">
-     Login here
-
-     <small (click)="open(content2); modal.dismiss('Cross click')">Sign up here</small>
+      <h3>Log in</h3>
+      <div align="center">
+        <div *ngIf="spin" class="spinner-grow" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+      <form [formGroup]="LoginForm" (ngSubmit)="AccLogin()">
+        <label>Email</label>
+        <input formControlName="email" type="email" placeholder="input email" class="form-control">
+        <label>Password</label>
+        <input formControlName="password" type="password" placeholder="password" class="form-control">
+        <br/>
+        <button [disabled]="LoginForm.invalid">Login</button>
+      </form>
+     <p>Don't have an account? <small (click)="open(content2); modal.dismiss('Cross click')">Sign up here</small></p>
     </div>
     <div class="modal-footer">
     </div>
@@ -83,10 +95,57 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    <div align="center" class="modal-body">
-    Sign up here
+    <div class="modal-body">
+      <h3>Sign up</h3>
+      <ngb-tabset [destroyOnHide]="false">
+        <ngb-tab title="Personal account">
+          <ng-template ngbTabContent>
+            <div align="center">
+              <div *ngIf="spin" class="spinner-grow" role="status">
+                <span class="sr-only">Loading...</span>
+              </div>
+            </div>
+           
+           <form [formGroup]="UserAccForm" (ngSubmit)="AddPersonalAcc()">
+             <label>Name</label>
+             <input formControlName="name" type="text" class="form-control" placeholder="name">
+             <label>Email</label>
+             <input formControlName="email" type="email" class="form-control" placeholder="enter a valid email">
+             <label>Password (min of 6 characters)</label>
+             <input formControlName="password" type="password" class="form-control" placeholder="Enter a password min of 6 characters">
+             <label>Confirm password</label>
+             <input formControlName="confirm_password" type="password" class="form-control" placeholder="Confirm password">
+             <br/>
+             <button [disabled]="UserAccForm.invalid" class="btn btn-primary">Create</button>
+           </form>
+           <div align="center">
+            <p>Signup using</p><br/>
+            <a (click)="login_google(); modal.dismiss('Cross click')"><img src="assets/images/google.png" width="30" height="30"></a>
+        </div>
+          </ng-template>
+        </ngb-tab>
+        <ngb-tab>
+          <ng-template ngbTabTitle>Business account</ng-template>
+          <ng-template ngbTabContent>
+            <form [formGroup]="BusinessAccForm" (ngSubmit)="AddBusinessAcc()">
+              <label>Name</label>
+              <input formControlName="name" type="text" class="form-control" placeholder="name">
+              <label> Business Email</label>
+              <input formControlName="email" type="email" class="form-control" placeholder="enter a valid email">
+              <label>Password (min of 6 characters)</label>
+              <input formControlName="password" type="password" class="form-control" placeholder="Enter a password min of 6 characters">
+              <label>Confirm password</label>
+              <input formControlName="confirm_password" type="password" class="form-control" placeholder="Confirm password">
+              <br/>
+              <button [disabled]="BusinessAccForm.invalid" class="btn btn-primary">Create</button>
+            </form>
+           
+          </ng-template>
+        </ngb-tab>
+       
+      </ngb-tabset>
 
-     <small (click)="open(content); modal.dismiss('Cross click')">Log in</small>
+     <p>Already have an account? <small (click)="open(content); modal.dismiss('Cross click')">Log in</small></p>
     </div>
     <div class="modal-footer">
     </div>

@@ -4,20 +4,24 @@ import { HttpClient } from '@angular/common/http';
 import {HttpHeaders} from '@angular/common/http';
 import { HelpersService } from './helpers.service'
 import { Location } from '@angular/common';
+import {Router} from '@angular/router'
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor(private http:HttpClient, private helper:HelpersService, private location:Location) { }
+  constructor(private http:HttpClient, private helper:HelpersService, private location:Location,
+    private router:Router) { }
 
   google_register(){
     window.open(AppEndpoint.API_ENDPOINT+'/user/googleadd',"mywindow","location=1,status=1,scrollbars=1, width=800,height=800")
     let listener = window.addEventListener('message', (message) => {
       if(message.data['code']=="00"){
         localStorage.setItem("user-token", message.data['user'])
-        this.location.back()
+       // this.location.back()
+       this.router.navigate(['/user/booking/flight'])
         this.helper.successToast('Login successful', '')
       }
     });
@@ -87,6 +91,13 @@ export class UserService {
      observe: 'response',
      headers: new HttpHeaders({'Content-Type': 'application/json', 'authorization': "bearer "+authToken}),
    })
+   }
+
+   updatePics(data){
+    let authToken= localStorage.getItem('user-token')
+    return this.http.post(AppEndpoint.API_ENDPOINT+'/user/updatepics', data, {
+      headers: new HttpHeaders({'authorization': "bearer "+authToken}),
+    })
    }
 
 }

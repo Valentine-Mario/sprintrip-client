@@ -26,6 +26,10 @@ import {UpcomingTripsComponent} from './components/trips/upcoming-trips/upcoming
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { NavigationComponent } from './components/bookings/navigation/navigation.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {GetUser} from './resolvers/user.resolvers';
+import { AboutComponent } from './components/about/about.component';
+import {AuthGuard} from './auth/auth.guard'
 
 
 @NgModule({
@@ -33,13 +37,16 @@ import { NavigationComponent } from './components/bookings/navigation/navigation
      HotelsComponent, VenuesComponent, TrainsComponent, CarsComponent, CruiseComponent,
       AirbnbComponent, OthersComponent, CompanySettingComponent, HelpComponent, InvoiceComponent,
       PaymentComponent, ProfileComponent, ReportingComponent, PastTripsComponent, TravellingNowComponent,
-      TripsComponent, UpcomingTripsComponent, NavigationComponent
+      TripsComponent, UpcomingTripsComponent, NavigationComponent, AboutComponent
     ],
   imports: [
     CommonModule,
     RouterModule.forChild(UserRoutes),
     NgbModule,
-    NgxPaginationModule
-  ]
+    NgxPaginationModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
+  providers: [GetUser, AuthGuard],
 })
 export class UserModule { }
