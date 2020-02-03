@@ -26,6 +26,7 @@ import {UpcomingTripsComponent} from './components/trips/upcoming-trips/upcoming
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { NavigationComponent } from './components/bookings/navigation/navigation.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -39,7 +40,9 @@ import { NavigationComponent } from './components/bookings/navigation/navigation
     CommonModule,
     RouterModule.forChild(UserRoutes),
     NgbModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class UserModule { }

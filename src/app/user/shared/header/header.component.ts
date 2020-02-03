@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
-
+import {UserService} from '../../services/user.service'
+import { Validators, FormGroup, FormBuilder} from '@angular/forms';
+import {HelpersService} from '../../services/helpers.service'
+import {Router} from '@angular/router'
 
 @Component({
   selector: 'app-header',
@@ -9,9 +12,95 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private modalService: NgbModal) { }
+  constructor(private modalService: NgbModal, private userService:UserService, 
+    private helper: HelpersService, private fb: FormBuilder, private router:Router) { }
 closeResult:string;
+LoginForm:FormGroup;
+BusinessAccForm:FormGroup;
+UserAccForm:FormGroup
+spin:Boolean=false
   ngOnInit() {
+    this.BusinessAccForm=this.fb.group({
+      name:['', Validators.required],
+      email:['', [Validators.required, Validators.email]],
+      password:['', [Validators.required, Validators.minLength(6)]],
+      confirm_password:['', Validators.required],
+      account_type:'Business',
+    })
+
+    this.UserAccForm=this.fb.group({
+      name:['', Validators.required],
+      email:['', [Validators.required, Validators.email]],
+      password:['', [Validators.required, Validators.minLength(6)]],
+      confirm_password:['', Validators.required],
+      account_type:'Personal',
+    })
+
+    this.LoginForm=this.fb.group({
+      email:['', [Validators.required, Validators.email]],
+      password:['', Validators.required]
+    })
+
+  }
+
+  AddPersonalAcc(){
+    var formData= this.UserAccForm.value;
+    this.spin=true
+    if(formData.password!==formData.confirm_password){
+      this.helper.infoToast('', 'password and confirm password does not match')
+    }else{
+      this.userService.create_user(formData).subscribe(response=>{
+        this.spin=false
+        if(response.status==200){
+          this.helper.infoToast('Account created successfully', 'verify email sent to you to login')
+        }else{
+          this.helper.errorToast('Error', response.body['message'])
+        }
+      })
+    }
+    
+  }
+
+AddBusinessAcc(){
+  var formData=this.BusinessAccForm.value;
+  this.spin=true
+  if(formData.password!==formData.confirm_password){
+    this.helper.infoToast('', 'password and confirm password does not match')
+  }else{
+    this.userService.create_user(formData).subscribe(response=>{
+      this.spin=false
+      if(response.status==200){
+        this.helper.infoToast('Account created successfully', 'verify email sent to you to login')
+      }else{
+        this.helper.errorToast('Error', response.body['message'])
+      }
+    })
+  }
+}
+
+AccLogin(){
+  var formData=this.LoginForm.value;
+  this.spin=true
+  this.userService.login_user(formData).subscribe(response=>{
+    this.spin=false
+    if(response.status==200){
+      this.modalService.dismissAll()
+      if(response.body['biz_acc_token']){
+        localStorage.setItem('user-token', response.body['biz_acc_token'])
+        localStorage.setItem('invite-token', response.body['message'])
+      }else{
+        localStorage.setItem('user-token', response.body['token'])
+      }
+      this.helper.successToast('Login successful', '')
+      this.router.navigate(['/user/booking/flight'])
+    }else{
+      this.helper.errorToast('Error', response.body['message'])
+    }
+  })
+}
+
+  login_google(){
+    this.userService.google_register()
   }
 
   open(content) {

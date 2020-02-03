@@ -67,9 +67,21 @@
       </button>
     </div>
     <div align="center" class="modal-body">
-     Login here
-
-     <small (click)="open(content2); modal.dismiss('Cross click')">Sign up here</small>
+      <h3>Log in</h3>
+      <div align="center">
+        <div *ngIf="spin" class="spinner-grow" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+      <form [formGroup]="LoginForm" (ngSubmit)="AccLogin()">
+        <label>Email</label>
+        <input formControlName="email" type="email" placeholder="input email" class="form-control">
+        <label>Password</label>
+        <input formControlName="password" type="password" placeholder="password" class="form-control">
+        <br/>
+        <button [disabled]="LoginForm.invalid">Login</button>
+      </form>
+     <p>Don't have an account? <small (click)="open(content2); modal.dismiss('Cross click')">Sign up here</small></p>
     </div>
     <div class="modal-footer">
     </div>
@@ -83,10 +95,57 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    <div align="center" class="modal-body">
-    Sign up here
+    <div class="modal-body">
+      <h3>Sign up</h3>
+      <ngb-tabset [destroyOnHide]="false">
+        <ngb-tab title="Personal account">
+          <ng-template ngbTabContent>
+            <div align="center">
+              <div *ngIf="spin" class="spinner-grow" role="status">
+                <span class="sr-only">Loading...</span>
+              </div>
+            </div>
+           
+           <form [formGroup]="UserAccForm" (ngSubmit)="AddPersonalAcc()">
+             <label>Name</label>
+             <input formControlName="name" type="text" class="form-control" placeholder="name">
+             <label>Email</label>
+             <input formControlName="email" type="email" class="form-control" placeholder="enter a valid email">
+             <label>Password (min of 6 characters)</label>
+             <input formControlName="password" type="password" class="form-control" placeholder="Enter a password min of 6 characters">
+             <label>Confirm password</label>
+             <input formControlName="confirm_password" type="password" class="form-control" placeholder="Confirm password">
+             <br/>
+             <button [disabled]="UserAccForm.invalid" class="btn btn-primary">Create</button>
+           </form>
+           <div align="center">
+            <p>Signup using</p><br/>
+            <a (click)="login_google(); modal.dismiss('Cross click')"><img src="assets/images/google.png" width="30" height="30"></a>
+        </div>
+          </ng-template>
+        </ngb-tab>
+        <ngb-tab>
+          <ng-template ngbTabTitle>Business account</ng-template>
+          <ng-template ngbTabContent>
+            <form [formGroup]="BusinessAccForm" (ngSubmit)="AddBusinessAcc()">
+              <label>Name</label>
+              <input formControlName="name" type="text" class="form-control" placeholder="name">
+              <label> Business Email</label>
+              <input formControlName="email" type="email" class="form-control" placeholder="enter a valid email">
+              <label>Password (min of 6 characters)</label>
+              <input formControlName="password" type="password" class="form-control" placeholder="Enter a password min of 6 characters">
+              <label>Confirm password</label>
+              <input formControlName="confirm_password" type="password" class="form-control" placeholder="Confirm password">
+              <br/>
+              <button [disabled]="BusinessAccForm.invalid" class="btn btn-primary">Create</button>
+            </form>
+           
+          </ng-template>
+        </ngb-tab>
+       
+      </ngb-tabset>
 
-     <small (click)="open(content); modal.dismiss('Cross click')">Log in</small>
+     <p>Already have an account? <small (click)="open(content); modal.dismiss('Cross click')">Log in</small></p>
     </div>
     <div class="modal-footer">
     </div>

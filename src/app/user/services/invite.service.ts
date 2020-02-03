@@ -42,7 +42,7 @@ export class InviteService {
    })
   }
 
-  editInvitedUserccess(data, id){
+  editInvitedUserAccess(data, id){
     let authToken= localStorage.getItem('user-token')
     return this.http.post(AppEndpoint.API_ENDPOINT+'/invite/editsetting/'+id, data, {
      observe: 'response',
