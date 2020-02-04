@@ -18,9 +18,17 @@ export class InviteService {
    })
   }
 
-  getAllInvitedUsers(){
+  getInvitedUsers(){
     let authToken= localStorage.getItem('invite-token')
     return this.http.get(AppEndpoint.API_ENDPOINT+'/invite/get', {
+     observe: 'response',
+     headers: new HttpHeaders({'Content-Type': 'application/json', 'authorization': "bearer "+authToken}),
+   })
+  }
+
+  getAllInvitedUser(){
+    let authToken= localStorage.getItem('user-token')
+    return this.http.get(AppEndpoint.API_ENDPOINT+'/invite/getalluser', {
      observe: 'response',
      headers: new HttpHeaders({'Content-Type': 'application/json', 'authorization': "bearer "+authToken}),
    })

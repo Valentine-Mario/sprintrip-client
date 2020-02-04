@@ -30,7 +30,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {GetUser} from './resolvers/user.resolvers';
 import { AboutComponent } from './components/about/about.component';
 import {AuthGuard} from './auth/auth.guard'
-
+import {GetInviteUser} from './resolvers/invite.resolvers'
 
 @NgModule({
   declarations: [HomeComponent, HeaderComponent, FooterComponent, FlightsComponent,
@@ -47,6 +47,6 @@ import {AuthGuard} from './auth/auth.guard'
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [GetUser, AuthGuard],
+  providers: [GetUser, AuthGuard, GetInviteUser],
 })
 export class UserModule { }

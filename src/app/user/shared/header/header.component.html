@@ -127,6 +127,12 @@
         <ngb-tab>
           <ng-template ngbTabTitle>Business account</ng-template>
           <ng-template ngbTabContent>
+            <div align="center">
+              <div *ngIf="spin" class="spinner-grow" role="status">
+                <span class="sr-only">Loading...</span>
+              </div>
+            </div>
+           
             <form [formGroup]="BusinessAccForm" (ngSubmit)="AddBusinessAcc()">
               <label>Name</label>
               <input formControlName="name" type="text" class="form-control" placeholder="name">
@@ -136,7 +142,7 @@
               <input formControlName="password" type="password" class="form-control" placeholder="Enter a password min of 6 characters">
               <label>Confirm password</label>
               <input formControlName="confirm_password" type="password" class="form-control" placeholder="Confirm password">
-              <br/>
+             <br/>
               <button [disabled]="BusinessAccForm.invalid" class="btn btn-primary">Create</button>
             </form>
            

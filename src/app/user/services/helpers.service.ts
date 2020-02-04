@@ -34,7 +34,7 @@ export class HelpersService {
 
   logoutAndRedirect(){
     localStorage.clear()
-    this.route.navigate([''])
+    this.route.navigate(['/'])
   }
   
   loggedIn(){
