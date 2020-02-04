@@ -1,1 +1,37 @@
 <app-header></app-header>
+<div style="padding-top: 10px;" class="container">
+    <div>
+        <img style="border-radius: 50%; height:50px; width:50px;" src="{{user.body.message.pics}}">
+    </div>
+    <div>
+        <h1>{{user.body.message.name}}</h1>
+        <h3>{{user.body.message.email}}</h3>
+        <div *ngIf="!showInviteUser">Edit account</div>
+        <div *ngIf="showInviteUser">
+            <h5>Supervisor account</h5>
+            {{invitedUser.body.message.name}}
+            {{invitedUser.body.message.email}}
+            <span style="cursor: pointer;">Edit account</span></div>
+            <hr/>
+            <h3>Security</h3>
+            <p>Security is importtant to us, edit password if you feel your account has been compromised</p>
+            <div  *ngIf="!showInviteUser">
+                <button>Edit account password</button>
+            </div>
+            <div  *ngIf="showInviteUser">
+                <button> password For supervisor account</button>
+            </div>
+            <hr/>
+            <div>
+                <button>Request all booking as pdf</button>
+            </div>
+            <div *ngIf="!showInviteUser">
+                <h3>Upload picture</h3>
+                <input type="file" accept="images/*">
+                <hr/>
+                <button>Change account type</button>
+                <hr/>
+                <button>Delete account</button>
+            </div>
+        </div>
+</div>

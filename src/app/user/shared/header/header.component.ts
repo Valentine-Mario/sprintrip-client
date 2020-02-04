@@ -26,6 +26,10 @@ user:any
 invite_acc:Boolean
   ngOnInit() {
     if(localStorage.getItem('user-token')){
+      if(this.ActiveRoute.snapshot.data['user'].status==205){
+        this.helper.infoToast('Token expired', this.ActiveRoute.snapshot.data['user'].body.message)
+        this.helper.logoutAndRedirect()
+      }
       this.user= this.ActiveRoute.snapshot.data['user'].body.message;
     }
     if(localStorage.getItem('invite-token')){
@@ -79,6 +83,13 @@ invite_acc:Boolean
         this.spin=false
         if(response.status==200){
           this.helper.infoToast('Account created successfully', 'verify email sent to you to login')
+          this.UserAccForm=this.fb.group({
+            name:['', Validators.required],
+            email:['', [Validators.required, Validators.email]],
+            password:['', [Validators.required, Validators.minLength(6)]],
+            confirm_password:['', Validators.required],
+            account_type:'Personal',
+          })
         }else{
           this.helper.errorToast('Error', response.body['message'])
         }
@@ -97,10 +108,19 @@ AddBusinessAcc(){
       this.spin=false
       if(response.status==200){
         this.helper.infoToast('Account created successfully', 'verify email sent to you to login')
+        this.BusinessAccForm=this.fb.group({
+          name:['', Validators.required],
+          email:['', [Validators.required, Validators.email]],
+          password:['', [Validators.required, Validators.minLength(6)]],
+          confirm_password:['', Validators.required],
+          account_type:'Business',
+        })
+       
       }else{
         this.helper.errorToast('Error', response.body['message'])
       }
     })
+    
   }
 }
 
