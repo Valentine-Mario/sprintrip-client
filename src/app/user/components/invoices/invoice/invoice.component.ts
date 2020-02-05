@@ -129,6 +129,7 @@ Edit(){
         this.modalService.dismissAll();
         this.Helpers.successToast('', "receipt deleted successfully")
         this.receipt.body.message.docs.splice(this.receipt.body.message.docs.findIndex(i => i._id === this.receiptObject['_id']), 1)
+this.receiptObject=undefined;
       }
     })
   }
