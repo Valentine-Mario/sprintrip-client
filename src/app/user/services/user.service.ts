@@ -77,6 +77,14 @@ export class UserService {
    })
    }
 
+   requestBookingByInvitedUser(){
+    let authToken= localStorage.getItem('invite-token')
+    return this.http.get(AppEndpoint.API_ENDPOINT+'/user/requestinviteduser', {
+     observe: 'response',
+     headers: new HttpHeaders({'Content-Type': 'application/json', 'authorization': "bearer "+authToken}),
+   })
+   }
+
    sendInvite(data){
     let authToken= localStorage.getItem('user-token')
     return this.http.post(AppEndpoint.API_ENDPOINT+'/user/sendinvite', data, {
@@ -96,6 +104,7 @@ export class UserService {
    updatePics(data){
     let authToken= localStorage.getItem('user-token')
     return this.http.post(AppEndpoint.API_ENDPOINT+'/user/updatepics', data, {
+      observe:'response',
       headers: new HttpHeaders({'authorization': "bearer "+authToken}),
     })
    }

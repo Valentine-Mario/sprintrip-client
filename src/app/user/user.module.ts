@@ -31,6 +31,8 @@ import {GetUser} from './resolvers/user.resolvers';
 import { AboutComponent } from './components/about/about.component';
 import {AuthGuard} from './auth/auth.guard'
 import {GetInviteUser} from './resolvers/invite.resolvers'
+import {GetReceipt} from './resolvers/receipt.resolvers'
+
 
 @NgModule({
   declarations: [HomeComponent, HeaderComponent, FooterComponent, FlightsComponent,
@@ -47,6 +49,6 @@ import {GetInviteUser} from './resolvers/invite.resolvers'
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [GetUser, AuthGuard, GetInviteUser],
+  providers: [GetUser, AuthGuard, GetInviteUser, GetReceipt],
 })
 export class UserModule { }
