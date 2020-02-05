@@ -1,1 +1,154 @@
 <app-header></app-header>
+<div class="container" style="display: flex;">
+    <h1>Invoice</h1>
+    <form [formGroup]="filter_loc_form" (ngSubmit)="filterViaLocation()">
+        <p>Filter by location</p>
+        <input formControlName="loc" type="text" class="form-control"/>
+        <button [disabled]="filter_loc_form.invalid">Filter</button>
+    </form>
+    <form [formGroup]="filter_date_form" (ngSubmit)="filterViaDate()">
+        <p>Filter by date</p>
+        <input formControlName="date" type="date" class="form-control"/>
+        <button [disabled]="filter_date_form.invalid">Filter</button>
+    </form>
+</div>
+<button (click)="open(content)">Add more invoice</button>
+
+<div align="center">
+    <div *ngIf="spin" class="spinner-grow" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+
+  <div *ngIf="receipt.body.message.docs.length>0">
+    <div class="container" style="display: flex;">
+        <div style="width:30%;">
+           <b>Invoice Location</b> 
+            <div *ngIf="init">
+                <div *ngFor="let a of receipt.body.message.docs| paginate: {id:'receipt', itemsPerPage: 10, currentPage: p, totalItems: receipt.body.message.total}">
+                    <a (click)="getReceiptDetails(a._id)" style="cursor: pointer;">{{a.location}}</a>
+                </div>
+                <pagination-controls id="receipt"  (pageChange)="p = $event;  paginateInvoice($event)"></pagination-controls>
+            </div>
+            <div *ngIf="date_filter">
+                <div *ngFor="let a of DateFilterValue['docs']| paginate: {id:'date', itemsPerPage: 10, currentPage: p3, totalItems: DateFilterValue['total']}">
+                    <a (click)="getReceiptDetails(a._id)" style="cursor: pointer;">{{a.location}}</a>
+                </div>
+                <pagination-controls id="date"  (pageChange)="p3 = $event;  paginateDateFilter($event)"></pagination-controls>
+                <button (click)="goBack()">go back</button>
+            </div>
+            <div *ngIf="loc_filter">
+                <div *ngFor="let a of LocFilterValue['docs']| paginate: {id:'loc', itemsPerPage: 10, currentPage: p4, totalItems: LocFilterValue['total']}">
+                    <a (click)="getReceiptDetails(a._id)" style="cursor: pointer;">{{a.location}}</a>
+                </div>
+                <pagination-controls id="loc"  (pageChange)="p4 = $event;  paginateLocFilter($event)"></pagination-controls>
+                <button (click)="goBack()">go back</button>
+            </div>
+            
+        </div>
+
+
+        <!-- invoice object -->
+        <div>
+            <div style="width:70%; padding-left: 10px;">
+                <!-- show if no nvoice has been selected -->
+                <div *ngIf="receiptObject==undefined">Please click an Invoice</div>
+                <!-- show when invoice is selected -->
+                <div *ngIf="receiptObject!==undefined">
+                    {{receiptObject['location']}} ({{receiptObject['date']}})
+                    <div class="row">
+                    <div *ngFor="let a of receiptObject['images']| paginate: {id:'images', itemsPerPage: 15, currentPage: p2, totalItems:receiptObject['images'].length }" class="col-md-6 col-lg-4 ">
+                        <img style="height:300px;" class="img-fluid" src="{{a}}">
+                        <button (click)="deletePics(a)">remove</button>
+                    </div>
+                    </div>
+                    <pagination-controls id="images"  (pageChange)="p2 = $event;"></pagination-controls>
+                    <button (click)="open(content2)">edit invoice</button>
+                </div>
+    
+            </div>
+        </div>
+
+
+      </div>
+  </div>
+
+
+  <div *ngIf="receipt.body.message.docs.length<1">
+    <p>You have no receipt</p>
+</div>
+  
+
+
+  <!-- edit invoice modal -->
+  <ng-template #content2 let-modal>
+    <div class="modal-header">
+      
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div align="center" class="modal-body">
+        <div *ngIf="spin" class="spinner-grow" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <h2>Edit Location</h2>
+          <form [formGroup]="editForm" (ngSubmit)="Edit();">
+            <label>Location</label>
+            <input formControlName="location" type="text" placeholder="location" class="form-control">
+            <button [disabled]="editForm.invalid" class="btn btn-primary">Submit</button>
+          </form>
+
+        <h2>Add images</h2>
+        <input type="file" (change)="uploadExtra($event)" multiple accept="image/*" class="form-control">
+        <button (click)="addImg();" class="btn btn-primary">Submit</button>
+        <hr/>
+        <button (click)="open(content3); modal.dismiss('Cross click')">Delete invoice</button>
+    </div>
+    
+  </ng-template>
+
+  <!-- add invoice -->
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <div *ngIf="spin" class="spinner-grow" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        <form [formGroup]="upload_form" (ngSubmit)="uploadReceipt();">
+          <label>Receipt Images</label>
+          <input multiple accept="image/*" (change)="upload($event)" type="file" class="form-control">
+          <label>Location</label>
+          <input formControlName="location" type="text" class="form-control">
+          <br/>
+          <div align="center"><button [disabled]="upload_form.invalid" class="btn btn-primary">Upload</button></div>
+        </form>
+    </div>
+    
+  </ng-template>
+
+  <!-- alert for invoice delete -->
+  <ng-template #content3 let-modal>
+    <div class="modal-header">
+      
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <div *ngIf="spin" class="spinner-grow" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        <div align="center">
+            <p>Are you sure you want to delete receipt</p>
+            <button (click)="deleteReceipt()">Yes</button>
+            <button (click)="modal.dismiss('Cross click')">No</button>
+        </div>
+    </div>
+    
+  </ng-template>

@@ -23,6 +23,7 @@ import {HeaderComponent} from './shared/header/header.component'
 import {AuthGuard} from './auth/auth.guard'
 import { AboutComponent } from './components/about/about.component';
 import {GetInviteUser} from './resolvers/invite.resolvers'
+import {GetReceipt} from './resolvers/receipt.resolvers'
 
 export const UserRoutes: Routes = [
     {
@@ -117,7 +118,7 @@ export const UserRoutes: Routes = [
             {
                 path:'invoice',
                 component:InvoiceComponent,
-                resolve:{user:GetUser},
+                resolve:{user:GetUser, receipt:GetReceipt},
                 canActivate:[AuthGuard],
             },
             {

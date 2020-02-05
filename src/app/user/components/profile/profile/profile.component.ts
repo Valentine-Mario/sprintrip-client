@@ -5,7 +5,6 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { Validators, FormGroup, FormBuilder} from '@angular/forms';
 import {UserService} from '../../../services/user.service';
 import {InviteService} from '../../../services/invite.service';
-import { response } from 'express';
 
 @Component({
   selector: 'app-profile',
