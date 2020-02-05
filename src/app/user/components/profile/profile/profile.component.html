@@ -6,32 +6,201 @@
     <div>
         <h1>{{user.body.message.name}}</h1>
         <h3>{{user.body.message.email}}</h3>
-        <div *ngIf="!showInviteUser">Edit account</div>
+        <div *ngIf="!showInviteUser"><button (click)="open(content)">Edit account</button> </div>
         <div *ngIf="showInviteUser">
             <h5>Supervisor account</h5>
             {{invitedUser.body.message.name}}
             {{invitedUser.body.message.email}}
-            <span style="cursor: pointer;">Edit account</span></div>
+            Account limited:{{invitedUser.body.message.limit}}
+            <div *ngIf="invitedUser.body.message.limit == 'Sometimes' ">{{invitedUser.body.message.limit_amount}}</div>
+           <button (click)="open(content2)">Edit Supervisor account</button>
+        </div>
             <hr/>
             <h3>Security</h3>
             <p>Security is importtant to us, edit password if you feel your account has been compromised</p>
             <div  *ngIf="!showInviteUser">
-                <button>Edit account password</button>
+                <button (click)="open(content3)">Edit account password</button>
             </div>
             <div  *ngIf="showInviteUser">
-                <button> password For supervisor account</button>
+                <button (click)="open(content4)"> Edit supervisor password</button>
             </div>
             <hr/>
             <div>
-                <button>Request all booking as pdf</button>
+                <!-- spinner while email sending is processing -->
+                <div *ngIf="spin_request" class="spinner-grow" role="status">
+                    <span class="sr-only">Loading...</span>
+                  </div>
+                <button (click)="requestBooking()">Request all booking as pdf</button>
             </div>
             <div *ngIf="!showInviteUser">
                 <h3>Upload picture</h3>
-                <input type="file" accept="images/*">
+                <div *ngIf="spin_pics" class="spinner-grow" role="status">
+                    <span class="sr-only">Loading...</span>
+                  </div>
+                <input (change)="setImage($event)" type="file" accept="image/*" class="form-control">
+                <button (click)="uploadImg()">upload</button>
                 <hr/>
-                <button>Change account type</button>
+                <button (click)="open(content5)">Change account type</button>
                 <hr/>
-                <button>Delete account</button>
+                <button (click)="open(content6)">Delete account</button>
             </div>
         </div>
 </div>
+
+
+
+<!-- edit main account modal -->
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div align="center" class="modal-body">
+      <h3>Edit account</h3>
+      <div align="center">
+        <div *ngIf="spin" class="spinner-grow" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+      <form [formGroup]="EditMainForm" (ngSubmit)="editMainAccount()">
+        <label>Name</label>
+        <input formControlName="name" type="text" placeholder="input name" class="form-control">
+        <label>Email</label>
+        <input formControlName="email" type="email" placeholder="input email" class="form-control">
+        <br/>
+        <button [disabled]="EditMainForm.invalid">Update</button>
+      </form>
+    </div>
+    <div class="modal-footer">
+    </div>
+  </ng-template>
+
+  <!-- edit supervisor account -->
+  <ng-template #content2 let-modal>
+    <div class="modal-header">
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div align="center" class="modal-body">
+      <h3>Edit account</h3>
+      <div align="center">
+        <div *ngIf="spin" class="spinner-grow" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+      <form [formGroup]="EditSupervisorAccount" (ngSubmit)="editSupervisoracc()">
+        <label>Name</label>
+        <input formControlName="name" type="text" placeholder="input name" class="form-control">
+       
+        <br/>
+        <button [disabled]="EditSupervisorAccount.invalid">Update</button>
+      </form>
+    </div>
+    <div class="modal-footer">
+    </div>
+  </ng-template>
+
+  <!-- edit main account password -->
+  <ng-template #content3 let-modal>
+    <div class="modal-header">
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div align="center" class="modal-body">
+      <h3>Edit Pasword</h3>
+      <div align="center">
+        <div *ngIf="spin" class="spinner-grow" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+      <form [formGroup]="EditMainPassword" (ngSubmit)="editMainpass()">
+        <label>Current password</label>
+        <input formControlName="old_password" type="password" placeholder="input current password" class="form-control">
+        <label>New password</label>
+        <input formControlName="password" type="password" placeholder="input new password" class="form-control">
+        <br/>
+        <button [disabled]="EditMainPassword.invalid">Update</button>
+      </form>
+    </div>
+    <div class="modal-footer">
+    </div>
+  </ng-template>
+
+  <!-- edit supervisor password -->
+  <ng-template #content4 let-modal>
+    <div class="modal-header">
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div align="center" class="modal-body">
+      <h3>Edit Pasword</h3>
+      <div align="center">
+        <div *ngIf="spin" class="spinner-grow" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+      <form [formGroup]="EditSupervisorPassword" (ngSubmit)="editSupervisorpass()">
+        <label>Current password</label>
+        <input formControlName="old_password" type="password" placeholder="input current password" class="form-control">
+        <label>New password</label>
+        <input formControlName="password" type="password" placeholder="input new password" class="form-control">
+        <br/>
+        <button [disabled]="EditSupervisorPassword.invalid">Update</button>
+      </form>
+    </div>
+    <div class="modal-footer">
+    </div>
+  </ng-template>
+
+  <!-- change account type -->
+  <ng-template #content5 let-modal>
+    <div class="modal-header">
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div align="center" class="modal-body">
+      <h3>Edit Pasword</h3>
+      <div align="center">
+        <div *ngIf="spin" class="spinner-grow" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+      <form [formGroup]="ChangeAccountType" (ngSubmit)="changeAcc()">
+        <select formControlName="account_type" class="form-control" name="account_type">
+            <option value="">Select Acc Type</option>
+            <option value='Business'>Business</option>
+            <option value='Personal'>Personal</option>
+          </select>
+        <button [disabled]="ChangeAccountType.invalid">Change</button>
+      </form>
+    </div>
+    <div class="modal-footer">
+    </div>
+  </ng-template>
+
+
+  <!-- delete account  -->
+  <ng-template #content6 let-modal>
+    <div class="modal-header">
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div align="center" class="modal-body">
+      <h3>Edit Pasword</h3>
+      <div align="center">
+        <div *ngIf="spin" class="spinner-grow" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+        <button (click)="deleteAcc()">Yes</button>
+        <button (click)="modal.dismiss('Cross click')">No</button>
+      </div>
+         </div>
+    <div class="modal-footer">
+    </div>
+  </ng-template>
