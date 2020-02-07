@@ -14,7 +14,7 @@ export class PastTripsComponent implements OnInit {
 user:any;
 trips:any;
 p:number;
-
+spin:Boolean=false
   ngOnInit() {
     this.user= this.ActiveRoute.snapshot.data['user']
     if(this.user.status==205){
@@ -24,7 +24,15 @@ p:number;
     this.trips=this.ActiveRoute.snapshot.data['trip']
   }
   paginate(a){
-    
+    this.spin=true
+    this.bookingService.getCurrentTrips(a, 15).subscribe(response=>{
+      this.spin=false
+      if(response.status==200){
+        this.trips=response
+      }else{
+        this.Helpers.errorToast('', 'error loading data')
+      }
+    })
   }
 
 }

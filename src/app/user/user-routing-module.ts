@@ -25,6 +25,7 @@ import { AboutComponent } from './components/about/about.component';
 import {GetInviteUser} from './resolvers/invite.resolvers'
 import {GetReceipt} from './resolvers/receipt.resolvers'
 import {GetUpcomingTrips, GetCurrentTrips, GetPastTrips} from './resolvers/trips.resolvers'
+import { ApprovalComponent } from './components/approval/approval.component'
 
 export const UserRoutes: Routes = [
     {
@@ -115,6 +116,12 @@ export const UserRoutes: Routes = [
                         canActivate:[AuthGuard],
                     }
                 ]
+            },
+            {
+                path:'approval',
+                component:ApprovalComponent,
+                resolve:{user:GetUser, invite:GetInviteUser},
+                canActivate:[AuthGuard]
             },
             {
                 path:'invoice',

@@ -16,6 +16,7 @@ user:any;
 summary:any;
 summaryObject:object
 spin:Boolean=false
+p:number
   ngOnInit() {
     this.user= this.ActiveRoute.snapshot.data['user']
     if(this.user.status==205){
@@ -28,6 +29,7 @@ spin:Boolean=false
     this.spin=true
     this.bookingService.getBookingType(a, 1, 15).subscribe(response=>{
       this.spin=false;
+    
       if(response.status==200){
         this.summaryObject=response.body;
       }else{
@@ -36,10 +38,11 @@ spin:Boolean=false
     })
   }
 
-  paginateSummary(a){
+  paginate(a){
     this.spin=true;
     this.bookingService.getBookingType(this.summaryObject['message']['docs'][0]['type'], a, 15).subscribe(response=>{
       this.spin=false;
+     
       if(response.status==200){
         this.summaryObject=response.body;
       }else{
