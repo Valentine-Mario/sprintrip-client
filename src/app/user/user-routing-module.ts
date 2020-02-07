@@ -24,6 +24,7 @@ import {AuthGuard} from './auth/auth.guard'
 import { AboutComponent } from './components/about/about.component';
 import {GetInviteUser} from './resolvers/invite.resolvers'
 import {GetReceipt} from './resolvers/receipt.resolvers'
+import {GetUpcomingTrips, GetCurrentTrips, GetPastTrips} from './resolvers/trips.resolvers'
 
 export const UserRoutes: Routes = [
     {
@@ -98,19 +99,19 @@ export const UserRoutes: Routes = [
                     {
                         path:'travellingnow',
                         component:TravellingNowComponent,
-                        resolve:{user:GetUser},
+                        resolve:{user:GetUser, trip:GetCurrentTrips},
                         canActivate:[AuthGuard],
                     },
                     {
                         path:'pasttrips',
                         component:PastTripsComponent,
-                        resolve:{user:GetUser},
+                        resolve:{user:GetUser, trip:GetPastTrips},
                         canActivate:[AuthGuard],
                     },
                     {
                         path:'upcomingtrips',
                         component:UpcomingTripsComponent,
-                        resolve:{user:GetUser},
+                        resolve:{user:GetUser, trip:GetUpcomingTrips},
                         canActivate:[AuthGuard],
                     }
                 ]

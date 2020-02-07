@@ -32,14 +32,15 @@ import { AboutComponent } from './components/about/about.component';
 import {AuthGuard} from './auth/auth.guard'
 import {GetInviteUser} from './resolvers/invite.resolvers'
 import {GetReceipt} from './resolvers/receipt.resolvers'
-
+import {GetUpcomingTrips, GetCurrentTrips, GetPastTrips} from './resolvers/trips.resolvers';
+import { ApprovalComponent } from './components/approval/approval.component'
 
 @NgModule({
   declarations: [HomeComponent, HeaderComponent, FooterComponent, FlightsComponent,
      HotelsComponent, VenuesComponent, TrainsComponent, CarsComponent, CruiseComponent,
       AirbnbComponent, OthersComponent, CompanySettingComponent, HelpComponent, InvoiceComponent,
       PaymentComponent, ProfileComponent, ReportingComponent, PastTripsComponent, TravellingNowComponent,
-      TripsComponent, UpcomingTripsComponent, NavigationComponent, AboutComponent
+      TripsComponent, UpcomingTripsComponent, NavigationComponent, AboutComponent, ApprovalComponent
     ],
   imports: [
     CommonModule,
@@ -49,6 +50,6 @@ import {GetReceipt} from './resolvers/receipt.resolvers'
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [GetUser, AuthGuard, GetInviteUser, GetReceipt],
+  providers: [GetUser, AuthGuard, GetInviteUser, GetReceipt, GetUpcomingTrips, GetCurrentTrips, GetPastTrips],
 })
 export class UserModule { }

@@ -1,1 +1,31 @@
-<p>upcoming-trips works!</p>
+<div >
+    <div *ngIf="trips.body.message.docs.length > 0" class="container">
+    
+      <div class="row">
+        <div *ngFor="let a of trips.body.message.docs| paginate: {id:'upcoming_trips', itemsPerPage: 15, currentPage: p, totalItems: trips.body.message.total}" class="col-lg-4">
+          <div class="card card-20201">
+            
+            <div class="card-body">
+              <h5 class="card-title">{{a.type}} </h5>
+                <small>Start: {{a.start_date| date: 'dd/MM/yyyy'}} end :{{a.end_date| date: 'dd/MM/yyyy'}}</small>
+                <p>Duration:{{a.duration}}</p> 
+                <p>Price:$ {{a.price| number}}</p>
+                <p>Pending: {{a.pending}}</p>
+                <div *ngIf="a.declined == true">
+                    <p style="color:red;">trip declined</p>
+                </div>
+                <div *ngIf="a.declined == false&& a.pending==false">
+                    <p style="color:green;">trip approved</p>
+                </div>
+            </div>
+          </div>
+        </div>   
+      </div>
+      <br/>
+      <div align="center"><pagination-controls id="upcoming_trips" (pageChange)="p = $event; paginate($event)"></pagination-controls></div> 
+
+    </div>
+    <div *ngIf="trips.body.message.docs.length < 1" class="container">
+        You have no upcoming trip
+    </div>
+  </div>

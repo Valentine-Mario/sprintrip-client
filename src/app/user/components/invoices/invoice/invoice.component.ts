@@ -121,14 +121,19 @@ Edit(){
   }
 
   deleteReceipt(){
-    console.log()
     this.spin=true
     this.receiptService.deleteReceipt(this.receiptObject['_id']).subscribe(res=>{
       this.spin=false
       if(res.status==200){
         this.modalService.dismissAll();
         this.Helpers.successToast('', "receipt deleted successfully")
-        this.receipt.body.message.docs.splice(this.receipt.body.message.docs.findIndex(i => i._id === this.receiptObject['_id']), 1)
+        if(this.init==true){
+          this.receipt.body.message.docs.splice(this.receipt.body.message.docs.findIndex(i => i._id === this.receiptObject['_id']), 1)
+        }else if(this.date_filter==true){
+          this.DateFilterValue.docs.splice(this.DateFilterValue.docs.findIndex(i => i._id === this.receiptObject['_id']), 1)
+        }else if(this.loc_filter==true){
+          this.LocFilterValue.docs.splice(this.LocFilterValue.docs.findIndex(i => i._id === this.receiptObject['_id']), 1)
+        }
 this.receiptObject=undefined;
       }
     })
