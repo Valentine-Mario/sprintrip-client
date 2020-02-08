@@ -24,8 +24,9 @@ import {AuthGuard} from './auth/auth.guard'
 import { AboutComponent } from './components/about/about.component';
 import {GetInviteUser} from './resolvers/invite.resolvers'
 import {GetReceipt} from './resolvers/receipt.resolvers'
-import {GetUpcomingTrips, GetCurrentTrips, GetPastTrips} from './resolvers/trips.resolvers'
+import {GetUpcomingTrips, GetCurrentTrips, GetPastTrips, GetPendingTrips} from './resolvers/trips.resolvers'
 import { ApprovalComponent } from './components/approval/approval.component'
+import {GetCards} from './resolvers/card.resolvers'
 
 export const UserRoutes: Routes = [
     {
@@ -120,7 +121,7 @@ export const UserRoutes: Routes = [
             {
                 path:'approval',
                 component:ApprovalComponent,
-                resolve:{user:GetUser, invite:GetInviteUser},
+                resolve:{user:GetUser, invite:GetInviteUser, pending_trips:GetPendingTrips},
                 canActivate:[AuthGuard]
             },
             {
@@ -138,7 +139,7 @@ export const UserRoutes: Routes = [
             {
                 path:'payment',
                 component:PaymentComponent,
-                resolve:{user:GetUser},
+                resolve:{user:GetUser, card:GetCards},
                 canActivate:[AuthGuard],
             },
             {

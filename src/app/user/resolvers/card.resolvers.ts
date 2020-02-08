@@ -3,20 +3,18 @@ import { empty} from 'rxjs'
 import { Resolve } from '@angular/router';
 import { catchError } from 'rxjs/operators';
 import {HelpersService} from '../services/helpers.service'
-import {InviteService} from '../services/invite.service'
+import {PaymentService} from '../services/payment.service'
 
 @Injectable()
-export class GetInviteUser implements Resolve<any> {
-  constructor(private data:InviteService, private helpers:HelpersService) {}
+export class GetCards implements Resolve<any> {
+  constructor(private data:PaymentService, private helpers:HelpersService) {}
     
   resolve(){
-    if(localStorage.getItem('invite-token')==undefined){
-        return true
-      }else{
-      return this.data.getInvitedUsers().pipe(catchError((err)=>{
+    
+      return this.data.getCards().pipe(catchError((err)=>{
         setTimeout(() => this.helpers.errorToast('Error', 'check internet connection'));
           return empty();
       }))
-    }
+    
 }
 }

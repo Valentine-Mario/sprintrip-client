@@ -81,6 +81,10 @@
         <br/>
         <button [disabled]="LoginForm.invalid">Login</button>
       </form>
+      <div align="center">
+        <p>login using</p><br/>
+        <a (click)="login_google(); modal.dismiss('Cross click')"><img src="assets/images/google.png" width="30" height="30"></a>
+    </div>
      <p>Don't have an account? <small (click)="open(content2); modal.dismiss('Cross click')">Sign up here</small></p>
     </div>
     <div class="modal-footer">

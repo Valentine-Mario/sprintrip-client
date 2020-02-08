@@ -1,1 +1,124 @@
 <app-header></app-header>
+<div style="display: flex;" class="container">
+    <a (click)="showPendingTrips()">Pending trips</a>
+    <a (click)="showApprovedTrips()">Approved trips</a>
+    <a (click)="showDeclinedTrips()">Declined trips</a>
+</div>
+<div align="center">
+    <div *ngIf="spin" class="spinner-grow" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+
+
+<div class="container">
+    <div *ngIf="showPending">
+       <div *ngIf="Trips.body.message.docs.length<1">
+        <p>You have no pending trips</p>
+       </div>
+       <div *ngIf="Trips.body.message.docs.length > 0">
+           <h3>Pending trips</h3>
+        <div class="row">
+            <div *ngFor="let a of Trips.body.message.docs| paginate: {id:'pending', itemsPerPage: 15, currentPage: p, totalItems: Trips.body.message.total}" class="col-lg-4">
+              <div class="card card-20201">
+                
+                <div class="card-body">
+                  <h5 class="card-title">{{a.type}} </h5>
+                    <small>Start: {{a.start_date| date: 'dd/MM/yyyy'}} end :{{a.end_date| date: 'dd/MM/yyyy'}}</small>
+                    <p>Duration:{{a.duration}}</p> 
+                    <p>Price:$ {{a.price| number}}</p>
+                    <p *ngIf="a.group">Group: {{a.group.name}}</p>
+                    <p *ngIf="a.pending == true">Status: <span style="color:greenyellow;">pending</span></p>
+                    <div *ngIf="a.declined == true">
+                        <p style="color:red;">trip declined</p>
+                    </div>
+                    <div *ngIf="a.declined == false&& a.pending==false">
+                        <p style="color:green;">trip approved</p>
+                    </div>
+                    <div *ngIf="inviteShow">
+                        <button (click)="ChangeTripStatus(true, a)">Decline</button>
+                        <button (click)="ChangeTripStatus(false, a)">Approve</button>
+                    </div>
+                </div>
+              </div>
+            </div>   
+          </div>
+          <div align="center"><pagination-controls id="pending"  (pageChange)="p = $event; paginate($event)"></pagination-controls></div> 
+
+       </div>
+    </div>
+
+
+    <div *ngIf="showApproved">
+        <div *ngIf="Trips.body.message.docs.length<1">
+            <p>You have no Approved trips</p>
+           </div>
+           <div *ngIf="Trips.body.message.docs.length > 0">
+               <h3>Approved trips</h3>
+            <div class="row">
+                <div *ngFor="let a of Trips.body.message.docs| paginate: {id:'pending', itemsPerPage: 15, currentPage: p, totalItems: Trips.body.message.total}" class="col-lg-4">
+                  <div class="card card-20201">
+                    
+                    <div class="card-body">
+                      <h5 class="card-title">{{a.type}} </h5>
+                        <small>Start: {{a.start_date| date: 'dd/MM/yyyy'}} end :{{a.end_date| date: 'dd/MM/yyyy'}}</small>
+                        <p>Duration:{{a.duration}}</p> 
+                        <p>Price:$ {{a.price| number}}</p>
+                        <p *ngIf="a.group">Group: {{a.group.name}}</p>
+                        <p *ngIf="a.pending == true">Status: <span style="color:greenyellow;">pending</span></p>
+                        <div *ngIf="a.declined == true">
+                            <p style="color:red;">trip declined</p>
+                        </div>
+                        <div *ngIf="a.declined == false&& a.pending==false">
+                            <p style="color:green;">trip approved</p>
+                        </div>
+                        <div *ngIf="inviteShow">
+                            <button (click)="ChangeTripStatus(true, a)">Decline</button>
+                        </div>
+                    </div>
+                  </div>
+                </div>   
+              </div>
+              <div align="center"><pagination-controls id="pending"  (pageChange)="p = $event; paginate($event)"></pagination-controls></div> 
+    
+           </div>
+    </div>
+
+
+
+    <div *ngIf="showDeclined">
+       
+        <div *ngIf="Trips.body.message.docs.length<1">
+            <p>You have no declined trips</p>
+           </div>
+           <div *ngIf="Trips.body.message.docs.length > 0">
+               <h3>Declined trips</h3>
+            <div class="row">
+                <div *ngFor="let a of Trips.body.message.docs| paginate: {id:'pending', itemsPerPage: 15, currentPage: p, totalItems: Trips.body.message.total}" class="col-lg-4">
+                  <div class="card card-20201">
+                    
+                    <div class="card-body">
+                      <h5 class="card-title">{{a.type}} </h5>
+                        <small>Start: {{a.start_date| date: 'dd/MM/yyyy'}} end :{{a.end_date| date: 'dd/MM/yyyy'}}</small>
+                        <p>Duration:{{a.duration}}</p> 
+                        <p>Price:$ {{a.price| number}}</p>
+                        <p *ngIf="a.group">Group: {{a.group.name}}</p>
+                        <p *ngIf="a.pending == true">Status: <span style="color:greenyellow;">pending</span></p>
+                        <div *ngIf="a.declined == true">
+                            <p style="color:red;">trip declined</p>
+                        </div>
+                        <div *ngIf="a.declined == false&& a.pending==false">
+                            <p style="color:green;">trip approved</p>
+                        </div>
+                        <div *ngIf="inviteShow">
+                        <button (click)="ChangeTripStatus(false, a)">Approve</button>
+                        </div>
+                    </div>
+                  </div>
+                </div>   
+              </div>
+              <div align="center"><pagination-controls id="pending"  (pageChange)="p = $event; paginate($event)"></pagination-controls></div> 
+    
+           </div>
+    </div>
+</div>

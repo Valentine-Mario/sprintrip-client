@@ -1,1 +1,63 @@
 <app-header></app-header>
+<div class="container">
+<h1>Manage Card details</h1><button (click)="open(content)">Add card</button>
+<div *ngIf="cards.body.message.length > 0">
+    <div  class="row">
+        <div *ngFor="let a of cards.body.message| paginate: {id:'cards', itemsPerPage: 15, currentPage: p}" class="col-lg-4">
+          <div class="card card-20201">
+            
+            <div class="card-body">
+              <p>card number:{{a.card_no}} </p>
+              <button (click)="open(content2); selectCard(a)">delete</button>
+            </div>
+          </div>
+        </div>   
+      </div>
+      <div align="center"><pagination-controls id="cards"  (pageChange)="p = $event;"></pagination-controls></div> 
+    
+</div>
+<div *ngIf="cards.body.message.length < 1">
+    <p>No card details uploaded</p>
+</div>
+</div>
+
+<!-- add card modal -->
+<ng-template #content let-modal>
+    <div class="modal-header">
+      
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div align="center" class="modal-body">
+        <div *ngIf="spin" class="spinner-grow" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <h2>Add card</h2>
+          <form [formGroup]="card_form" (ngSubmit)="addCard();">
+            <label>Card number</label>
+            <input formControlName="card_no" type="text" placeholder="location" class="form-control">
+            <button [disabled]="card_form.invalid" class="btn btn-primary">Submit</button>
+          </form>
+    </div>
+    
+  </ng-template>
+
+  <ng-template #content2 let-modal>
+    <div class="modal-header">
+      
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div align="center" class="modal-body">
+        <div *ngIf="spin" class="spinner-grow" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <h2>Delete card</h2>
+         <p>Are you sure you want to delete card?</p>
+         <button (click)="deleteCard()">yes</button>
+         <button (click)="modal.dismiss('Cross click')">no</button>
+    </div>
+    
+  </ng-template>

@@ -42,3 +42,15 @@ export class GetUpcomingTrips implements Resolve<any> {
 }
 }
 
+@Injectable()
+export class GetPendingTrips implements Resolve<any> {
+  constructor(private data:BookingService, private helpers:HelpersService) {}
+    
+  resolve(){
+      return this.data.getPendingTrips(1, 15).pipe(catchError((err)=>{
+        setTimeout(() => this.helpers.errorToast('Error', 'check internet connection'));
+          return empty();
+      }))
+}
+}
+
