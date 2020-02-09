@@ -20,3 +20,17 @@ export class GetInviteUser implements Resolve<any> {
     }
 }
 }
+
+@Injectable()
+export class GetAllInviteUser implements Resolve<any> {
+  constructor(private data:InviteService, private helpers:HelpersService) {}
+    
+  resolve(){
+    
+      return this.data.getAllInvitedUser().pipe(catchError((err)=>{
+        setTimeout(() => this.helpers.errorToast('Error', 'check internet connection'));
+          return empty();
+      }))
+    
+}
+}

@@ -30,18 +30,21 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {GetUser} from './resolvers/user.resolvers';
 import { AboutComponent } from './components/about/about.component';
 import {AuthGuard} from './auth/auth.guard'
-import {GetInviteUser} from './resolvers/invite.resolvers'
+import {GetInviteUser, GetAllInviteUser} from './resolvers/invite.resolvers'
 import {GetReceipt} from './resolvers/receipt.resolvers'
 import {GetUpcomingTrips, GetCurrentTrips, GetPastTrips, GetPendingTrips} from './resolvers/trips.resolvers';
 import { ApprovalComponent } from './components/approval/approval.component';
-import {GetCards} from './resolvers/card.resolvers'
+import {GetCards} from './resolvers/card.resolvers';
+import { SupervisorComponent } from './components/company-setting/supervisor/supervisor.component';
+import { GroupsComponent } from './components/company-setting/groups/groups.component'
+import {GetGroups} from './resolvers/groups.resolvers'
 
 @NgModule({
   declarations: [HomeComponent, HeaderComponent, FooterComponent, FlightsComponent,
      HotelsComponent, VenuesComponent, TrainsComponent, CarsComponent, CruiseComponent,
       AirbnbComponent, OthersComponent, CompanySettingComponent, HelpComponent, InvoiceComponent,
       PaymentComponent, ProfileComponent, ReportingComponent, PastTripsComponent, TravellingNowComponent,
-      TripsComponent, UpcomingTripsComponent, NavigationComponent, AboutComponent, ApprovalComponent
+      TripsComponent, UpcomingTripsComponent, NavigationComponent, AboutComponent, ApprovalComponent, SupervisorComponent, GroupsComponent
     ],
   imports: [
     CommonModule,
@@ -51,7 +54,7 @@ import {GetCards} from './resolvers/card.resolvers'
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [GetUser, AuthGuard, GetInviteUser, GetReceipt, GetUpcomingTrips,
-     GetCurrentTrips, GetPastTrips, GetPendingTrips, GetCards],
+  providers: [GetUser, AuthGuard, GetInviteUser, GetReceipt, GetUpcomingTrips, GetAllInviteUser,
+     GetCurrentTrips, GetPastTrips, GetPendingTrips, GetCards, GetGroups],
 })
 export class UserModule { }

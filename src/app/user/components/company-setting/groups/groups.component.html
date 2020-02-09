@@ -1,0 +1,27 @@
+<div class="container">
+    <div *ngIf="groups.body.message.docs.length < 1">
+        There are no groups. Create now to proper manage employees in your comapny
+    </div>
+    <div *ngIf="groups.body.message.docs.length > 0">
+        <div class="row">
+            <div *ngFor="let a of groups.body.message.docs| paginate: {id:'group', itemsPerPage: 15, currentPage: p, totalItems: groups.body.message.total}" class="col-lg-4">
+              <div class="card card-20201">
+                
+                <div class="card-body">
+                  <h5 class="card-title">{{a.name}} </h5>
+                    <div class="row">
+                        <div *ngFor="let b of a.employees | paginate: {id:a._id, itemsPerPage: 9, currentPage: p2}" class="col-lg-4">
+                            {{b}}
+                        </div>
+                    </div>
+                    <div align="center"><pagination-controls id="{{a._id}}"  (pageChange)="p2 = $event;"></pagination-controls></div> 
+    
+                </div>
+              </div>
+            </div>   
+          </div>
+          <br/>
+          <div align="center"><pagination-controls id="group"  (pageChange)="p = $event; paginate($event)"></pagination-controls></div> 
+        
+    </div>
+</div>
