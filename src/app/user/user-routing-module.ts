@@ -22,8 +22,14 @@ import {GetUser} from './resolvers/user.resolvers'
 import {HeaderComponent} from './shared/header/header.component'
 import {AuthGuard} from './auth/auth.guard'
 import { AboutComponent } from './components/about/about.component';
-import {GetInviteUser} from './resolvers/invite.resolvers'
+import {GetInviteUser, GetAllInviteUser} from './resolvers/invite.resolvers'
 import {GetReceipt} from './resolvers/receipt.resolvers'
+import {GetUpcomingTrips, GetCurrentTrips, GetPastTrips, GetPendingTrips} from './resolvers/trips.resolvers'
+import { ApprovalComponent } from './components/approval/approval.component'
+import {GetCards} from './resolvers/card.resolvers'
+import { SupervisorComponent } from './components/company-setting/supervisor/supervisor.component';
+import { GroupsComponent } from './components/company-setting/groups/groups.component'
+import {GetGroups} from './resolvers/groups.resolvers'
 
 export const UserRoutes: Routes = [
     {
@@ -98,22 +104,28 @@ export const UserRoutes: Routes = [
                     {
                         path:'travellingnow',
                         component:TravellingNowComponent,
-                        resolve:{user:GetUser},
+                        resolve:{user:GetUser, trip:GetCurrentTrips},
                         canActivate:[AuthGuard],
                     },
                     {
                         path:'pasttrips',
                         component:PastTripsComponent,
-                        resolve:{user:GetUser},
+                        resolve:{user:GetUser, trip:GetPastTrips},
                         canActivate:[AuthGuard],
                     },
                     {
                         path:'upcomingtrips',
                         component:UpcomingTripsComponent,
-                        resolve:{user:GetUser},
+                        resolve:{user:GetUser, trip:GetUpcomingTrips},
                         canActivate:[AuthGuard],
                     }
                 ]
+            },
+            {
+                path:'approval',
+                component:ApprovalComponent,
+                resolve:{user:GetUser, invite:GetInviteUser, pending_trips:GetPendingTrips},
+                canActivate:[AuthGuard]
             },
             {
                 path:'invoice',
@@ -130,7 +142,7 @@ export const UserRoutes: Routes = [
             {
                 path:'payment',
                 component:PaymentComponent,
-                resolve:{user:GetUser},
+                resolve:{user:GetUser, card:GetCards},
                 canActivate:[AuthGuard],
             },
             {
@@ -143,6 +155,18 @@ export const UserRoutes: Routes = [
                 path:'setting',
                 component:CompanySettingComponent,
                 resolve:{user:GetUser},
+                children:[
+                    {
+                        path:'group',
+                        component:GroupsComponent,
+                        resolve:{group:GetGroups}
+                    },
+                    {
+                        path:'supervisor',
+                        component:SupervisorComponent,
+                        resolve:{invited_user:GetAllInviteUser}
+                    }
+                ],
                 canActivate:[AuthGuard],
             },
             {

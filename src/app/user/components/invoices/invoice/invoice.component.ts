@@ -33,6 +33,8 @@ export class InvoiceComponent implements OnInit {
   filter_loc_form:FormGroup
   p3:number;
   p4:number;
+
+
   ngOnInit() {
     this.user= this.ActiveRoute.snapshot.data['user']
     if(this.user.status==205){
@@ -57,6 +59,7 @@ goBack(){
   this.loc_filter=false
   this.date_filter=false
 }
+
   addImg(){
     var fd= new FormData
     this.spin=true
@@ -64,7 +67,6 @@ goBack(){
       fd.append("images[]", this.item, this.item.name)
     }
     this.receiptService.AddImages(this.receiptObject['_id'], fd).subscribe(res=>{
-      this.spin=false
       if(res.status==200){
        this.Helpers.successToast('Upload successful', '')
        this.receiptService.getReceiptDetails(this.receiptObject['_id']).subscribe(res=>{
@@ -73,10 +75,13 @@ goBack(){
       })
       this.modalService.dismissAll()
       }else{
+        this.spin=false
        this.Helpers.errorToast('Error uploading', '')   
       }
     })
   }
+
+
   uploadExtra(event){
     this.selectedFileExtra=event.target.files
 }
@@ -121,14 +126,22 @@ Edit(){
   }
 
   deleteReceipt(){
-    console.log()
     this.spin=true
     this.receiptService.deleteReceipt(this.receiptObject['_id']).subscribe(res=>{
       this.spin=false
       if(res.status==200){
         this.modalService.dismissAll();
         this.Helpers.successToast('', "receipt deleted successfully")
-        this.receipt.body.message.docs.splice(this.receipt.body.message.docs.findIndex(i => i._id === this.receiptObject['_id']), 1)
+        if(this.init==true){
+          this.receipt.body.message.docs.splice(this.receipt.body.message.docs.findIndex(i => i._id === this.receiptObject['_id']), 1)
+        }else if(this.date_filter==true){
+          this.receipt.body.message.docs.splice(this.receipt.body.message.docs.findIndex(i => i._id === this.receiptObject['_id']), 1)
+          this.DateFilterValue.docs.splice(this.DateFilterValue.docs.findIndex(i => i._id === this.receiptObject['_id']), 1)
+        }else if(this.loc_filter==true){
+          this.receipt.body.message.docs.splice(this.receipt.body.message.docs.findIndex(i => i._id === this.receiptObject['_id']), 1)
+          this.LocFilterValue.docs.splice(this.LocFilterValue.docs.findIndex(i => i._id === this.receiptObject['_id']), 1)
+        }
+this.receiptObject=undefined;
       }
     })
   }

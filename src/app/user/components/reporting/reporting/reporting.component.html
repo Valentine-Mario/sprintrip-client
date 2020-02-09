@@ -1,1 +1,61 @@
 <app-header></app-header>
+<div class="container">
+    <h1>Reporting</h1>
+    <div align="center">
+        <div *ngIf="spin" class="spinner-grow" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+    <div style="display: flex;">
+        <div style="width: 30%;">
+            <ul>
+            <li (click)="getSummary('Flight')">Flight Summary</li>
+            <li (click)="getSummary('Hotel')">Hotel Summary</li>
+            <li (click)="getSummary('Car')">Cars Summary</li>
+            <li (click)="getSummary('Venue')">Venue Summary</li>
+            <li (click)="getSummary('Cruise')">Cruise Summary</li>
+            <li (click)="getSummary('Home')">Home Summary</li>
+            <li (click)="getSummary('Others')">Others summary</li>
+            </ul>
+            
+        </div>
+        <div style="width: 70%;">
+            <div *ngIf="summaryObject==undefined">
+                Select a summary to view details
+            </div>
+            <div *ngIf="summaryObject">
+                <div *ngIf="summaryObject['message']['docs'].length>0">
+                    <div class="row">
+                        <div *ngFor="let a of summaryObject['message']['docs']| paginate: {id:'travel_now', itemsPerPage: 15, currentPage: p, totalItems: summaryObject['message'].total}" class="col-lg-4">
+                          <div class="card card-20201">
+                            
+                            <div class="card-body">
+                              <h5 class="card-title">{{a.type}} </h5>
+                                <small>Start: {{a.start_date| date: 'dd/MM/yyyy'}} end :{{a.end_date| date: 'dd/MM/yyyy'}}</small>
+                                <p>Duration:{{a.duration}}</p> 
+                                <p>Price:$ {{a.price| number}}</p>
+                                <p>Pending: {{a.pending}}</p>
+                                <p *ngIf="a.pending == true">Status: <span style="color:greenyellow;">pending</span></p>
+                                <div *ngIf="a.declined == true">
+                                    <p style="color:red;">trip declined</p>
+                                </div>
+                                <div *ngIf="a.declined == false&& a.pending==false">
+                                    <p style="color:green;">trip approved</p>
+                                </div>
+                            </div>
+                          </div>
+                        </div>   
+                      </div>
+                      <p>Total proice: ${{summaryObject['sum_price']| number}}</p>
+                      <br/>
+                      <div align="center"><pagination-controls id="travel_now"  (pageChange)="p = $event; paginate($event)"></pagination-controls></div> 
+                 </div>
+                 <div *ngIf="summaryObject['message']['docs'].length < 1">
+                     <p>This list seems to be empty</p>
+                 </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+

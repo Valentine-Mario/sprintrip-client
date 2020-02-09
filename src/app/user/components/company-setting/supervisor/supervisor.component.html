@@ -1,0 +1,21 @@
+<div class="container">
+    <div *ngIf="invited_users.body.message.length < 1">
+        There are no supervisors. send an invite now to properly manage your comapny bookings
+    </div>
+    <div *ngIf="invited_users.body.message.length > 0">
+        <div class="row">
+            <div *ngFor="let a of invited_users.body.message| paginate: {id:'invite', itemsPerPage: 15, currentPage: p}" class="col-lg-4">
+              <div class="card card-20201">
+                
+                <div class="card-body">
+                  <h5 class="card-title">{{a.name}} </h5>
+                    <p>{{a.email}}</p>
+                </div>
+              </div>
+            </div>   
+          </div>
+          <br/>
+          <div align="center"><pagination-controls id="invite"  (pageChange)="p = $event;"></pagination-controls></div> 
+        
+    </div>
+</div>
