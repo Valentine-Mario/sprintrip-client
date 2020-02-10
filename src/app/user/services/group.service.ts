@@ -17,6 +17,14 @@ export class GroupService {
     })
   }
 
+  addNameToGroup(data, id){
+    let authToken= localStorage.getItem('user-token')
+    return this.http.post(AppEndpoint.API_ENDPOINT+`/employee/addname/${id}`, data, {  
+      observe: 'response',
+      headers: new HttpHeaders({'authorization': "bearer "+authToken}),
+    })
+  }
+
   editGroup(data, id){
     let authToken= localStorage.getItem('user-token')
     return this.http.post(AppEndpoint.API_ENDPOINT+`/employee/edit/${id}`, data, {  

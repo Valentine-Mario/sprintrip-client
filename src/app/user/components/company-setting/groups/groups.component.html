@@ -1,4 +1,10 @@
 <div class="container">
+  <button (click)="open(content)">add group</button>
+  <div align="center">
+    <div *ngIf="spinner" class="spinner-grow" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
     <div *ngIf="groups.body.message.docs.length < 1">
         There are no groups. Create now to proper manage employees in your comapny
     </div>
@@ -9,9 +15,10 @@
                 
                 <div class="card-body">
                   <h5 class="card-title">{{a.name}} </h5>
+                  <button (click)="selectGroup(a); open(content2)">Delete</button> <button (click)="open(content3); selectGroup(a)">Edit</button>
                     <div class="row">
-                        <div *ngFor="let b of a.employees | paginate: {id:a._id, itemsPerPage: 9, currentPage: p2}" class="col-lg-4">
-                            {{b}}
+                        <div *ngFor="let b of a.employees | paginate: {id:a._id, itemsPerPage: 15, currentPage: p2}" class="col-lg-4">
+                            {{b}} <button (click)="deleteNameFromGroup(b, a)">delete</button>
                         </div>
                     </div>
                     <div align="center"><pagination-controls id="{{a._id}}"  (pageChange)="p2 = $event;"></pagination-controls></div> 
@@ -25,3 +32,76 @@
         
     </div>
 </div>
+
+
+
+<!-- add new group modal -->
+<ng-template #content let-modal>
+  <div class="modal-header">
+    
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div align="center" class="modal-body">
+      <div *ngIf="spin" class="spinner-grow" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+        <h2>Add Group</h2>
+        <form [formGroup]="addGroup" (ngSubmit)="addNewGroup();">
+          <label>Name</label>
+          <input formControlName="name" type="text" placeholder="name of group" class="form-control">
+          <label>Employee name(s) (seperate names with comma)</label>
+          <input formControlName="employees" type="text" placeholder="employee names" class="form-control">
+          <button [disabled]="addGroup.invalid" class="btn btn-primary">Submit</button>
+        </form>
+  </div>
+</ng-template>
+
+
+
+<!-- delte group modal -->
+<ng-template #content2 let-modal>
+  <div class="modal-header">
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div align="center" class="modal-body">
+      <div *ngIf="spin" class="spinner-grow" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+        <h2>Are you sure you want to delete</h2>
+       <button (click)="modal.dismiss('Cross click')">No</button> <button (click)="deleteGroup()">Yes</button>
+  </div>
+</ng-template>
+
+
+
+<!-- group setting modal -->
+<ng-template #content3 let-modal>
+  <div class="modal-header">
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div align="center" class="modal-body">
+      <div *ngIf="spin" class="spinner-grow" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+        <h2>Edit Group</h2>
+        <form [formGroup]="editGroupName" (ngSubmit)="editGroup();">
+          <label>Name</label>
+          <input formControlName="name" type="text" placeholder="name of group" class="form-control">
+          <button [disabled]="editGroupName.invalid" class="btn btn-primary">Submit</button>
+        </form>
+        <hr/>
+        <h3>Add new names to group</h3>
+        <form [formGroup]="addNewEmployeeName" (ngSubmit)="addNameToGroup();">
+          <label>Employee name(s) (seperate name by comma)</label>
+          <input formControlName="employees" type="text" placeholder="name of group" class="form-control">
+          <button [disabled]="addNewEmployeeName.invalid" class="btn btn-primary">Add</button>
+        </form>
+        <hr/>
+  </div>
+</ng-template>

@@ -85,13 +85,6 @@ export class UserService {
    })
    }
 
-   sendInvite(data){
-    let authToken= localStorage.getItem('user-token')
-    return this.http.post(AppEndpoint.API_ENDPOINT+'/user/sendinvite', data, {
-     observe: 'response',
-     headers: new HttpHeaders({'Content-Type': 'application/json', 'authorization': "bearer "+authToken}),
-   })
-   }
 
    changeAccountType(data){
     let authToken= localStorage.getItem('user-token')
