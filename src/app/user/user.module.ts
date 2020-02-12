@@ -37,14 +37,26 @@ import { ApprovalComponent } from './components/approval/approval.component';
 import {GetCards} from './resolvers/card.resolvers';
 import { SupervisorComponent } from './components/company-setting/supervisor/supervisor.component';
 import { GroupsComponent } from './components/company-setting/groups/groups.component'
-import {GetGroups} from './resolvers/groups.resolvers'
+import {GetGroups} from './resolvers/groups.resolvers';
+import { AirbnbListComponent } from './components/bookings/airbnb-list/airbnb-list.component';
+import { CarsListComponent } from './components/bookings/cars-list/cars-list.component';
+import { CruiseListComponent } from './components/bookings/cruise-list/cruise-list.component';
+import { FlightsListComponent } from './components/bookings/flights-list/flights-list.component';
+import { HotelsListComponent } from './components/bookings/hotels-list/hotels-list.component';
+import { VenuesListComponent } from './components/bookings/venues-list/venues-list.component';
+import { TrainsListComponent } from './components/bookings/trains-list/trains-list.component';
+import { OthersListComponent } from './components/bookings/others-list/others-list.component';
+import {GetHotel, GetHotelId} from './resolvers/hotels.resolvers';
+import {GetCars, GetCarId} from './resolvers/cars.resolvers';
+import {getFlights, GetFlightId} from './resolvers/flight.resolvers'
+import {GetVenueId, GetVenues} from './resolvers/venue.resolvers'
 
 @NgModule({
   declarations: [HomeComponent, HeaderComponent, FooterComponent, FlightsComponent,
      HotelsComponent, VenuesComponent, TrainsComponent, CarsComponent, CruiseComponent,
       AirbnbComponent, OthersComponent, CompanySettingComponent, HelpComponent, InvoiceComponent,
       PaymentComponent, ProfileComponent, ReportingComponent, PastTripsComponent, TravellingNowComponent,
-      TripsComponent, UpcomingTripsComponent, NavigationComponent, AboutComponent, ApprovalComponent, SupervisorComponent, GroupsComponent
+      TripsComponent, UpcomingTripsComponent, NavigationComponent, AboutComponent, ApprovalComponent, SupervisorComponent, GroupsComponent, AirbnbListComponent, CarsListComponent, CruiseListComponent, FlightsListComponent, HotelsListComponent, VenuesListComponent, TrainsListComponent, OthersListComponent
     ],
   imports: [
     CommonModule,
@@ -55,6 +67,7 @@ import {GetGroups} from './resolvers/groups.resolvers'
     ReactiveFormsModule
   ],
   providers: [GetUser, AuthGuard, GetInviteUser, GetReceipt, GetUpcomingTrips, GetAllInviteUser,
-     GetCurrentTrips, GetPastTrips, GetPendingTrips, GetCards, GetGroups],
+     GetCurrentTrips, GetPastTrips, GetPendingTrips, GetCards, GetGroups, GetHotel, GetHotelId,
+    GetCars, GetCarId, getFlights, GetFlightId, GetVenueId, GetVenues],
 })
 export class UserModule { }

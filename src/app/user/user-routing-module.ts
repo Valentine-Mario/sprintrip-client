@@ -30,6 +30,15 @@ import {GetCards} from './resolvers/card.resolvers'
 import { SupervisorComponent } from './components/company-setting/supervisor/supervisor.component';
 import { GroupsComponent } from './components/company-setting/groups/groups.component'
 import {GetGroups} from './resolvers/groups.resolvers'
+import { AirbnbListComponent } from './components/bookings/airbnb-list/airbnb-list.component';
+import { CarsListComponent } from './components/bookings/cars-list/cars-list.component';
+import { CruiseListComponent } from './components/bookings/cruise-list/cruise-list.component';
+import { FlightsListComponent } from './components/bookings/flights-list/flights-list.component';
+import { HotelsListComponent } from './components/bookings/hotels-list/hotels-list.component';
+import { VenuesListComponent } from './components/bookings/venues-list/venues-list.component';
+import { TrainsListComponent } from './components/bookings/trains-list/trains-list.component';
+import { OthersListComponent } from './components/bookings/others-list/others-list.component';
+
 
 export const UserRoutes: Routes = [
     {
@@ -54,8 +63,18 @@ export const UserRoutes: Routes = [
                         resolve:{user:GetUser}
                     },
                     {
+                        path:'flight-list',
+                        component:FlightsListComponent,
+                        resolve:{user:GetUser}
+                    },
+                    {
                         path:'hotel',
                         component:HotelsComponent,
+                        resolve:{user:GetUser}
+                    },
+                    {
+                        path:'hotel-list',
+                        component:HotelsListComponent,
                         resolve:{user:GetUser}
                     },
                     {
@@ -64,8 +83,18 @@ export const UserRoutes: Routes = [
                         resolve:{user:GetUser}
                     },
                     {
+                        path:'venue-list',
+                        component:VenuesListComponent,
+                        resolve:{user:GetUser}
+                    },
+                    {
                         path:'train',
                         component:TrainsComponent,
+                        resolve:{user:GetUser}
+                    },
+                    {
+                        path:'train-list',
+                        component:TrainsListComponent,
                         resolve:{user:GetUser}
                     },
                     {
@@ -74,8 +103,18 @@ export const UserRoutes: Routes = [
                         resolve:{user:GetUser}
                     },
                     {
+                        path:'car-list',
+                        component:CarsListComponent,
+                        resolve:{user:GetUser}
+                    },
+                    {
                         path:'cruise',
                         component:CruiseComponent,
+                        resolve:{user:GetUser}
+                    },
+                    {
+                        path:"cruise-list",
+                        component:CruiseListComponent,
                         resolve:{user:GetUser}
                     },
                     {
@@ -84,8 +123,18 @@ export const UserRoutes: Routes = [
                         resolve:{user:GetUser}
                     },
                     {
+                        path:"airbnb-list",
+                        component:AirbnbListComponent,
+                        resolve:{user:GetUser}
+                    },
+                    {
                         path:'others',
                         component:OthersComponent,
+                        resolve:{user:GetUser}
+                    },
+                    {
+                        path:"others-list",
+                        component:OthersListComponent,
                         resolve:{user:GetUser}
                     }
                 ]
