@@ -11,7 +11,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
+            <li *ngIf="loggedIn" class="nav-item">
                 <a routerLink="/user/booking/flight" routerLinkActive="active" class="nav-link">Book </a>
               </li>
               <li *ngIf="loggedIn" class="nav-item">
@@ -29,7 +29,7 @@
               <li *ngIf="loggedIn" class="nav-item">
                 <a routerLink="/user/payment" routerLinkActive="active" class="nav-link">Pay</a>
               </li>
-              <li class="nav-item">
+              <li *ngIf="loggedIn" class="nav-item">
                 <a routerLink="/user/help" routerLinkActive="active" class="nav-link" >Help</a>
               </li>
               <li *ngIf="loggedIn" class="nav-item dropdown">
