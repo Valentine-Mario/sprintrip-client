@@ -1,6 +1,6 @@
 .first {
     font-family: 'Poppins', sans-serif;
-    height: 120vh;
+    height: 130vh;
     width: 100%;
     background-color: rgb(0, 138, 23);
     color: white;
@@ -9,7 +9,7 @@
 }
 
 .text1 {
-    padding-top: 70px;
+    padding-top: 150px;
     padding-left: 300px;
     padding-right: 300px;
     line-height: 30px;

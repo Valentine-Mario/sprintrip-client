@@ -1,6 +1,12 @@
 .footer {
     background-color: rgb(18, 41, 18);
     color: white;
+    height: 50vh;
+    clear: both;
+    position: relative;
+    margin-top: -200px;
+    justify-content: center;
+    text-align: center;
 }
 
 a:link {
@@ -27,3 +33,46 @@ a:active{
 .custom-font {
     color: rgb(33, 122, 33);
 }
+
+.footer-copyright {
+    float: left;
+    margin-left: 50px;
+}
+
+.form-group {
+    margin-left: 145px;
+}
+
+.form-control {
+    width: 450px;
+    margin-left: 145px;
+    background-color: rgb(18, 41, 18);
+}
+
+.flex-container {
+    display: flex;
+}
+
+.btn-sub {
+    background-color: green;
+    border-color: green;
+    color: white;
+    border-bottom: 7px;
+    margin-left: 50px;
+}
+
+::-webkit-input-placeholder { /* Edge */
+    color: green;
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer */
+    color: green;
+  }
+  
+  ::placeholder {
+    color: green;
+  }
+
+  .label {
+      margin-right: 380px;
+  }
