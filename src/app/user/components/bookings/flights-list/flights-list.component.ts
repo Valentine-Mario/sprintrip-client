@@ -15,7 +15,6 @@ closeResult:string;
 
   ngOnInit() {
     this.flight=this.ActiveRoute.snapshot.data['flight']
-    console.log(this.flight)
   }
 
   open(content) {

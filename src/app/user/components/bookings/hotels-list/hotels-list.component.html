@@ -1,1 +1,75 @@
-<p>hotels-list works!</p>
+<app-header></app-header>
+<div>
+    <div align="left">
+     <h2>Choose a hotel</h2>
+    </div> 
+    <div style="padding-right: 10px;" align=right>
+        New York, NY, USA
+        DEC 13 - DEC 21 . 1 adult
+        <button (click)="open(content)">Edit search</button>
+    </div>
+ </div>
+<div class="container">
+<div style="width:30%;">
+    Filter options
+</div>
+<div style="width: 70%;">
+    <div *ngFor="let a of hotels.body.message.docs">
+        <div style="padding-bottom: 20px; display: flex;">
+            <div style=" width:60%;">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <div>
+                            <img src="{{return_img(a.images)}}" style="height: 120px; width:120px"/>
+                            Free cancellation
+                            free wifi
+                        </div>
+                        <div>
+                            <h3>{{a.name}}</h3>
+                            <p>{{a.location}}</p>
+                            <ngb-rating [(rate)]="rate"></ngb-rating>
+                            <p>only 5 rooms left!</p>
+                        </div>
+                        <div>
+                            Total price for 14 nights $5,431.59
+                            <button class="btn btn-primary">see available rooms</button>
+                        </div>
+                    </li>
+                  </ul>
+                  
+            </div>
+           
+           
+        </div>
+        
+    </div>
+</div>
+</div>
+
+
+
+
+
+
+ <ng-template #content let-modal>
+    <div class="modal-header">
+      
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <form >
+            <div style="display: flex;">
+                <input type="text" class="form-control" placeholder="from"/>
+                <input type="date" class="form-control" placeholder="Check in"/>
+            </div>
+            <div style="display: flex;">
+                <input type="date" class="form-control" placeholder="check out"/>
+               
+            </div>
+            <button (click)="modal.dismiss('Cross click')" class="btn btn-primary">SEARCH</button>
+        </form>
+    </div>
+    
+  </ng-template>
