@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-cruise',
@@ -8,10 +9,14 @@ import { Component, OnInit } from '@angular/core';
 export class CruiseComponent implements OnInit {
   adult:number=0
   children:number=0
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit() {
   }
+  search(){
+    this.router.navigate(['/user/booking/cruise-list'])
+  }
+
 
   editChildrenCount(a){
     if(this.children<1 && parseInt(a)<0){

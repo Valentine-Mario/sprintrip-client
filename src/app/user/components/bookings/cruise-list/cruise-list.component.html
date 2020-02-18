@@ -1,1 +1,67 @@
-<p>cruise-list works!</p>
+<app-header></app-header>
+<div>
+    <div align="left">
+     <h2>Choose a cruise</h2>
+    </div> 
+    <div style="padding-right: 10px;" align=right>
+      New York, NY, USA
+        DEC 13 - Dec 21 . 1 adult
+        <button (click)="open(content)">Edit search</button>
+    </div>
+ </div>
+
+ <div class="container">
+    <div style="width:30%;">
+        Filter options
+    </div>
+    <div style="width: 70%;">
+        <div *ngFor="let a of cruise.body.message.docs">
+            <div style="padding-bottom: 20px; display: flex;">
+                <div style=" width:60%;">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <div>
+                                <img src="https://i.insider.com/5cbf50dfd1a2f8074406a8b2?width=1136&format=jpeg" style="height: 120px; width:120px"/>
+                                Free cancellation
+                            </div>
+                            <div>
+                                <h3>4 night Bahamas Cruise</h3>
+                                <p>Departing from Port Canaveral, United States</p>
+                                <ngb-rating [(rate)]="rate"></ngb-rating>
+                                <p>Dec 23, 2019</p>
+                            </div>
+                            <div>
+                               $900 per person
+                                <button class="btn btn-primary">Select</button>
+                            </div>
+                        </li>
+                    </ul>  
+                </div>    
+            </div> 
+        </div>
+    </div>
+    </div>
+
+ <ng-template #content let-modal>
+    <div class="modal-header">
+      
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <form >
+            <div style="display: flex;">
+                <input type="text" class="form-control" placeholder="destination"/>
+                <input type="number" class="form-control" placeholder="number of adults"/>
+            </div>
+            <div style="display: flex;">
+                <input type="number" class="form-control" placeholder="number of children"/>
+                <input type="date" class="form-control" placeholder="daparture"/>
+               
+            </div>
+            <button (click)="modal.dismiss('Cross click')" class="btn btn-primary">book</button>
+        </form>
+    </div>
+    
+  </ng-template>
