@@ -19,7 +19,7 @@ user:any
       this.Helpers.logoutAndRedirect()
       this.Helpers.infoToast('Token expired', '')
     }
-    if(this.user.body.message.account_type !== 'Business'|| localStorage.getItem('invite-token')){
+    if(this.user.body.message.account_type !== 'Business'){
       this.location.back();
       this.Helpers.infoToast('', 'This account type is authorized to view this page')
     }

@@ -20,7 +20,7 @@
               <li *ngIf="loggedIn" class="nav-item">
                 <a routerLink="/user/invoice" routerLinkActive="active" class="nav-link">Invoices</a>
               </li>
-              <li *ngIf="loggedIn && user.account_type === 'Business' && !invite_acc" class="nav-item">
+              <li *ngIf="loggedIn && user.account_type === 'Business'" class="nav-item">
                 <a routerLink="/user/setting/group" routerLinkActive="active" class="nav-link" >Company Settings</a>
               </li>
               <li *ngIf="loggedIn" class="nav-item">
