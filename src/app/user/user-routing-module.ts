@@ -98,17 +98,17 @@ export const UserRoutes: Routes = [
                     {
                         path:'train-list',
                         component:TrainsListComponent,
-                        resolve:{user:GetUser}
+                        resolve:{user:GetUser, flight:getFlights}
                     },
                     {
                         path:'car',
                         component:CarsComponent,
-                        resolve:{user:GetUser, car:GetCards}
+                        resolve:{user:GetUser}
                     },
                     {
                         path:'car-list',
                         component:CarsListComponent,
-                        resolve:{user:GetUser}
+                        resolve:{user:GetUser, car:GetCars}
                     },
                     {
                         path:'cruise',
