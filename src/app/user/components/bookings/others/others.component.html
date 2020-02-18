@@ -3,4 +3,70 @@
     <div>
        <app-navigation></app-navigation>
     </div>
+    <div align="center">
+        <span [ngStyle]="{'color':personal_asst === true ? 'rgb(91, 150, 163)' : '#333' }" (click)="show_personal_asst()" style="cursor: pointer;">Personal Assistant</span>|<span [ngStyle]="{'color':concierge === true ? 'rgb(91, 150, 163)' : '#333' }" (click)="show_concierge()" style="cursor: pointer;">Concierge</span>|<span [ngStyle]="{'color':interpreter === true ? 'rgb(91, 150, 163)' : '#333' }" (click)="show_interpreter()" style="cursor: pointer;">Interpreter</span>|<span [ngStyle]="{'color':content_writer === true ? 'rgb(91, 150, 163)' : '#333' }" (click)="show_content_writer()" style="cursor: pointer;">Content Writer</span>
+        |<span [ngStyle]="{'color':leadership_coach === true ? 'rgb(91, 150, 163)' : '#333' }" (click)="show_leadership_coach()" style="cursor: pointer;">Leadership Coach</span>|<span [ngStyle]="{'color':consultant === true ? 'rgb(91, 150, 163)' : '#333' }" (click)="show_consultant()" style="cursor: pointer;">Consultant</span>
+        <br/>
+        <span [ngStyle]="{'color':graphic_designer === true ? 'rgb(91, 150, 163)' : '#333' }" (click)="show_graphic_designer()" style="cursor: pointer;">Graphic Designer</span>|<span [ngStyle]="{'color':audio_visual_asst === true ? 'rgb(91, 150, 163)' : '#333' }" (click)="show_audio_video_asst()" style="cursor: pointer;">Audio & Visual Assistance</span>
+    </div>
+
+    <div *ngIf="personal_asst">
+       What kind of consultant service do you need?
+       <form>
+           <textarea placeholder="type your request..." class="form-control"></textarea>
+           <button class="btn btn-primary">Book</button>
+       </form>
+    </div>
+    <div *ngIf="concierge">
+        <form>
+            When does your trip start?
+            <input type="date" class="form-control"/>
+    
+            What service do you need?
+            <textarea placeholder="type in your request..." class="form-control"></textarea>
+            <button class="btn btn-primary">Book</button>
+        </form>
+    </div>
+    <div *ngIf="interpreter">
+        What would you like to interpret?
+        <form>
+            <textarea placeholder="type in your requrest here..." class="form-control"></textarea>
+            <button class="btn btn-primary">Book</button>
+        </form>
+    </div>
+    <div *ngIf="content_writer">
+        What kind of content writer service do you need?
+        <form>
+            <textarea placeholder="type in your requrest here..." class="form-control"></textarea>
+            <button class="btn btn-primary">Book</button>
+        </form>
+    </div>
+    <div *ngIf="leadership_coach">
+        What type of coach service do you need?
+        <form>
+            <textarea placeholder="type in your requrest here..." class="form-control"></textarea>
+            <button class="btn btn-primary">Book</button>
+        </form> 
+    </div>
+    <div *ngIf="consultant">
+        What type of consultant service do you need?
+        <form>
+            <textarea placeholder="type in your requrest here..." class="form-control"></textarea>
+            <button class="btn btn-primary">Book</button>
+        </form> 
+    </div>
+    <div *ngIf="graphic_designer">
+       Give description of graphics designer you need?
+        <form>
+            <textarea placeholder="type in your requrest here..." class="form-control"></textarea>
+            <button class="btn btn-primary">Book</button>
+        </form> 
+    </div>
+    <div *ngIf="audio_visual_asst">
+       What bespoke executive service do you need?
+         <form>
+             <textarea placeholder="type in your requrest here..." class="form-control"></textarea>
+             <button class="btn btn-primary">Book</button>
+         </form> 
+     </div>
 </div>
