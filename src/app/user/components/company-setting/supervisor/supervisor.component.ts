@@ -21,11 +21,15 @@ inviteForm:FormGroup;
 spin:Boolean=false;
 closeResult:string;
 modifyAcessForm:FormGroup;
+invited_acc:Boolean;
   ngOnInit() {
     this.invited_users= this.ActiveRoute.snapshot.data['invited_user'];
     this.inviteForm=this.fb.group({
       email:['', [Validators.required, Validators.email]]
     })
+    if(localStorage.getItem('invite-token')){
+      this.invited_acc=true;
+    }
     this.modifyAcessForm=this.fb.group({
         limit:['', Validators.required],
         limit_amount:['']

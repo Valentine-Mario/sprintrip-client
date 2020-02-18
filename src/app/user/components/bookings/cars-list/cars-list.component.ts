@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-cars-list',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarsListComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private ActiveRoute:ActivatedRoute) { }
+cars:any;
   ngOnInit() {
+    this.cars=this.ActiveRoute.snapshot.data['car']
   }
 
 }

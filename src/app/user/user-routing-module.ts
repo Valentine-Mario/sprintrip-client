@@ -38,7 +38,10 @@ import { HotelsListComponent } from './components/bookings/hotels-list/hotels-li
 import { VenuesListComponent } from './components/bookings/venues-list/venues-list.component';
 import { TrainsListComponent } from './components/bookings/trains-list/trains-list.component';
 import { OthersListComponent } from './components/bookings/others-list/others-list.component';
-
+import {GetHotel, GetHotelId} from './resolvers/hotels.resolvers';
+import {GetCars, GetCarId} from './resolvers/cars.resolvers';
+import {getFlights, GetFlightId} from './resolvers/flight.resolvers'
+import {GetVenueId, GetVenues} from './resolvers/venue.resolvers'
 
 export const UserRoutes: Routes = [
     {
@@ -65,7 +68,7 @@ export const UserRoutes: Routes = [
                     {
                         path:'flight-list',
                         component:FlightsListComponent,
-                        resolve:{user:GetUser}
+                        resolve:{user:GetUser, flight:getFlights}
                     },
                     {
                         path:'hotel',
@@ -75,7 +78,7 @@ export const UserRoutes: Routes = [
                     {
                         path:'hotel-list',
                         component:HotelsListComponent,
-                        resolve:{user:GetUser}
+                        resolve:{user:GetUser, hotel:GetHotel}
                     },
                     {
                         path:'venue',
@@ -85,7 +88,7 @@ export const UserRoutes: Routes = [
                     {
                         path:'venue-list',
                         component:VenuesListComponent,
-                        resolve:{user:GetUser}
+                        resolve:{user:GetUser, venue:GetVenues}
                     },
                     {
                         path:'train',
@@ -100,7 +103,7 @@ export const UserRoutes: Routes = [
                     {
                         path:'car',
                         component:CarsComponent,
-                        resolve:{user:GetUser}
+                        resolve:{user:GetUser, car:GetCards}
                     },
                     {
                         path:'car-list',

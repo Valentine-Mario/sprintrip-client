@@ -1,1 +1,61 @@
-<p>flights-list works!</p>
+<app-header></app-header>
+<div>
+   <div align="left">
+    <h2>Choose a flight</h2>
+   </div> 
+   <div align=right>
+       FRA-LOND, LOND-FRA
+       DEC 13 - DEC 21 . Adult
+       <button>Edit search</button>
+   </div>
+</div>
+<div class="container">
+<div class="filter" style="width: 30%;">
+Filter options here
+</div>
+<div class="item-list" style="width: 100%;">
+<div *ngFor="let a of flight.body.message.docs">
+    <div style="padding-bottom: 20px; display: flex;">
+        <div style=" width:60%;">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <img src="{{a.airline.image}}" style="height: 20px; width:20px"/>
+                    <div>19:20-21:55 LHR-FRA
+                        {{a.airline.name}} . {{a.class}}
+                    </div>
+                    <div>
+                        1h 35m
+                        Direct
+                    </div>
+                    <div>
+                        Carry-on bag included
+                    </div>
+                </li>
+
+                <li class="list-group-item">
+                    <img src="{{a.airline.image}}" style="height: 20px; width:20px"/>
+                    <div>19:20-21:55 LHR-FRA
+                        {{a.airline.name}} . {{a.class}}
+                    </div>
+                    <div>
+                        1h 35m
+                        Direct
+                    </div>
+                    <div>
+                        Carry-on bag included
+                    </div>
+                </li>
+              </ul>
+              
+        </div>
+        <div>
+            from
+            {{a.price}}/Adult
+            <button class="btn btn-primary">SELECT</button>
+        </div>
+       
+    </div>
+    
+</div>
+</div>
+</div>

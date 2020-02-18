@@ -23,7 +23,6 @@ spin:Boolean=false
 loggedIn:Boolean;
 loggedOut:Boolean;
 user:any
-invite_acc:Boolean
   ngOnInit() {
     if(localStorage.getItem('user-token')){
       if(this.ActiveRoute.snapshot.data['user'].status==205){
@@ -32,9 +31,7 @@ invite_acc:Boolean
       }
       this.user= this.ActiveRoute.snapshot.data['user'].body.message;
     }
-    if(localStorage.getItem('invite-token')){
-      this.invite_acc=true;
-    }
+   
     if(localStorage.getItem('user-token')){
       this.loggedIn=true;
     }else{
