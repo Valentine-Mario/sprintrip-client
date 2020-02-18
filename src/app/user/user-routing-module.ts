@@ -118,7 +118,7 @@ export const UserRoutes: Routes = [
                     {
                         path:"cruise-list",
                         component:CruiseListComponent,
-                        resolve:{user:GetUser}
+                        resolve:{user:GetUser, venue:GetVenues}
                     },
                     {
                         path:'airbnb',
@@ -128,7 +128,7 @@ export const UserRoutes: Routes = [
                     {
                         path:"airbnb-list",
                         component:AirbnbListComponent,
-                        resolve:{user:GetUser}
+                        resolve:{user:GetUser, venue:GetVenues}
                     },
                     {
                         path:'others',
