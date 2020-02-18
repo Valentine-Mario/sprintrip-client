@@ -63,14 +63,17 @@ a:active{
 
 ::-webkit-input-placeholder { /* Edge */
     color: green;
+    text-align: center;
   }
   
   :-ms-input-placeholder { /* Internet Explorer */
     color: green;
+    text-align: center;
   }
   
   ::placeholder {
     color: green;
+    text-align: center;
   }
 
   .label {
