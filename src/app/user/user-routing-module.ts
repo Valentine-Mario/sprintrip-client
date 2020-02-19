@@ -124,7 +124,7 @@ export const UserRoutes: Routes = [
                     {
                         path:'train/:id',
                         component:TrainDetailComponent,
-                        resolve:{user:GetUser, group:GetGroups}
+                        resolve:{user:GetUser, group:GetGroups, flight:GetFlightId}
                     },
                     {
                         path:'car',

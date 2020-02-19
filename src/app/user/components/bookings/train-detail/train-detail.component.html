@@ -1,1 +1,93 @@
-<p>train-detail works!</p>
+<app-header></app-header>
+<div class="container">
+    <div align="center">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <img src="{{flight.body.message.airline.image}}" style="height: 20px; width:20px"/>
+                <div>19:20-21:55 LHR-FRA
+                    {{flight.body.message.airline.name}} . {{flight.body.message.class}}
+                </div>
+                <div>
+                    1h 35m
+                    Direct
+                </div>
+                <div>
+                    Carry-on bag included
+                </div>
+            </li>
+        
+            <li class="list-group-item">
+                <img src="{{flight.body.message.airline.image}}" style="height: 20px; width:20px"/>
+                <div>19:20-21:55 LHR-FRA
+                    {{flight.body.message.airline.name}} . {{flight.body.message.class}}
+                </div>
+                <div>
+                    1h 35m
+                    Direct
+                </div>
+                <div>
+                    Carry-on bag included
+                </div>
+            </li>
+          </ul>
+    </div>
+
+    <div style="display: flex;">
+        <div>
+            London - Milan
+            <h3>Basic Economy</h3>
+            <p>economy</p>
+            <p>1 carry-on bag & personalitem</p>
+            <li>No checked bag include</li>
+            <li>No free selection</li>
+            <li>No priority boarding included</li>
+            <li>Changes: Non-refundable</li>
+            <li>Cancellation: Non-refundable</li>
+        </div>
+        <div>
+            London - Milan
+            <h3>Basic Economy</h3>
+            <p>economy</p>
+            <p>1 carry-on bag & personalitem</p>
+            <li>No checked bag include</li>
+            <li>No free selection</li>
+            <li>No priority boarding included</li>
+            <li>Changes: Non-refundable</li>
+            <li>Cancellation: Non-refundable</li>
+        </div>
+    </div>
+
+    <h1>{{flight.body.message.price}}</h1> <button (click)="open(content)" class="btn btn-primary">Book</button>
+</div>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+      
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <div align="center">
+            <div *ngIf="spin" class="spinner-grow" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div>
+        
+        <form [formGroup]="booking_form" (ngSubmit)="addBooking()">
+            <label>How many people are you booking for</label>
+            <input formControlName="no_of_people" type="number" placeholder="how many people are you booking for">
+           <div *ngIf="hide_group">
+            <div *ngIf="!show_group">
+                <select formControlName="group" class="form-control" name="channel">
+                    <option value="">Select Group</option>
+                    <option *ngFor='let element of groups.body.message.docs' [selected]="element === nameDevice" [value]="element._id">{{element.name}}</option>
+                  </select>
+            </div>
+           </div>
+            
+            <button [disabled]="booking_form.invalid" class="btn btn-primary">Book</button>
+        </form>
+    </div>
+    
+  </ng-template>
