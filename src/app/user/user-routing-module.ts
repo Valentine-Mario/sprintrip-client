@@ -79,7 +79,7 @@ export const UserRoutes: Routes = [
                     {
                         path:'flight/:id',
                         component:FlightDetailComponent,
-                        resolve:{user:GetUser, flight:GetFlightId}
+                        resolve:{user:GetUser, flight:GetFlightId, group:GetGroups}
                     },
                     {
                         path:'hotel',
@@ -94,7 +94,7 @@ export const UserRoutes: Routes = [
                     {
                         path:'hotel/:id',
                         component:HotelDetailComponent,
-                        resolve:{user:GetUser, hotel:GetHotelId}
+                        resolve:{user:GetUser, hotel:GetHotelId, group:GetGroups}
                     },
                     {
                         path:'venue',
@@ -109,7 +109,7 @@ export const UserRoutes: Routes = [
                     {
                         path:'venue/:id',
                         component:VenueDetailComponent,
-                        resolve:{user:GetUser, venue:GetVenueId}
+                        resolve:{user:GetUser, venue:GetVenueId, group:GetGroups}
                     },
                     {
                         path:'train',
@@ -124,7 +124,7 @@ export const UserRoutes: Routes = [
                     {
                         path:'train/:id',
                         component:TrainDetailComponent,
-                        resolve:{user:GetUser}
+                        resolve:{user:GetUser, group:GetGroups}
                     },
                     {
                         path:'car',
@@ -139,7 +139,7 @@ export const UserRoutes: Routes = [
                     {
                         path:'car/:id',
                         component:CarDetailComponent,
-                        resolve:{user:GetUser, car:GetCarId}
+                        resolve:{user:GetUser, car:GetCarId, group:GetGroups}
                     },
                     {
                         path:'cruise',
@@ -154,7 +154,7 @@ export const UserRoutes: Routes = [
                     {
                         path:'cruise/:id',
                         component:CruiseDetailComponent,
-                        resolve:{user:GetUser}
+                        resolve:{user:GetUser, group:GetGroups}
                     },
                     {
                         path:'airbnb',
@@ -169,7 +169,7 @@ export const UserRoutes: Routes = [
                     {
                         path:'airbnb/:id',
                         component:AirbnbDetailComponent,
-                        resolve:{user:GetUser}
+                        resolve:{user:GetUser, group:GetGroups}
                     },
                     {
                         path:'others',
