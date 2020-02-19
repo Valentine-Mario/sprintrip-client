@@ -12,9 +12,17 @@ li{
 a{
     color: black;
 }
-.navigation{
-    width:100%;
+
+a:hover {
+    cursor: pointer;
+    color: white;
 }
+
+.navigation{
+    width:86.4%;
+    margin-right: 40px;
+}
+
 .active{
-    background-color: rgb(92, 151, 92);
+    background-color: rgb(139, 236, 139);
 }

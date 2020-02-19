@@ -1,10 +1,6 @@
 <app-header></app-header>
+<div class="nav1"><app-navigation></app-navigation></div>
 <div class="container">
-    <div>
-       <app-navigation></app-navigation>
-       <div>
-        
-       
         <form>
             <div class="form-row align-items-center">
              
@@ -12,16 +8,13 @@
                 <label class="sr-only" for="inlineFormInputGroup">From</label>
                 <div class="input-group mb-2">
                   <div class="input-group-prepend">
-                    <div class="input-group-text">@</div>
+                    <div class="input-group-text"><i class="fa fa-map-marker fa-2x" style="color: black"></i></div>
                   </div>
-                  <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Username">
+                  <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="From">
                 </div>
               </div>
-
-
                <div class="col-auto">
                 <div class="input-group mb-2">
-                 
                   <div type="text" class="form-control" id="inlineFormInputGroup">
                       {{children}} Children {{room}} Room {{adult}} Adult
                   </div>
@@ -50,9 +43,7 @@
 
             
               <div>
-                <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                <button type="submit" class="btn-submit btn btn-success mb-2">Book Now</button>
               </div>
           </form>
-</div>
-    </div>
 </div>

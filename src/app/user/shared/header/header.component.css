@@ -3,7 +3,7 @@
 }
 
 .logo {
-    width: 27%;
+    width: 30%;
     float: left;
     height: 40px;
 }
@@ -25,24 +25,16 @@
     color: white;
 }
 
-a:link {
+.nav-link {
     color: white;
 }
 
-a:visited {
-    color: white;
-    text-decoration: underline;
-    text-decoration-color:rgb(33, 122, 33);
-}
-
-a:hover {
+.nav-link:hover {
     color: grey;
-    text-decoration: underline;
-    text-decoration-color:rgb(33, 122, 33);
     cursor: pointer;
 }
 
-a:active{
+.nav-link:active {
     text-decoration: underline;
     text-decoration-color:rgb(33, 122, 33);
 }
@@ -147,4 +139,9 @@ a:active{
 
 .move-right {
     margin-left: 70px;
+}
+
+.item1 {
+    padding-right: 40px;
+    font-weight: normal;
 }

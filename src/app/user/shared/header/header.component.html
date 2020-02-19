@@ -10,28 +10,28 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
-            <li *ngIf="loggedIn" class="nav-item">
+            <li *ngIf="loggedIn" class="nav-item item1">
                 <a routerLink="/user/booking/flight" routerLinkActive="active" class="nav-link">Book </a>
               </li>
-              <li *ngIf="loggedIn" class="nav-item">
+              <li *ngIf="loggedIn" class="nav-item item1">
                 <a routerLink="/user/trips/travellingnow" routerLinkActive="active" class="nav-link" >Trips</a>
               </li>
-              <li *ngIf="loggedIn" class="nav-item">
+              <li *ngIf="loggedIn" class="nav-item item1">
                 <a routerLink="/user/invoice" routerLinkActive="active" class="nav-link">Invoices</a>
               </li>
-              <li *ngIf="loggedIn && user.account_type === 'Business' && !invite_acc" class="nav-item">
+              <li *ngIf="loggedIn && user.account_type === 'Business' && !invite_acc" class="nav-item item1">
                 <a routerLink="/user/setting/group" routerLinkActive="active" class="nav-link" >Company Settings</a>
               </li>
-              <li *ngIf="loggedIn" class="nav-item">
+              <li *ngIf="loggedIn" class="nav-item item1">
                 <a routerLink="/user/reporting" routerLinkActive="active" class="nav-link">Reporting</a>
               </li>
-              <li *ngIf="loggedIn" class="nav-item">
+              <li *ngIf="loggedIn" class="nav-item item1">
                 <a routerLink="/user/payment" routerLinkActive="active" class="nav-link">Pay</a>
               </li>
-              <li *ngIf="loggedIn" class="nav-item">
+              <li *ngIf="loggedIn" class="nav-item item1">
                 <a routerLink="/user/help" routerLinkActive="active" class="nav-link" >Help</a>
               </li>
-              <li *ngIf="loggedIn" class="nav-item dropdown">
+              <li *ngIf="loggedIn" class="nav-item item1 dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <img src="{{user.pics}}" width="30"  class="d-inline-block align-top" height="30" alt="">
                 </a>
