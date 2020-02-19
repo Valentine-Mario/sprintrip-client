@@ -37,7 +37,6 @@ import { FlightsListComponent } from './components/bookings/flights-list/flights
 import { HotelsListComponent } from './components/bookings/hotels-list/hotels-list.component';
 import { VenuesListComponent } from './components/bookings/venues-list/venues-list.component';
 import { TrainsListComponent } from './components/bookings/trains-list/trains-list.component';
-import { OthersListComponent } from './components/bookings/others-list/others-list.component';
 import {GetHotel, GetHotelId} from './resolvers/hotels.resolvers';
 import {GetCars, GetCarId} from './resolvers/cars.resolvers';
 import {getFlights, GetFlightId} from './resolvers/flight.resolvers'
@@ -133,11 +132,6 @@ export const UserRoutes: Routes = [
                     {
                         path:'others',
                         component:OthersComponent,
-                        resolve:{user:GetUser}
-                    },
-                    {
-                        path:"others-list",
-                        component:OthersListComponent,
                         resolve:{user:GetUser}
                     }
                 ]

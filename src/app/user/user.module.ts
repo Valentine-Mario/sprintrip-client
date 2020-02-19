@@ -45,18 +45,25 @@ import { FlightsListComponent } from './components/bookings/flights-list/flights
 import { HotelsListComponent } from './components/bookings/hotels-list/hotels-list.component';
 import { VenuesListComponent } from './components/bookings/venues-list/venues-list.component';
 import { TrainsListComponent } from './components/bookings/trains-list/trains-list.component';
-import { OthersListComponent } from './components/bookings/others-list/others-list.component';
 import {GetHotel, GetHotelId} from './resolvers/hotels.resolvers';
 import {GetCars, GetCarId} from './resolvers/cars.resolvers';
 import {getFlights, GetFlightId} from './resolvers/flight.resolvers'
-import {GetVenueId, GetVenues} from './resolvers/venue.resolvers'
+import {GetVenueId, GetVenues} from './resolvers/venue.resolvers';
+import { FlightDetailComponent } from './components/bookings/flight-detail/flight-detail.component';
+import { HotelDetailComponent } from './components/bookings/hotel-detail/hotel-detail.component';
+import { VenueDetailComponent } from './components/bookings/venue-detail/venue-detail.component';
+import { CarDetailComponent } from './components/bookings/car-detail/car-detail.component';
+import { CruiseDetailComponent } from './components/bookings/cruise-detail/cruise-detail.component';
+import { AirbnbDetailComponent } from './components/bookings/airbnb-detail/airbnb-detail.component';
+import { TrainDetailComponent } from './components/bookings/train-detail/train-detail.component'
 
 @NgModule({
   declarations: [HomeComponent, HeaderComponent, FooterComponent, FlightsComponent,
      HotelsComponent, VenuesComponent, TrainsComponent, CarsComponent, CruiseComponent,
       AirbnbComponent, OthersComponent, CompanySettingComponent, HelpComponent, InvoiceComponent,
       PaymentComponent, ProfileComponent, ReportingComponent, PastTripsComponent, TravellingNowComponent,
-      TripsComponent, UpcomingTripsComponent, NavigationComponent, AboutComponent, ApprovalComponent, SupervisorComponent, GroupsComponent, AirbnbListComponent, CarsListComponent, CruiseListComponent, FlightsListComponent, HotelsListComponent, VenuesListComponent, TrainsListComponent, OthersListComponent
+      TripsComponent, UpcomingTripsComponent, NavigationComponent, AboutComponent, ApprovalComponent, SupervisorComponent, 
+      GroupsComponent, AirbnbListComponent, CarsListComponent, CruiseListComponent, FlightsListComponent, HotelsListComponent, VenuesListComponent, TrainsListComponent, FlightDetailComponent, HotelDetailComponent, VenueDetailComponent, CarDetailComponent, CruiseDetailComponent, AirbnbDetailComponent, TrainDetailComponent
     ],
   imports: [
     CommonModule,
