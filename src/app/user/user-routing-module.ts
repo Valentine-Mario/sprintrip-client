@@ -41,6 +41,13 @@ import {GetHotel, GetHotelId} from './resolvers/hotels.resolvers';
 import {GetCars, GetCarId} from './resolvers/cars.resolvers';
 import {getFlights, GetFlightId} from './resolvers/flight.resolvers'
 import {GetVenueId, GetVenues} from './resolvers/venue.resolvers'
+import { FlightDetailComponent } from './components/bookings/flight-detail/flight-detail.component';
+import { HotelDetailComponent } from './components/bookings/hotel-detail/hotel-detail.component';
+import { VenueDetailComponent } from './components/bookings/venue-detail/venue-detail.component';
+import { CarDetailComponent } from './components/bookings/car-detail/car-detail.component';
+import { CruiseDetailComponent } from './components/bookings/cruise-detail/cruise-detail.component';
+import { AirbnbDetailComponent } from './components/bookings/airbnb-detail/airbnb-detail.component';
+import { TrainDetailComponent } from './components/bookings/train-detail/train-detail.component'
 
 export const UserRoutes: Routes = [
     {
@@ -70,6 +77,11 @@ export const UserRoutes: Routes = [
                         resolve:{user:GetUser, flight:getFlights}
                     },
                     {
+                        path:'flight/:id',
+                        component:FlightDetailComponent,
+                        resolve:{user:GetUser, flight:GetFlightId}
+                    },
+                    {
                         path:'hotel',
                         component:HotelsComponent,
                         resolve:{user:GetUser}
@@ -78,6 +90,11 @@ export const UserRoutes: Routes = [
                         path:'hotel-list',
                         component:HotelsListComponent,
                         resolve:{user:GetUser, hotel:GetHotel}
+                    },
+                    {
+                        path:'hotel/:id',
+                        component:HotelDetailComponent,
+                        resolve:{user:GetUser, hotel:GetHotelId}
                     },
                     {
                         path:'venue',
@@ -90,6 +107,11 @@ export const UserRoutes: Routes = [
                         resolve:{user:GetUser, venue:GetVenues}
                     },
                     {
+                        path:'venue/:id',
+                        component:VenueDetailComponent,
+                        resolve:{user:GetUser, venue:GetVenueId}
+                    },
+                    {
                         path:'train',
                         component:TrainsComponent,
                         resolve:{user:GetUser}
@@ -98,6 +120,11 @@ export const UserRoutes: Routes = [
                         path:'train-list',
                         component:TrainsListComponent,
                         resolve:{user:GetUser, flight:getFlights}
+                    },
+                    {
+                        path:'train/:id',
+                        component:TrainDetailComponent,
+                        resolve:{user:GetUser}
                     },
                     {
                         path:'car',
@@ -110,6 +137,11 @@ export const UserRoutes: Routes = [
                         resolve:{user:GetUser, car:GetCars}
                     },
                     {
+                        path:'car/:id',
+                        component:CarDetailComponent,
+                        resolve:{user:GetUser, car:GetCarId}
+                    },
+                    {
                         path:'cruise',
                         component:CruiseComponent,
                         resolve:{user:GetUser}
@@ -120,6 +152,11 @@ export const UserRoutes: Routes = [
                         resolve:{user:GetUser, venue:GetVenues}
                     },
                     {
+                        path:'cruise/:id',
+                        component:CruiseDetailComponent,
+                        resolve:{user:GetUser}
+                    },
+                    {
                         path:'airbnb',
                         component:AirbnbComponent,
                         resolve:{user:GetUser}
@@ -128,6 +165,11 @@ export const UserRoutes: Routes = [
                         path:"airbnb-list",
                         component:AirbnbListComponent,
                         resolve:{user:GetUser, venue:GetVenues}
+                    },
+                    {
+                        path:'airbnb/:id',
+                        component:AirbnbDetailComponent,
+                        resolve:{user:GetUser}
                     },
                     {
                         path:'others',
