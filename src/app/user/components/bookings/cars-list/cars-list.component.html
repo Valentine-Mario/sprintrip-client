@@ -1,7 +1,7 @@
 <app-header></app-header>
 <div>
     <div align="left">
-     <h2>Choose a venue</h2>
+     <h2>Choose a ride</h2>
     </div> 
     <div style="padding-right: 10px;" align=right>
        USA.Texas
@@ -31,7 +31,7 @@
                             </div>
                             <div>
                                payment per day {{a.price}}
-                                <button class="btn btn-primary">Select</button>
+                                <button routerLink="/user/booking/car/{{a._id}}" class="btn btn-primary">Select</button>
                             </div>
                         </li>
                     </ul>  

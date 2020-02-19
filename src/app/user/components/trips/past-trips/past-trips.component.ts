@@ -22,6 +22,7 @@ spin:Boolean=false
       this.Helpers.infoToast('Token expired', '')
     }
     this.trips=this.ActiveRoute.snapshot.data['trip']
+    console.log(this.trips.body.message.docs)
   }
   paginate(a){
     this.spin=true

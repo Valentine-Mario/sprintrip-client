@@ -1,5 +1,5 @@
 <div>
-    <div *ngIf="trips.body.message.docs >0" class="container">
+    <div *ngIf="trips.body.message.docs.length >0" class="container">
         <div align="center">
             <div *ngIf="spin" class="spinner-grow" role="status">
               <span class="sr-only">Loading...</span>
@@ -28,7 +28,7 @@
       <br/>
       <div align="center"><pagination-controls id="travel_now"  (pageChange)="p = $event; paginate($event)"></pagination-controls></div> 
     </div>
-    <div *ngIf="trips.body.message.docs < 1">
+    <div *ngIf="trips.body.message.docs.length < 1">
         You have no trips now
     </div>
   </div>

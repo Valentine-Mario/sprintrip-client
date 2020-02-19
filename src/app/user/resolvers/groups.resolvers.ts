@@ -10,11 +10,13 @@ export class GetGroups implements Resolve<any> {
   constructor(private data:GroupService, private helpers:HelpersService) {}
     
   resolve(){
-    
+    if(localStorage.getItem('user-token')==undefined){
+      return true
+    }else{
       return this.data.getGroups(1, 15).pipe(catchError((err)=>{
         setTimeout(() => this.helpers.errorToast('Error', 'check internet connection'));
           return empty();
       }))
-    
+    } 
 }
 }
