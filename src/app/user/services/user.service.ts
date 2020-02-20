@@ -20,8 +20,7 @@ export class UserService {
     let listener = window.addEventListener('message', (message) => {
       if(message.data['code']=="00"){
         localStorage.setItem("user-token", message.data['user'])
-       // this.location.back()
-       this.router.navigate(['/user/booking/flight'])
+        this.location.back()
         this.helper.successToast('Login successful', '')
       }
     });
