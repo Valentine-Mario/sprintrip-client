@@ -2,6 +2,10 @@ li{
     list-style: none;
 }
 
+p {
+    color: rgb(83, 81, 81);
+}
+
 .nav1 {
     margin-top: 50px;
 }
@@ -14,7 +18,7 @@ li{
 }
 
 .col-auto {
-    margin: 30px 50px 35px 80px;
+    margin: -10px 50px 0px 80px;
 }
 
 .input-group-text {
@@ -25,6 +29,7 @@ li{
 .form-control {
     width: 360px;
     height: 50px;
+    border-radius: 0px;
 }
 
 .btn-submit {
@@ -36,4 +41,26 @@ li{
     border: 1px solid green;
     float: right;
     margin-right: 50px;
+    margin-top: 30px
+  }
+
+  .multiple-dp {
+      margin-top: 100px
+  }
+
+  .single-col {
+      margin-top: -50px; 
+  }
+
+  .single-col-input {
+      width: 350px;
+  }
+
+  span {
+    color: rgb(83, 81, 81);
+      width: 20px;
+  }
+
+  span:hover {
+      cursor: pointer;
   }

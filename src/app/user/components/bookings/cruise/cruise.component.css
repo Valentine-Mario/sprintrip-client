@@ -1,0 +1,45 @@
+.container {
+    background-color: rgb(139, 236, 139);
+    margin-top: -10px;
+    height: 60vh;
+    border-radius: 10px
+}
+
+.col-auto {
+    margin: 80px 50px 0px 80px
+}
+
+.input-group-text {
+    background-color: white;
+    border-right: white;
+}
+
+.nav1 {
+    margin-top: 50px;
+}
+
+.form-control {
+    width: 360px;
+    height: 50px;
+    border-radius: 0px;
+}
+
+  .btn-submit {
+    width: 150px;
+    height: 50px;
+    border-radius: 7px;
+    background-color: green;
+    color: white;
+    border: 1px solid green;
+    float: right;
+    margin-left: 370px;
+    margin-top: 180px;
+  }
+
+  .form1 {
+      margin-top: -50px;
+  }
+
+  .form-1 {
+      width: 350px;
+  }
