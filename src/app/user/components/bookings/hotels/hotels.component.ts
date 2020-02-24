@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-hotels',
@@ -7,13 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HotelsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 room:number=0
 adult:number=0
 children:number=0
   ngOnInit() {
 
   }
+  search(){
+    this.router.navigate(['/user/booking/hotel-list'])
+  }
+
 
 
   editRoomCount(a){

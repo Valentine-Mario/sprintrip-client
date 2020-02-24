@@ -1,0 +1,89 @@
+<app-header></app-header>
+<div>
+   <div align="left">
+    <h2>Choose a Train</h2>
+   </div> 
+   <div style="padding-right: 10px;" align=right>
+       FRA-LOND, LOND-FRA
+       DEC 13 - DEC 21 . Adult
+       <button (click)="open(content)">Edit search</button>
+   </div>
+</div>
+<div class="container">
+<div class="filter" style="width: 30%;">
+Filter options here
+</div>
+<div class="item-list" style="width: 100%;">
+<div *ngFor="let a of flight.body.message.docs">
+    <div style="padding-bottom: 20px; display: flex;">
+        <div style=" width:60%;">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <img src="{{a.airline.image}}" style="height: 20px; width:20px"/>
+                    <div>19:20-21:55 LHR-FRA
+                        {{a.airline.name}} . {{a.class}}
+                    </div>
+                    <div>
+                        1h 35m
+                        Direct
+                    </div>
+                    <div>
+                        Carry-on bag included
+                    </div>
+                </li>
+
+                <li class="list-group-item">
+                    <img src="{{a.airline.image}}" style="height: 20px; width:20px"/>
+                    <div>19:20-21:55 LHR-FRA
+                        {{a.airline.name}} . {{a.class}}
+                    </div>
+                    <div>
+                        1h 35m
+                        Direct
+                    </div>
+                    <div>
+                        Carry-on bag included
+                    </div>
+                </li>
+              </ul>
+              
+        </div>
+        <div>
+            from
+            {{a.price}}/Adult
+            <button routerLink="/user/booking/train/{{a._id}}" class="btn btn-primary">SELECT</button>
+        </div>
+       
+    </div>
+    
+</div>
+</div>
+</div>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+      
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <form >
+            <div style="display: flex;">
+                <input type="text" class="form-control" placeholder="from"/>
+                <input type="text" class="form-control" placeholder="to"/>
+            </div>
+            <div style="display: flex;">
+                <input type="date" class="form-control"/>
+                <select class="form-control" id="inlineFormCustomSelect">
+                    <option selected>Select</option>
+                    <option value="1">Economy</option>
+                    <option value="2">First Class</option>
+                    <option value="3">Second Class</option>
+                  </select>
+            </div>
+            <button (click)="modal.dismiss('Cross click')" class="btn btn-primary">SEARCH</button>
+        </form>
+    </div>
+    
+  </ng-template>

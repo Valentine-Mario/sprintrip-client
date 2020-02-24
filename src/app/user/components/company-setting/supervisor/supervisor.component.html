@@ -10,7 +10,7 @@
                 
                 <div class="card-body">
                   <h5 class="card-title">{{a.name}} </h5>
-                    <p>{{a.email}}</p> <button (click)="select(a); open(content)">delete</button><button (click)="select(a); open(content3);">Modify</button>
+                    <p>{{a.email}}</p><div *ngIf="!invited_acc"><button (click)="select(a); open(content)">delete</button><button (click)="select(a); open(content3);">Modify</button></div> 
                 </div>
               </div>
             </div>   

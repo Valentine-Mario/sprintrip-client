@@ -1,0 +1,69 @@
+<app-header></app-header>
+<div>
+    <div align="left">
+     <h2>Choose a home</h2>
+    </div> 
+    <div style="padding-right: 10px;" align=right>
+      New York, NY, USA
+        DEC 13 - Dec 21 . 1 adult
+        <button (click)="open(content)">Edit search</button>
+    </div>
+ </div>
+
+ <div class="container">
+    <div style="width:30%;">
+        Filter options
+    </div>
+    <div style="width: 70%;">
+        <div *ngFor="let a of airbnb.body.message.docs">
+            <div style="padding-bottom: 20px; display: flex;">
+                <div style=" width:60%;">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <div>
+                                <img src="https://u.realgeeks.media/siliconbeachhomesinla/AdobeStock_164629068.jpeg" style="height: 150px; width:150px"/>
+                                Free cancellation
+                                free wifi
+                            </div>
+                            <div>
+                                <h3>266 Pope Road</h3>
+                                <p>2 Avenue Of The Americas, 2 10013 New York</p>
+                               <li>2 Beds</li>
+                               <li>1 Bath</li>
+                               <li>1000 Sqft</li>
+                            </div>
+                            <div>
+                               Total price for a month $899
+                                <button routerLink="/user/booking/airbnb/{{a._id}}" class="btn btn-primary">Select</button>
+                            </div>
+                        </li>
+                    </ul>  
+                </div>    
+            </div> 
+        </div>
+    </div>
+    </div>
+
+ <ng-template #content let-modal>
+    <div class="modal-header">
+      
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <form >
+            <div style="display: flex;">
+                <input type="text" class="form-control" placeholder="Address, City, Zip"/>
+                <input type="number" class="form-control" placeholder="number of beds"/>
+            </div>
+            <div style="display: flex;">
+                <input type="date" class="form-control" placeholder="check in"/>
+                <input type="date" class="form-control" placeholder="check out"/>
+               
+            </div>
+            <button (click)="modal.dismiss('Cross click')" class="btn btn-primary">book</button>
+        </form>
+    </div>
+    
+  </ng-template>

@@ -5,6 +5,7 @@ import { Validators, FormGroup, FormBuilder} from '@angular/forms';
 import {HelpersService} from '../../services/helpers.service'
 import {Router} from '@angular/router'
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-header',
@@ -14,7 +15,7 @@ import { ActivatedRoute } from '@angular/router';
 export class HeaderComponent implements OnInit {
 
   constructor(private modalService: NgbModal, private userService:UserService, private ActiveRoute:ActivatedRoute,
-    private helper: HelpersService, private fb: FormBuilder, private router:Router) { }
+    private helper: HelpersService, private fb: FormBuilder, private router:Router, private location:Location) { }
 closeResult:string;
 LoginForm:FormGroup;
 BusinessAccForm:FormGroup;
@@ -23,7 +24,6 @@ spin:Boolean=false
 loggedIn:Boolean;
 loggedOut:Boolean;
 user:any
-invite_acc:Boolean
   ngOnInit() {
     if(localStorage.getItem('user-token')){
       if(this.ActiveRoute.snapshot.data['user'].status==205){
@@ -32,9 +32,7 @@ invite_acc:Boolean
       }
       this.user= this.ActiveRoute.snapshot.data['user'].body.message;
     }
-    if(localStorage.getItem('invite-token')){
-      this.invite_acc=true;
-    }
+   
     if(localStorage.getItem('user-token')){
       this.loggedIn=true;
     }else{
@@ -138,7 +136,7 @@ AccLogin(){
         localStorage.setItem('user-token', response.body['token'])
       }
       this.helper.successToast('Login successful', '')
-      this.router.navigate(['/user/booking/flight'])
+      this.location.back()
     }else{
       this.helper.errorToast('Error', response.body['message'])
     }

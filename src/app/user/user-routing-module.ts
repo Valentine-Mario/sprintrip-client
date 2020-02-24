@@ -30,6 +30,24 @@ import {GetCards} from './resolvers/card.resolvers'
 import { SupervisorComponent } from './components/company-setting/supervisor/supervisor.component';
 import { GroupsComponent } from './components/company-setting/groups/groups.component'
 import {GetGroups} from './resolvers/groups.resolvers'
+import { AirbnbListComponent } from './components/bookings/airbnb-list/airbnb-list.component';
+import { CarsListComponent } from './components/bookings/cars-list/cars-list.component';
+import { CruiseListComponent } from './components/bookings/cruise-list/cruise-list.component';
+import { FlightsListComponent } from './components/bookings/flights-list/flights-list.component';
+import { HotelsListComponent } from './components/bookings/hotels-list/hotels-list.component';
+import { VenuesListComponent } from './components/bookings/venues-list/venues-list.component';
+import { TrainsListComponent } from './components/bookings/trains-list/trains-list.component';
+import {GetHotel, GetHotelId} from './resolvers/hotels.resolvers';
+import {GetCars, GetCarId} from './resolvers/cars.resolvers';
+import {getFlights, GetFlightId} from './resolvers/flight.resolvers'
+import {GetVenueId, GetVenues} from './resolvers/venue.resolvers'
+import { FlightDetailComponent } from './components/bookings/flight-detail/flight-detail.component';
+import { HotelDetailComponent } from './components/bookings/hotel-detail/hotel-detail.component';
+import { VenueDetailComponent } from './components/bookings/venue-detail/venue-detail.component';
+import { CarDetailComponent } from './components/bookings/car-detail/car-detail.component';
+import { CruiseDetailComponent } from './components/bookings/cruise-detail/cruise-detail.component';
+import { AirbnbDetailComponent } from './components/bookings/airbnb-detail/airbnb-detail.component';
+import { TrainDetailComponent } from './components/bookings/train-detail/train-detail.component'
 
 export const UserRoutes: Routes = [
     {
@@ -54,9 +72,29 @@ export const UserRoutes: Routes = [
                         resolve:{user:GetUser}
                     },
                     {
+                        path:'flight-list',
+                        component:FlightsListComponent,
+                        resolve:{user:GetUser, flight:getFlights}
+                    },
+                    {
+                        path:'flight/:id',
+                        component:FlightDetailComponent,
+                        resolve:{user:GetUser, flight:GetFlightId, group:GetGroups}
+                    },
+                    {
                         path:'hotel',
                         component:HotelsComponent,
                         resolve:{user:GetUser}
+                    },
+                    {
+                        path:'hotel-list',
+                        component:HotelsListComponent,
+                        resolve:{user:GetUser, hotel:GetHotel}
+                    },
+                    {
+                        path:'hotel/:id',
+                        component:HotelDetailComponent,
+                        resolve:{user:GetUser, hotel:GetHotelId, group:GetGroups}
                     },
                     {
                         path:'venue',
@@ -64,9 +102,29 @@ export const UserRoutes: Routes = [
                         resolve:{user:GetUser}
                     },
                     {
+                        path:'venue-list',
+                        component:VenuesListComponent,
+                        resolve:{user:GetUser, venue:GetVenues}
+                    },
+                    {
+                        path:'venue/:id',
+                        component:VenueDetailComponent,
+                        resolve:{user:GetUser, venue:GetVenueId, group:GetGroups}
+                    },
+                    {
                         path:'train',
                         component:TrainsComponent,
                         resolve:{user:GetUser}
+                    },
+                    {
+                        path:'train-list',
+                        component:TrainsListComponent,
+                        resolve:{user:GetUser, flight:getFlights}
+                    },
+                    {
+                        path:'train/:id',
+                        component:TrainDetailComponent,
+                        resolve:{user:GetUser, group:GetGroups, flight:GetFlightId}
                     },
                     {
                         path:'car',
@@ -74,14 +132,44 @@ export const UserRoutes: Routes = [
                         resolve:{user:GetUser}
                     },
                     {
+                        path:'car-list',
+                        component:CarsListComponent,
+                        resolve:{user:GetUser, car:GetCars}
+                    },
+                    {
+                        path:'car/:id',
+                        component:CarDetailComponent,
+                        resolve:{user:GetUser, car:GetCarId, group:GetGroups}
+                    },
+                    {
                         path:'cruise',
                         component:CruiseComponent,
                         resolve:{user:GetUser}
                     },
                     {
+                        path:"cruise-list",
+                        component:CruiseListComponent,
+                        resolve:{user:GetUser, venue:GetVenues}
+                    },
+                    {
+                        path:'cruise/:id',
+                        component:CruiseDetailComponent,
+                        resolve:{user:GetUser, group:GetGroups}
+                    },
+                    {
                         path:'airbnb',
                         component:AirbnbComponent,
                         resolve:{user:GetUser}
+                    },
+                    {
+                        path:"airbnb-list",
+                        component:AirbnbListComponent,
+                        resolve:{user:GetUser, venue:GetVenues}
+                    },
+                    {
+                        path:'airbnb/:id',
+                        component:AirbnbDetailComponent,
+                        resolve:{user:GetUser, group:GetGroups}
                     },
                     {
                         path:'others',
