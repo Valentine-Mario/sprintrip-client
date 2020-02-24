@@ -1,27 +1,46 @@
-a:link {
+.nav {
+    position: fixed;
+}
+
+.logo {
+    width: 30%;
+    float: left;
+    height: 40px;
+}
+
+.btn-login {
+    border: 2px solid green;
+    color: green;
+    width: 150px;
+    height: 50px;
+    margin-left: 50px;
+    text-align: center;
+    margin-right: 20px;
+    border-radius: 7px;
+}
+
+.btn-login:hover {
+    background-color: green;
+    border: 2px solid green;
     color: white;
 }
 
-a:visited {
+.nav-link {
     color: white;
-    text-decoration: underline;
-    text-decoration-color:rgb(33, 122, 33);
 }
 
-a:hover {
+.nav-link:hover {
     color: grey;
-    text-decoration: underline;
-    text-decoration-color:rgb(33, 122, 33);
+    cursor: pointer;
 }
 
-a:active{
+.nav-link:active {
     text-decoration: underline;
     text-decoration-color:rgb(33, 122, 33);
 }
 
 .navbar-custom {
     height: 80px;
-    text-align: center;
     background-color: rgb(18, 41, 18);
 }
 
@@ -55,4 +74,74 @@ a:active{
         -moz-transition: left 0.3s ease-in;
         transition: left 0.3s ease-in;
     }
+}
+
+::-webkit-input-placeholder {
+    text-align: center;
+ }
+ 
+ :-moz-placeholder { /* Firefox 18- */
+    text-align: center;  
+ }
+ 
+ ::-moz-placeholder {  /* Firefox 19+ */
+    text-align: center;  
+ }
+ 
+ :-ms-input-placeholder {  
+    text-align: center; 
+ }
+ 
+ .btn-login2 {
+    border: 1px solid green;
+    background-color: green;
+    color: white;
+    width: 300px;
+    height: 50px;
+    text-align: center;
+    border-radius: 7px;
+}
+
+.btn-login2:hover {
+    border: 2px solid green;
+    background-color: green;
+    color: white;
+    width: 300px;
+    height: 50px;
+    text-align: center;
+    border-radius: 7px;
+}
+
+.form-control {
+    border: 1px solid rgb(25, 88, 25);
+    width: 300px;
+}
+
+.text {
+    color: green;
+}
+
+.close {
+    color: rgb(25, 88, 25);
+}
+
+.modal-body {
+    border-radius: 20px;
+}
+
+.modal-body a {
+    color: green;
+}
+
+.modal {
+    border-radius: 10px;
+}
+
+.move-right {
+    margin-left: 70px;
+}
+
+.item1 {
+    padding-right: 40px;
+    font-weight: normal;
 }

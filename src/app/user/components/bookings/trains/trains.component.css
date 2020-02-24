@@ -1,0 +1,46 @@
+.nav1 {
+    margin-top: 50px;
+}
+
+ul{
+    display: flex;
+    padding-top: 30px;
+}
+li{
+    list-style: none;
+    padding-left: 20px;
+}
+
+.container {
+    background-color: rgb(139, 236, 139);
+    margin-top: -10px;
+    height: 60vh;
+    border-radius: 10px
+}
+
+.col-auto {
+    margin: 10px 50px 50px 80px;
+}
+
+.input-group-text {
+    background-color: white;
+    border-right: white;
+}
+
+.form-control {
+    width: 360px;
+    height: 50px;
+    border-radius: 0px;
+}
+
+.btn-submit {
+    width: 150px;
+    height: 50px;
+    border-radius: 7px;
+    background-color: green;
+    color: white;
+    border: 1px solid green;
+    float: right;
+    margin-right: 50px;
+    margin-top: 20px
+  }

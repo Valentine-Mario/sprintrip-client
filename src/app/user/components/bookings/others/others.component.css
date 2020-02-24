@@ -1,0 +1,36 @@
+.container {
+    background-color: rgb(139, 236, 139);
+    margin-top: -10px;
+    height: 60vh;
+    border-radius: 10px
+}
+
+.nav1 {
+    margin-top: 50px;
+}
+
+.options {
+    text-align: center;
+    padding-top: 30px;
+    margin-left: 100px;
+    margin-right: 100px;
+    line-height: 40px;
+    font-weight: normal;
+    font-size: 15px;
+}
+
+textarea {
+    width: 90%;
+    height: 27vh;
+    margin-left: 50px;
+}
+
+.btn-submit {
+    width: 150px;
+    height: 50px;
+    border-radius: 7px;
+    background-color: green;
+    color: white;
+    border: 1px solid green;
+    float: right
+  }
