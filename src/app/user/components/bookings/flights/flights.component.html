@@ -1,8 +1,7 @@
 <app-header></app-header>
+<div class="nav1"><app-navigation></app-navigation></div>
 <div class="container">
-       <app-navigation></app-navigation>
            <div>
-        
             <ul>
                 <li>Round-trip</li>
                 <li >One-way</li>
@@ -10,25 +9,25 @@
             </ul>
 
             <form>
-                <div class="form-row align-items-center">
+                <div class="form-row">
                  
                   <div class="col-auto">
-                    <label class="sr-only" for="inlineFormInputGroup">Username</label>
+                    <label class="sr-only" for="inlineFormInputGroup">From</label>
                     <div class="input-group mb-2">
                       <div class="input-group-prepend">
-                        <div class="input-group-text">@</div>
+                        <div class="input-group-text"><i class="fa fa-plane fa-rotate-90" style="color: black; font-size: 24px;"></i></div>
                       </div>
-                      <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Username">
+                      <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="From">
                     </div>
                   </div>
 
                   <div class="col-auto">
-                    <label class="sr-only" for="inlineFormInputGroup">Username</label>
+                    <label class="sr-only" for="inlineFormInputGroup">To</label>
                     <div class="input-group mb-2">
                       <div class="input-group-prepend">
-                        <div class="input-group-text">@</div>
+                        <div class="input-group-text"><i class="fa fa-plane" style="color: black; font-size: 24px;"></i></div>
                       </div>
-                      <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Username">
+                      <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="To">
                     </div>
                   </div>
                 </div>
@@ -37,7 +36,7 @@
                     <label class="sr-only" for="inlineFormInputGroup">Username</label>
                     <div class="input-group mb-2">
                       <div class="input-group-prepend">
-                        <div class="input-group-text">@</div>
+                        <div class="input-group-text"><i class="fa fa-calendar" style="color: black; font-size: 24px;"></i></div>
                       </div>
                       <input type="date" class="form-control" id="inlineFormInputGroup" placeholder="Username">
                     </div>
@@ -46,11 +45,7 @@
                   <div class="col-auto">
                     <label class="sr-only" for="inlineFormInputGroup">Username</label>
                     <div class="input-group mb-2">
-                      <div class="input-group-prepend">
-                        <div class="input-group-text">@</div>
-                      </div>
-                      <select class="form-control" id="inlineFormCustomSelect">
-                        <option selected>Select</option>
+                      <select class="form1 form-control" id="inlineFormCustomSelect">
                         <option value="1">Economy</option>
                         <option value="2">First Class</option>
                         <option value="3">Second Class</option>
@@ -59,15 +54,17 @@
                   </div>
                 </div>
 
-                <div>
+                <div class="flex-container">
+                <div class="flex-element">
                     <div class="custom-control custom-checkbox mr-sm-2">
                       <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
                       <label class="custom-control-label" for="customControlAutosizing">Direct Flight Only</label>
                     </div>
                   </div>
                   <div>
-                    <button (click)="search()" type="submit" class="btn btn-primary mb-2">Submit</button>
+                    <button (click)="search()" type="submit" class="btn-submit btn btn-success mb-2">Submit</button>
                   </div>
+                </div>
               </form>
     </div>
     

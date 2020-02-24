@@ -1,7 +1,8 @@
 <app-header></app-header>
+<div class="nav1"><app-navigation></app-navigation></div>
 <div class="container">
-    <div>
-       <app-navigation></app-navigation>
+    <div class="options">
+        <p>Personal Assistant &nbsp;&nbsp;  | &nbsp;&nbsp;  Concierge &nbsp;&nbsp;  |  &nbsp;&nbsp; Intepreter &nbsp;&nbsp;  |  &nbsp;&nbsp; Content writer &nbsp;&nbsp;  | &nbsp;&nbsp;  Leadership Coach &nbsp;&nbsp;  | &nbsp;&nbsp;  Consultant &nbsp;&nbsp;  | &nbsp;&nbsp;  Graphics Designer &nbsp;&nbsp;  | &nbsp;&nbsp;  Audio & Visual assistance</p>
     </div>
     <div align="center">
         <span [ngStyle]="{'color':personal_asst === true ? 'rgb(91, 150, 163)' : '#333' }" (click)="show_personal_asst()" style="cursor: pointer;">Personal Assistant</span>|<span [ngStyle]="{'color':concierge === true ? 'rgb(91, 150, 163)' : '#333' }" (click)="show_concierge()" style="cursor: pointer;">Concierge</span>|<span [ngStyle]="{'color':interpreter === true ? 'rgb(91, 150, 163)' : '#333' }" (click)="show_interpreter()" style="cursor: pointer;">Interpreter</span>|<span [ngStyle]="{'color':content_writer === true ? 'rgb(91, 150, 163)' : '#333' }" (click)="show_content_writer()" style="cursor: pointer;">Content Writer</span>
@@ -69,4 +70,9 @@
              <button class="btn btn-primary">Book</button>
          </form> 
      </div>
+    <form>
+        <label>Please give short note what assistance you will require:</label><br>
+        <textarea placeholder="Type your request here"></textarea>
+        <button type="submit" class="btn-submit btn btn-success mb-2">Book Now</button>
+    </form>
 </div>

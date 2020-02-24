@@ -1,10 +1,6 @@
 <app-header></app-header>
+<div class="nav1"><app-navigation></app-navigation></div>
 <div class="container">
-    <div>
-       <app-navigation></app-navigation>
-       <div>
-        
-       
         <form>
             <div class="form-row align-items-center">
              
@@ -12,47 +8,38 @@
                 <label class="sr-only" for="inlineFormInputGroup">From</label>
                 <div class="input-group mb-2">
                   <div class="input-group-prepend">
-                    <div class="input-group-text">@</div>
+                    <div class="input-group-text"><i class="fa fa-map-marker" style="color: black; font-size: 24px"></i></div>
                   </div>
-                  <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Username">
+                  <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="From">
                 </div>
               </div>
-
-
-               <div class="col-auto">
+               <div class="multiple-dp col-auto">
                 <div class="input-group mb-2">
-                 
+                  <div class="input-group-text"><i class="fa fa-user" style="color: black; font-size: 24px"></i></div>
                   <div type="text" class="form-control" id="inlineFormInputGroup">
-                      {{children}} Children {{room}} Room {{adult}} Adult
+                      {{children}} Child {{room}} Room {{adult}} Adult
                   </div>
                 </div>
                 <!-- dont use button here for increment and decrement -->
-                <span (click)="editChildrenCount(1)">+</span>  Children  <span (click)="editChildrenCount(-1)">-</span><br/>
-                <span (click)="editRoomCount(1)">+</span>  Room  <span (click)="editRoomCount(-1)">-</span><br/>
-                <span (click)="editAdultCount(1)">+</span>  Adult  <span (click)="editAdultCount(-1)">-</span>
-
+                <p>Child&nbsp;&nbsp;&nbsp;<span (click)="editChildrenCount(1)">+</span>&nbsp;&nbsp;<span (click)="editChildrenCount(-1)">-</span></p>
+                <p>Room&nbsp;&nbsp;<span (click)="editRoomCount(1)">+</span>&nbsp;&nbsp;<span (click)="editRoomCount(-1)">-</span></p>
+                <p>Adult&nbsp;&nbsp;&nbsp;<span (click)="editAdultCount(1)">+</span>&nbsp;&nbsp;<span (click)="editAdultCount(-1)">-</span></p>
               </div>
              
             </div>
             <div class="form-row align-items-center">
-                <div class="col-auto">
+                <div class="single-col col-auto">
                     <label class="sr-only" for="inlineFormInputGroup">From</label>
                     <div class="input-group mb-2">
                       <div class="input-group-prepend">
-                        <div class="input-group-text">@</div>
+                        <div class="input-group-text"><i class="fa fa-hotel" style="color: black; font-size: 24px;"></i></div>
                       </div>
-                      <input type="date" class="form-control" id="inlineFormInputGroup" placeholder="Username">
+                      <input type="date" class="single-col-input form-control" id="inlineFormInputGroup" placeholder="Username">
                     </div>
                   </div>
-
-              
             </div>
-
-            
               <div>
-                <button (click)="search()" type="submit" class="btn btn-primary mb-2">Submit</button>
+                <button (click)="search()" type="submit" class="btn-submit btn btn-success mb-2">Book Now</button>
               </div>
           </form>
-</div>
-    </div>
 </div>

@@ -1,48 +1,42 @@
 <app-header></app-header>
+<div class="nav1"><app-navigation></app-navigation></div>
 <div class="container">
-    <div>
-       <app-navigation></app-navigation>
-       <form>
-        <div class="form-row align-items-center">
-         
-          <div class="col-auto">
-            <label class="sr-only" for="inlineFormInputGroup">Username</label>
-            <div class="input-group mb-2">
-              <div class="input-group-prepend">
-                <div class="input-group-text">@</div>
-              </div>
-              <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Username">
-            </div>
-          </div>
+            <form>
+                <div class="form-row">
+                 
+                  <div class="col-auto">
+                    <label class="sr-only" for="inlineFormInputGroup">From</label>
+                    <div class="input-group mb-2">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fa fa-map-marker" style="color: black; font-size: 24px;"></i></div>
+                      </div>
+                      <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Pick Up Location">
+                    </div>
+                  </div>
 
-          <div class="col-auto">
-            <label class="sr-only" for="inlineFormInputGroup">Username</label>
-            <div class="input-group mb-2">
-              <div class="input-group-prepend">
-                <div class="input-group-text">@</div>
+                  <div class="col-auto">
+                    <label class="sr-only" for="inlineFormInputGroup">To</label>
+                    <div class="input-group mb-2">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fa fa-map-marker" style="color: black; font-size: 24px;"></i></div>
+                      </div>
+                      <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Drop Off Location">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-row align-items-center">
+                  <div class="form1 col-auto">
+                    <label class="sr-only" for="inlineFormInputGroup">Username</label>
+                    <div class="input-group mb-2">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fa fa-calendar" style="color: black; font-size: 24px;"></i></div>
+                      </div>
+                      <input type="date" class="form-1 form-control" id="inlineFormInputGroup" placeholder="Username">
+                    </div>
+                  </div>
+                
+                    <button click="search()" type="submit" class="btn-submit btn btn-success mb-2">Book Now</button>
               </div>
-              <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Username">
-            </div>
-          </div>
-        </div>
-        <div class="form-row align-items-center">
-          <div class="col-auto">
-            <label class="sr-only" for="inlineFormInputGroup">Username</label>
-            <div class="input-group mb-2">
-              <div class="input-group-prepend">
-                <div class="input-group-text">@</div>
-              </div>
-              <input type="date" class="form-control" id="inlineFormInputGroup" placeholder="Username">
-            </div>
-          </div>
-
-          
-        </div>
-
-       
-          <div>
-            <button (click)="search()" type="submit" class="btn btn-primary mb-2">Submit</button>
-          </div>
-      </form>
-    </div>
+              </form>
+    
 </div>
