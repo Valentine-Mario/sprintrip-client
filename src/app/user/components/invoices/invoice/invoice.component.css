@@ -1,0 +1,37 @@
+.form-row {
+    margin-top: 70px;
+    margin-left: 130px;
+}
+
+ h1 {
+    color: green;
+    margin-left: 200px;
+    margin-top: 120px;
+}
+
+.form-control {
+    width: 200px;
+}
+
+.btn-filter {
+    color: white;
+    background-color: green;
+    border: 1px solid green;
+    border-radius: 5px;
+}
+
+.btn-invoice {
+    color: white;
+    background-color: green;
+    border: 1px solid green;
+    float: right;
+    height: 50px;
+    margin-right: 200px;
+    border-radius: 7px;
+    margin-top: -350px;
+} 
+
+.container {
+    margin-top:-200px;
+    margin-left: 450px;
+}
