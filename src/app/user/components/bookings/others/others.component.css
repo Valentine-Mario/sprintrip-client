@@ -32,5 +32,16 @@ textarea {
     background-color: green;
     color: white;
     border: 1px solid green;
-    float: right
+    float: right;
+    margin-right: 50px;
+    margin-top: 30px;
   }
+
+  .date-field {
+      width: 300px;
+      margin-left: 50px;
+  }
+
+.request-field {
+    height: 17vh;
+}

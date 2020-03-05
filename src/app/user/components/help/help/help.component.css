@@ -1,0 +1,60 @@
+
+.first-section {
+    background-color: green;
+    height: 75vh;
+    color: white;
+    margin-top: 80px;
+    text-align: center;
+}
+
+.input-group {
+    width: 700px;
+    height: 80px;
+}
+
+.form-control {
+    height: 80px;
+    border-radius: 0px;
+}
+
+.input-group-text {
+    border-radius: 0px;
+}
+
+.first-section h5 {
+    float: left;
+    margin-top: 50px;
+    margin-left: 150px;
+}
+
+.welcome {
+    padding-top: 200px
+}
+
+.welcome  p{
+    font-weight: normal;
+}
+
+.section {
+    height: 150px;
+    border-bottom: 2px solid rgb(211, 203, 203);
+}
+
+.section h1{
+    color: green;
+    margin-top: 50px;
+    margin-left: 100px;
+}
+
+.section h5 {
+    margin-top: 20px;
+    margin-left: 100px;
+    color: rgb(182, 170, 170);
+}
+
+.btn-view {
+    float: right;
+    width: 200px;
+    background-color: green;
+    margin-right: 100px;
+}

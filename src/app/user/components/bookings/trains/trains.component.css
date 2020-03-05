@@ -1,5 +1,8 @@
-.nav1 {
-    margin-top: 50px;
+.container {
+    background-color: rgb(139, 236, 139);
+    margin-top: -10px;
+    height: 60vh;
+    border-radius: 10px
 }
 
 ul{
@@ -11,13 +14,6 @@ li{
     padding-left: 20px;
 }
 
-.container {
-    background-color: rgb(139, 236, 139);
-    margin-top: -10px;
-    height: 60vh;
-    border-radius: 10px
-}
-
 .col-auto {
     margin: 10px 50px 50px 80px;
 }
@@ -27,20 +23,36 @@ li{
     border-right: white;
 }
 
+.nav1 {
+    margin-top: 50px;
+}
+
 .form-control {
     width: 360px;
     height: 50px;
     border-radius: 0px;
 }
 
-.btn-submit {
+.form1 {
+    width: 395px;
+}
+
+ .flex-container {
+     display: flex;
+     float: right
+ }
+
+ .flex-element {
+     margin: 10px 35px 0 0;
+  }
+
+  .btn-submit {
     width: 150px;
     height: 50px;
     border-radius: 7px;
     background-color: green;
     color: white;
     border: 1px solid green;
-    float: right;
     margin-right: 50px;
-    margin-top: 20px
+    margin-top: 20px;
   }

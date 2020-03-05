@@ -2,3 +2,28 @@ li{
     list-style: none;
     cursor: pointer;
 }
+
+.container {
+    margin-top: 120px;
+}
+
+.container h1 {
+    color: green;
+    margin-left: 80px;
+}
+
+.main-section {
+    margin-left: 85px;
+    margin-top: 100px;
+    color: rgb(77, 75, 75);
+    height: 40vh;
+}
+
+.small-section {
+    border: 1px solid rgb(163, 159, 159);
+    line-height: 35px;
+}
+
+.large-section {
+    border: 1px solid rgb(163, 159, 159);
+}

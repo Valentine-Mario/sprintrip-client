@@ -1,0 +1,17 @@
+.container {
+    margin-top: 50px;
+}
+
+.btn-add-group {
+    float: right;
+    margin-top: -100px;
+}
+
+h1, h2, h3, h4, h5, label {
+    color: green;
+}
+
+.btn {
+    background-color: rgb(136, 206, 136);
+    border: 1px solid rgb(136, 206, 136);
+}

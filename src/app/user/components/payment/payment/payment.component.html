@@ -1,6 +1,6 @@
 <app-header></app-header>
 <div class="container">
-<h1>Manage Card details</h1><button (click)="open(content)">Add card</button>
+<h2>Manage Card details</h2><button class="btn-add btn btn-success" (click)="open(content)">Add card</button>
 <div *ngIf="cards.body.message.length > 0">
     <div  class="row">
         <div *ngFor="let a of cards.body.message| paginate: {id:'cards', itemsPerPage: 15, currentPage: p}" class="col-lg-4">
@@ -8,7 +8,7 @@
             
             <div class="card-body">
               <p>card number:{{a.card_no}} </p>
-              <button (click)="open(content2); selectCard(a)">delete</button>
+              <button class="btn btn-success" (click)="open(content2); selectCard(a)">delete</button>
             </div>
           </div>
         </div>   
@@ -36,8 +36,8 @@
           <h2>Add card</h2>
           <form [formGroup]="card_form" (ngSubmit)="addCard();">
             <label>Card number</label>
-            <input formControlName="card_no" type="text" placeholder="location" class="form-control">
-            <button [disabled]="card_form.invalid" class="btn btn-primary">Submit</button>
+            <input formControlName="card_no" type="text" placeholder="Enter card number" class="form-control">
+            <button [disabled]="card_form.invalid" class="btn btn-success">Submit</button>
           </form>
     </div>
     
@@ -56,8 +56,8 @@
           </div>
           <h2>Delete card</h2>
          <p>Are you sure you want to delete card?</p>
-         <button (click)="deleteCard()">yes</button>
-         <button (click)="modal.dismiss('Cross click')">no</button>
+         <button class="btn btn-success" (click)="deleteCard()">yes</button>
+         <button class="btn btn-danger" (click)="modal.dismiss('Cross click')">no</button>
     </div>
     
   </ng-template>

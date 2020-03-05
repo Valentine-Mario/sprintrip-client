@@ -16,7 +16,9 @@
 
                   <div class="col-auto">
             <div class="input-group mb-2">
-             
+              <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-user" style="color: black; font-size: 24px;"></i></div>
+              </div>
               <div type="text" class="form-control" id="inlineFormInputGroup">
                   {{children}} Children  {{adult}} Adult
               </div>
@@ -35,17 +37,12 @@
               <div class="input-group-prepend">
                 <div class="input-group-text"><i class="fa fa-calendar" style="color: black; font-size: 24px;"></i></div>
               </div>
-
-          
+              <input type="date" class="date-input" id="inlineFormInputGroup" placeholder="date">
         </div>
-
-        
           <div>
-            <button (click)="search()" type="submit" class="btn-submit btn btn-success mb-2">Submit</button>
-          </div>
-        
+            <button (click)="search()" type="submit" class="btn-submit btn btn-success mb-2">Book Now</button>
+          </div>  
       </div>
         </div>
       </form>
-
 </div>
