@@ -1,17 +1,77 @@
 <app-header></app-header>
-<div>
-   <div align="left">
-    <h2>Choose a flight</h2>
+<div class="container-fluid">
+<div class="section1">
+   <div class="head1" align="left">
+    <h5>Choose a flight</h5>
    </div> 
-   <div style="padding-right: 10px;" align=right>
-       FRA-LOND, LOND-FRA
-       DEC 13 - DEC 21 . Adult
-       <button (click)="open(content)">Edit search</button>
+   <div class="head2" style="padding-right: 10px;" align=right>
+       <p>FRA-LOND, LOND-FRA<br>
+       dec 13 - dec 21 . Adult</p>
    </div>
+   <button class="btn-edit btn btn-light" (click)="open(content)">Edit search</button>
 </div>
 <div class="container">
-<div class="filter" style="width: 30%;">
-Filter options here
+<div class="filter">
+<h6>Travel Policy</h6>
+<form>
+    <div class="checkbox">
+      <label><input type="checkbox" value="">only show "in policy" flight</label>
+    </div>
+  </form><br>
+  <h6>Stops</h6>
+  <form>
+    <div class="checkbox">
+      <label><input type="checkbox" value="">Direct only</label><br>
+      <label><input type="checkbox" value="">Up to 1 stop</label><br>
+      <label><input type="checkbox" value="">Any</label>
+    </div>
+  </form><br>
+  <h6>Cabin class</h6>
+  <form>
+    <div class="checkbox">
+      <label><input type="checkbox" value="">Direct only</label><br>
+      <label><input type="checkbox" value="">Up to 1 stop</label><br>
+      <label><input type="checkbox" value="">Any</label><br>
+      <label><input type="checkbox" value="">Any</label>
+    </div>
+  </form><br>
+  <h6>Travel time</h6><br>
+  <h6>Departure time from Frankfurt Main</h6>
+  <input type="range" min="1" max="100" class="slider" id="myRange">
+  <p><span id="demo"></span></p><br>
+  <h6>Departure time from London</h6>
+  <input type="range" min="1" max="100" class="slider" id="myRange">
+  <p><span id="demo"></span></p><br>
+  <h6>Flight duration</h6>
+  <input type="range" min="1" max="100" class="slider" id="myRange">
+  <p><span id="demo"></span></p><br>
+  <h6>Airports</h6>
+<form>
+    <div class="checkbox">
+      <label><input type="checkbox" value=""> Depart and return from same airport</label>
+    </div>
+  </form><br>
+  <h6>Frankfurt airports</h6>
+  <form>
+    <div class="checkbox">
+      <label><input type="checkbox" value=""> FRA - Frankfurt Main</label><br>
+    </div>
+  </form><br>
+  <h6>London airports</h6>
+  <form>
+    <div class="checkbox">
+      <label><input type="checkbox" value=""> STN - London Stansted</label><br>
+      <label><input type="checkbox" value=""> LHR - London Heathrow</label><br>
+      <label><input type="checkbox" value=""> LCY - London City</label><br>
+      <label><input type="checkbox" value=""> LGW - London Gatwick</label>
+    </div>
+  </form><br>
+  <h6>Baggage</h6>
+  <form>
+    <div class="checkbox">
+      <label><input type="checkbox" value=""> Only show flights with checked baggage included</label><br>
+    </div>
+  </form>
 </div>
 <div class="item-list" style="width: 100%;">
 <div *ngFor="let a of flight.body.message.docs">
@@ -48,14 +108,15 @@ Filter options here
               </ul>
               
         </div>
-        <div>
-            from
-            {{a.price}}/Adult
-            <button routerLink="/user/booking/flight/{{a._id}}" class="btn btn-primary">SELECT</button>
+        <div class="select">
+            <p>From<br>
+            {{a.price}}/Adult</p>
+            <button routerLink="/user/booking/flight/{{a._id}}" class="btn-select btn btn-success">SELECT</button>
         </div>
        
     </div>
     
+</div>
 </div>
 </div>
 </div>
@@ -85,5 +146,5 @@ Filter options here
             <button (click)="modal.dismiss('Cross click')" class="btn btn-primary">SEARCH</button>
         </form>
     </div>
-    
+
   </ng-template>
