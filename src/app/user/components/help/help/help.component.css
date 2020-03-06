@@ -1,4 +1,4 @@
-
+@media (min-width: 768px){
 .first-section {
     background-color: green;
     height: 75vh;
@@ -57,4 +57,44 @@
     width: 200px;
     background-color: green;
     margin-right: 100px;
+}
+}
+
+@media (max-width: 769px){
+    .first-section {
+        background-color: green;
+        height: 75vh;
+        color: white;
+        margin-top: 80px;
+        text-align: center;
+    }
+
+    .section {
+        height: 150px;
+        border-bottom: 2px solid rgb(211, 203, 203);
+        text-align: center;
+        justify-content: center;
+    }
+    
+    .section h1{
+        margin: 20px;
+        color: green;
+        font-size: 1.5rem;
+    }
+    
+    .section h5 {
+        margin-top: 20px;
+        color: rgb(182, 170, 170);
+        font-size: 1rem;
+    }
+    
+    .btn-view {
+        float: right;
+        width: 200px;
+        background-color: green;
+        margin-right: 20px;
+        margin-top: 10px;
+    }
+    
+       
 }

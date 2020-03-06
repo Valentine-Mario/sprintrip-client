@@ -1,28 +1,28 @@
 <app-header></app-header>
-<div style="padding-top: 10px;" class="container">
+<div style="padding-top: 10px;" class="container row">
     <div>
-        <img style="border-radius: 50%; height:50px; width:50px;" src="{{user.body.message.pics}}">
-    </div>
+        <img style="border-radius: 50%; height:100px; width:90px; margin-left: -100px;" src="{{user.body.message.pics}}">
+    </div>&nbsp;&nbsp;
     <div>
-        <h1>{{user.body.message.name}}</h1>
-        <h3>{{user.body.message.email}}</h3>
-        <div *ngIf="!showInviteUser"><button (click)="open(content)">Edit account</button> </div>
+        <h2>{{user.body.message.name}}</h2>
+        <h5>{{user.body.message.email}}</h5>
+        <div *ngIf="!showInviteUser"><button class="btn-account btn1 btn btn-light" (click)="open(content)">Edit account</button> </div>
         <div *ngIf="showInviteUser">
             <h5>Supervisor account</h5>
             {{invitedUser.body.message.name}}
             {{invitedUser.body.message.email}}
             Account limited:{{invitedUser.body.message.limit}}
             <div *ngIf="invitedUser.body.message.limit == 'Sometimes' ">{{invitedUser.body.message.limit_amount}}</div>
-           <button (click)="open(content2)">Edit Supervisor account</button>
+           <button class="btn1 btn btn-light" (click)="open(content2)">Edit Supervisor account</button>
         </div>
             <hr/>
-            <h3>Security</h3>
-            <p>Security is importtant to us, edit password if you feel your account has been compromised</p>
+            <h5>Security</h5>
+            <p>Security is important to us, edit password if you feel your account has been compromised</p>
             <div  *ngIf="!showInviteUser">
-                <button (click)="open(content3)">Edit account password</button>
+                <button class="btn-password btn1 btn btn-light" (click)="open(content3)">Edit account password</button>
             </div>
             <div  *ngIf="showInviteUser">
-                <button (click)="open(content4)"> Edit supervisor password</button>
+                <button class="btn btn1 btn-light" (click)="open(content4)"> Edit supervisor password</button>
             </div>
             <hr/>
             <div>
@@ -30,19 +30,18 @@
                 <div *ngIf="spin_request" class="spinner-grow" role="status">
                     <span class="sr-only">Loading...</span>
                   </div>
-                <button (click)="requestBooking()">Request all booking as pdf</button>
-            </div>
+                <button class="btn1 btn btn-success" (click)="requestBooking()">Request all booking as pdf</button>
+            </div><br><br>
             <div *ngIf="!showInviteUser">
-                <h3>Upload picture</h3>
+                <h5>Upload picture</h5>
                 <div *ngIf="spin_pics" class="spinner-grow" role="status">
                     <span class="sr-only">Loading...</span>
                   </div>
                 <input (change)="setImage($event)" type="file" accept="image/*" class="form-control">
-                <button (click)="uploadImg()">upload</button>
+                <button class="btn-upload btn1 btn btn-light" (click)="uploadImg()">upload</button>
                 <hr/>
-                <button (click)="open(content5)">Change account type</button>
-                <hr/>
-                <button (click)="open(content6)">Delete account</button>
+                <button class="btn-delete btn1 btn-danger btn" (click)="open(content6)">Delete account</button><hr/>
+                <button class="btn btn1 btn-light" (click)="open(content5)">Change account type</button>
             </div>
         </div>
 </div>
@@ -69,7 +68,7 @@
         <label>Email</label>
         <input formControlName="email" type="email" placeholder="input email" class="form-control">
         <br/>
-        <button [disabled]="EditMainForm.invalid">Update</button>
+        <button class="btn btn-success" [disabled]="EditMainForm.invalid">Update</button>
       </form>
     </div>
     <div class="modal-footer">
@@ -95,7 +94,7 @@
         <input formControlName="name" type="text" placeholder="input name" class="form-control">
        
         <br/>
-        <button [disabled]="EditSupervisorAccount.invalid">Update</button>
+        <button class="btn btn-success" [disabled]="EditSupervisorAccount.invalid">Update</button>
       </form>
     </div>
     <div class="modal-footer">
@@ -122,7 +121,7 @@
         <label>New password</label>
         <input formControlName="password" type="password" placeholder="input new password" class="form-control">
         <br/>
-        <button [disabled]="EditMainPassword.invalid">Update</button>
+        <button class="btn btn-success" [disabled]="EditMainPassword.invalid">Update</button>
       </form>
     </div>
     <div class="modal-footer">
@@ -149,7 +148,7 @@
         <label>New password</label>
         <input formControlName="password" type="password" placeholder="input new password" class="form-control">
         <br/>
-        <button [disabled]="EditSupervisorPassword.invalid">Update</button>
+        <button class="btn btn-success" [disabled]="EditSupervisorPassword.invalid">Update</button>
       </form>
     </div>
     <div class="modal-footer">
@@ -176,7 +175,7 @@
             <option value='Business'>Business</option>
             <option value='Personal'>Personal</option>
           </select>
-        <button [disabled]="ChangeAccountType.invalid">Change</button>
+        <button class="btn btn-success" [disabled]="ChangeAccountType.invalid">Change</button>
       </form>
     </div>
     <div class="modal-footer">
@@ -192,13 +191,13 @@
       </button>
     </div>
     <div align="center" class="modal-body">
-      <h3>Edit Pasword</h3>
+      <h3>Edit Password</h3>
       <div align="center">
         <div *ngIf="spin" class="spinner-grow" role="status">
           <span class="sr-only">Loading...</span>
         </div>
-        <button (click)="deleteAcc()">Yes</button>
-        <button (click)="modal.dismiss('Cross click')">No</button>
+        <button class="btn btn-success" (click)="deleteAcc()">Yes</button>&nbsp;&nbsp;
+        <button class="btn-no btn btn-light"(click)="modal.dismiss('Cross click')">No</button>
       </div>
          </div>
     <div class="modal-footer">
