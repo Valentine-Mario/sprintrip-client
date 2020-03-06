@@ -1,3 +1,4 @@
+@media (min-width: 768px){
 .first {
     font-family: 'Poppins', sans-serif;
     height: 130vh;
@@ -70,14 +71,15 @@
 
 .flex-container {
     display: flex;
+    justify-content: center;
 }
 
-.btnt1 {
-    margin: 0 270px 0 360px;
+.bus {
+    margin-left: -100px;
 }
 
-.btnt2 {
-    margin: 0 50px 100px 00px;
+.ent {
+    margin-right: -100px;
 }
 
 .second {
@@ -112,5 +114,94 @@
     height: 100px;
     width:200px;
     margin: 50px 30px 30px 30px;
+}
+}
+
+@media (max-width: 768px){
+    .first {
+        width: 200vw;
+        font-family: 'Poppins', sans-serif;
+        height: 230vh;
+        background-color: rgb(0, 138, 23);
+        color: white;
+        text-align: center;
+        text-transform: capitalize;
+        padding-top: 200px;
+    }
+
+    .text1 {
+        font-weight: normal;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .text1 h2{
+        font-size: 3rem;
+    }
+
+    .text1 p {
+        font-size: 1.5rem;
+        margin-left: 100px;
+        margin-right:100px;
+    }
+
+    .btn {
+        margin: 30px 30px 30px 30px;
+        width: 150px;
+        height: 70px;
+        border-radius: 7px;
+        font-size: 1.3rem;
+    }
+    
+    .btn-demo {
+        background-color: white;
+        border-color: white;
+        color: rgb(2, 53, 2);
+    }
+    
+    .btn-demo:hover {
+        background-color: thistle;
+        border-color: thistle;
+        color: rgb(2, 53, 2);
+    }
+    
+    .btn-demo:active {
+        background-color: white;
+        border-color: white;
+        color: rgb(2, 53, 2);
+    }
+    
+    .btn-start {
+        background-color: rgb(7, 102, 7);
+        border-color: rgb(7, 102, 7);
+    }
+    
+    .btn-start:hover {
+        background-color: green;
+        border-color: green;
+    }
+    .btn-bus {
+        border-color: white;
+        color: white;
+        width: 220px;
+        height: 55px;
+        font-size: 1.5rem;
+    }
+    
+    .btn-ent {
+        border-color: white;
+        color: whitesmoke;
+        width: 220px;
+        height: 55px;
+        font-size: 1.5rem;
+    }
+   
+    .second {
+        display: none;
+    }
+   
+    app-footer {
+        display: none;
+    }
 }
 

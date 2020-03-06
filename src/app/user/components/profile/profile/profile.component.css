@@ -1,0 +1,49 @@
+.container {
+    margin-top: 100px;
+    margin-left: 300px;
+}
+
+.btn1 {
+    color: green;
+    float: right;
+    background-color: transparent;
+}
+
+.btn1:hover {
+    background-color: transparent;
+    border: transparent;
+}
+
+p {
+    color: rgb(209, 61, 61);
+}
+
+.form-control {
+    width: 400px;
+}
+
+.btn-account {
+    margin-top: -60px;
+}
+
+.btn-password {
+    margin-top: -80px;
+}
+
+.btn-upload {
+    margin-top: -40px;
+}
+
+.btn-delete {
+    margin-top: 20px;
+}
+
+h3 {
+    color: green;
+}
+
+.btn-no {
+    border: 1px solid green;
+    color: green;
+    background-color: transparent;
+}

@@ -44,38 +44,6 @@
     background-color: rgb(18, 41, 18);
 }
 
-@media (max-width: 768px) {
-    .collapse {
-        background-color: rgb(18, 41, 18);
-    }
-
-    .navbar-collapse {
-        position: absolute;
-        top: 54px;
-        left: 0;
-        padding-left: 15px;
-        padding-right: 15px;
-        padding-bottom: 15px;
-        width: 100%;
-        background-color: rgb(18, 41, 18);
-    }
-    .navbar-collapse.collapsing {
-        height: auto;
-        -webkit-transition: left 0.3s ease;
-        -o-transition: left 0.3s ease;
-        -moz-transition: left 0.3s ease;
-        transition: left 0.3s ease;
-        left: -100%;
-    }
-    .navbar-collapse.show {
-        left: 0;
-        -webkit-transition: left 0.3s ease-in;
-        -o-transition: left 0.3s ease-in;
-        -moz-transition: left 0.3s ease-in;
-        transition: left 0.3s ease-in;
-    }
-}
-
 ::-webkit-input-placeholder {
     text-align: center;
  }
@@ -144,4 +112,57 @@
 .item1 {
     padding-right: 40px;
     font-weight: normal;
+}
+
+/**Styles particular to large screens**/
+@media (min-width: 769px) {
+    .navbar-toggle {
+        display: none;
+    }
+}
+
+/**Styles particular to small screens**/
+@media (max-width: 768px) {
+    .collapse {
+        background-color: rgb(18, 41, 18);
+    }
+
+    .logo {
+        margin-top: -10px;
+    }
+
+    .navbar-toggle {
+        float: right;
+        background-color: rgb(18, 41, 18);
+        border: 1px solid green;
+        border-radius: 5px;
+        height: 50px;
+        width: 70px;
+    }
+
+    .navbar-collapse {
+        position: absolute;
+        top: 54px;
+        left: 0;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 15px;
+        width: 100%;
+        background-color: rgb(18, 41, 18);
+    }
+    .navbar-collapse.collapsing {
+        height: auto;
+        -webkit-transition: left 0.3s ease;
+        -o-transition: left 0.3s ease;
+        -moz-transition: left 0.3s ease;
+        transition: left 0.3s ease;
+        left: -100%;
+    }
+    .navbar-collapse.show {
+        left: 0;
+        -webkit-transition: left 0.3s ease-in;
+        -o-transition: left 0.3s ease-in;
+        -moz-transition: left 0.3s ease-in;
+        transition: left 0.3s ease-in;
+    }
 }
