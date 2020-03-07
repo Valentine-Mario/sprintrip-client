@@ -100,4 +100,8 @@
     background: white;
     cursor: pointer;
   }
+
+  .btn-success {
+      background-color: green;
+  }
   
