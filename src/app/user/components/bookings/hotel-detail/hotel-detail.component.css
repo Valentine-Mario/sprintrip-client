@@ -1,0 +1,28 @@
+.container {
+    margin-top: 100px;
+    font-weight: normal;
+}
+
+.first-div {
+    font-size: 11px;
+}
+
+.btn-book {
+    background-color: green;
+}
+
+h5 {
+    font-weight: bold;
+}
+
+h1 {
+    color: green;
+}
+
+.column2 {
+    margin-left: 100px;
+}
+
+.price {
+    color: green;
+}

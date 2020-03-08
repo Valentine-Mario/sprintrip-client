@@ -1,0 +1,29 @@
+.container {
+    margin-top: 100px;
+    font-weight: normal;
+    margin-left: 350px;
+}
+
+.first-div {
+    font-size: 11px;
+}
+
+.btn-book {
+    height: 50px;
+    width: 200px;
+    margin-top: -75px;
+    margin-left: 400px;
+    background-color: green;
+}
+
+h5 {
+    font-weight: bold;
+}
+
+h1 {
+    color: green;
+}
+
+.column2 {
+    margin-left: 100px;
+}

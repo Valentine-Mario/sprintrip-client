@@ -17,23 +17,18 @@
             </div>
             <div class="col-md-5">
                 <div class="text py-5">
-                  <h3><a >{{hotels.body.message.name}}</a></h3>
+                  <h5><a >{{hotels.body.message.name}}</a></h5>
                   <p>{{hotels.body.message.description}}</p>
                   <ng-container *ngFor="let a of hotels.body.message.rooms">
                     <div class="project col-md-6 col-lg-4">
                        
                             <div class="img">
                               <!-- <div class="vr"><span>Sale</span></div> -->
-                              <img src="{{a.images}}" class="img-fluid" alt="Colorlib Template">
-                            </div>
-                            <div class="text">
+                              <img src="{{a.images}}" class="img-fluid" style="height: 50%; width: 50%;" alt="Colorlib Template">
                                 <h4 class="price">{{a.price}}</h4>
-
-                              <h3>{{a.type}}</h3>
-                             <button (click)="open(content); select(a)" class="btn btn-primary">book</button>
-                            </div>
-                            
-                          
+                              <p>{{a.type}}</p>
+                             <button (click)="open(content); select(a)" class="btn-book btn btn-success">continue</button>
+                            </div><br>          
                     </div>
 
                   </ng-container>
@@ -75,7 +70,7 @@
             </div>
            </div>
             
-            <button [disabled]="booking_form.invalid" class="btn btn-primary">Book</button>
+            <button [disabled]="booking_form.invalid" class="btn btn-success">Book</button>
         </form>
     </div>
     

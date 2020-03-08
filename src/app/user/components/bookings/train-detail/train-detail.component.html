@@ -1,6 +1,6 @@
 <app-header></app-header>
 <div class="container">
-    <div align="center">
+    <div class="first-div" align="center" style="width: 55%;">
         <ul class="list-group">
             <li class="list-group-item">
                 <img src="{{flight.body.message.airline.image}}" style="height: 20px; width:20px"/>
@@ -9,7 +9,7 @@
                 </div>
                 <div>
                     1h 35m
-                    Direct
+                    <p style="color: green;">Direct</p>
                 </div>
                 <div>
                     Carry-on bag included
@@ -23,41 +23,41 @@
                 </div>
                 <div>
                     1h 35m
-                    Direct
+                    <p style="color: green;">Direct</p>
                 </div>
                 <div>
                     Carry-on bag included
                 </div>
             </li>
           </ul>
-    </div>
+    </div><br><br>
 
-    <div style="display: flex;">
-        <div>
-            London - Milan
-            <h3>Basic Economy</h3>
-            <p>economy</p>
-            <p>1 carry-on bag & personalitem</p>
+    <div class="main-div" style="display: flex;">
+        <div class="column1">
+            London - Milan<br><br>
+            <h5>Basic Economy</h5>
+            <p>Economy</p><br>
+            <p style="color: green;">1 carry-on bag & personal item</p>
             <li>No checked bag include</li>
             <li>No free selection</li>
             <li>No priority boarding included</li>
             <li>Changes: Non-refundable</li>
             <li>Cancellation: Non-refundable</li>
         </div>
-        <div>
-            London - Milan
-            <h3>Basic Economy</h3>
-            <p>economy</p>
-            <p>1 carry-on bag & personalitem</p>
+        <div class="column2">
+            London - Milan<br><br>
+            <h5>Basic Economy</h5>
+            <p>Economy</p><br>
+            <p style="color: green">1 carry-on bag & personal item</p>
             <li>No checked bag include</li>
             <li>No free selection</li>
             <li>No priority boarding included</li>
             <li>Changes: Non-refundable</li>
             <li>Cancellation: Non-refundable</li>
         </div>
-    </div>
+    </div><br><br>
 
-    <h1>{{flight.body.message.price}}</h1> <button (click)="open(content)" class="btn btn-primary">Book</button>
+    <h1>{{flight.body.message.price}}</h1> <button (click)="open(content)" class="btn-book btn btn-success">Continue</button>
 </div>
 
 <ng-template #content let-modal>
@@ -86,7 +86,7 @@
             </div>
            </div>
             
-            <button [disabled]="booking_form.invalid" class="btn btn-primary">Book</button>
+            <button [disabled]="booking_form.invalid" class="btn btn-success">Book</button>
         </form>
     </div>
     

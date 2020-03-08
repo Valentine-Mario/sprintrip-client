@@ -2,19 +2,17 @@
 
 <div class="container">
       <div class="row">
-          <div class="col-md-12 room-wrap">
+          <div class="col-md-7 room-wrap">
             <div class="row">
-              <div class="col-md-7 d-flex">
-                  
+              <div class="col-md-12 d-flex">
                           <img class="img" style="width:100%; height:500px" src="https://i.insider.com/5cbf50dfd1a2f8074406a8b2?width=1136&format=jpeg" alt="Random first slide">
-                     
               </div>
             </div>
         </div>
         <div class="col-md-5">
             <div class="text py-5">
-              <h3>4 night Bahamas Cruise</h3>
-              <p class="pos">Price <span class="price">$900</span></p><button (click)="open(content)">Book</button>
+              <h5>4 night Bahamas Cruise</h5>
+              <p class="pos">Price: <span class="price">$900</span></p><button class="btn btn-success" (click)="open(content)">Book</button>
               <p>Departing from Port Canaveral, United States</p>
             </div>
         </div>
@@ -49,7 +47,7 @@
             </div>
            </div>
             
-            <button [disabled]="booking_form.invalid" class="btn btn-primary">Book</button>
+            <button [disabled]="booking_form.invalid" class="btn btn-success">Book</button>
         </form>
     </div>
     

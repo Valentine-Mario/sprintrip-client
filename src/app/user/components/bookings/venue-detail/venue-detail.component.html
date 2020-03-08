@@ -2,9 +2,9 @@
 
 <div class="container">
       <div class="row">
-          <div class="col-md-12 room-wrap">
+          <div class="col-md-7 room-wrap">
             <div class="row">
-              <div class="col-md-7 d-flex">
+              <div class="col-md-12 d-flex">
                   <ngb-carousel>
                       <ng-template *ngFor="let a of venue.body.message.images" ngbSlide>
                           <img class="img" style="width:100%; height:500px" src="{{a}}" alt="Random first slide">
@@ -15,8 +15,8 @@
         </div>
         <div class="col-md-5">
             <div class="text py-5">
-              <h3>{{venue.body.message.name}}</h3>
-              <p class="pos">Price <span class="price">{{venue.body.message.pricing}}</span></p><button (click)="open(content)">Book</button>
+              <h5>{{venue.body.message.name}}</h5>
+              <p class="pos">Price: <span class="price">{{venue.body.message.pricing}}</span></p><button class="btn btn-success" (click)="open(content)">Book</button>
               <p>{{venue.body.message.description}}</p>
             </div>
         </div>
@@ -38,9 +38,9 @@
           </div>
         
         <form [formGroup]="booking_form" (ngSubmit)="addBooking()">
-            <label>Start date</label>
-            <input formControlName="start_date" type="date"/>
-            <label>End date</label>
+            <label>Start date:&nbsp;</label>
+            <input formControlName="start_date" type="date"/><br>
+            <label>End date:&nbsp;</label>
             <input formControlName="end_date" type="date"/>
            <div *ngIf="hide_group">
             <div *ngIf="!show_group">
@@ -51,7 +51,7 @@
             </div>
            </div>
             
-            <button [disabled]="booking_form.invalid" class="btn btn-primary">Book</button>
+            <button [disabled]="booking_form.invalid" class="btn btn-success">Book</button>
         </form>
     </div>
     
