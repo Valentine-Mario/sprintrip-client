@@ -1,10 +1,12 @@
 .container {
+    font-weight: bold;
     background-color: rgb(139, 236, 139);
     margin-top: -10px;
     height: 60vh;
-    border-radius: 10px
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    opacity: 0.85;
 }
-
 .col-auto {
     margin: 80px 50px 0px 80px
 }
@@ -16,6 +18,8 @@
 
 .nav1 {
     margin-top: 50px;
+    opacity: 0.85;
+    z-index: 7;
 }
 
 .form-control {
