@@ -1,38 +1,117 @@
 <app-header></app-header>
-<div>
-    <div align="left">
-     <h2>Choose a hotel</h2>
-    </div> 
-    <div style="padding-right: 10px;" align=right>
-        New York, NY, USA
-        DEC 13 - DEC 21 . 1 adult
-        <button (click)="open(content)">Edit search</button>
+<div class="container-fluid">
+    <div class="section1">
+       <div class="head1" align="left">
+        <h5>Choose a hotel</h5>
+       </div> 
+       <div class="head2" style="padding-right: 10px;" align=right>
+           <p>FRA-LOND, LOND-FRA<br>
+           dec 13 - dec 21 . Adult</p>
+       </div>
+       <button class="btn-edit btn btn-light" (click)="open(content)">Edit search</button>
     </div>
- </div>
-<div class="container">
+    <div class="container">
 <div style="width:30%;">
-    Filter options
+    <h6>Hotel name</h6>
+    <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text"><i class="fa fa-search" style="color: green; font-size: 24px"></i></div>
+        </div>
+        <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="filter by hotel name">
+      </div><br>
+      <h6>Work trip essentials</h6>
+  <form>
+    <div class="checkbox">
+      <label><input type="checkbox" value=""><span class="checkmark"></span>Free cancellation</label>
+      <label><input type="checkbox" value=""><span class="checkmark"></span>Breakfast included</label>
+    </div>
+  </form><br><br>
+  <h6>Popular amenities</h6>
+  <form>
+    <div class="checkbox">
+      <label><input type="checkbox" value=""><span class="checkmark"></span>Free wifi</label>
+      <label><input type="checkbox" value=""><span class="checkmark"></span>Air conditioning</label>
+      <label><input type="checkbox" value=""><span class="checkmark"></span>24-hour check-in</label>
+      <label><input type="checkbox" value=""><span class="checkmark"></span>Airport shuttle</label>
+      <label><input type="checkbox" value=""><span class="checkmark"></span>Gym</label>
+      <label><input type="checkbox" value=""><span class="checkmark"></span>Parking</label>
+      <label><input type="checkbox" value=""><span class="checkmark"></span>Pool</label>
+      <label><input type="checkbox" value=""><span class="checkmark"></span>Restaurant</label>
+      <label><input type="checkbox" value=""><span class="checkmark"></span>Spa</label>
+      <label><input type="checkbox" value=""><span class="checkmark"></span>Wheelchair accessible</label>
+    </div>
+  </form><br><br>
+  <h6>Exclusive to Sohosale</h6>
+  <form>
+    <div class="checkbox">
+      <label><input type="checkbox" value=""><span class="checkmark"></span>Show only "in policy"</label>
+      <label><input type="checkbox" value=""><span class="checkmark"></span>Booked by my colleague</label>
+      <label><input type="checkbox" value=""><span class="checkmark"></span>Discounted rate</label>
+    </div>
+  </form><br>
+  <h6>Star rating</h6>
+  <form>
+    <div class="checkbox">
+          <label><input type="checkbox" value=""><span class="checkmark"></span></label>
+          <label><input type="checkbox" value=""><span class="checkmark"></span></label>
+          <label><input type="checkbox" value=""><span class="checkmark"></span></label>
+          <label><input type="checkbox" value=""><span class="checkmark"></span></label>
+          <label><input type="checkbox" value=""><span class="checkmark"></span></label>
+          <label><input type="checkbox" value=""><span class="checkmark"></span>Not rated</label>
+    </div>
+  </form><br><br>
+  <h6>Price (per room, per night)</h6>
+  <input type="range" min="1" max="100" class="slider" id="myRange">
+  <p><span id="demo"></span></p><br><br>
+  <h6>Review score</h6>
+  <form>
+    <div class="checkbox">
+      <label><input type="checkbox" value=""><span class="checkmark"></span>Exceptional: 9.5+</label>
+      <label><input type="checkbox" value=""><span class="checkmark"></span>Wonderful: 9+</label>
+      <label><input type="checkbox" value=""><span class="checkmark"></span>Excellent: 8.5+</label>
+      <label><input type="checkbox" value=""><span class="checkmark"></span>Very good: 8+</label>
+      <label><input type="checkbox" value=""><span class="checkmark"></span>Good: 7.5+</label>
+      <label><input type="checkbox" value=""><span class="checkmark"></span>Pleasant: 0-7</label>
+    </div>
+  </form><br>
+  <h6>Accommodation type</h6>
+  <form>
+    <div class="checkbox">
+      <label><input type="checkbox" value=""><span class="checkmark"></span>Aparthotel</label>
+      <label><input type="checkbox" value=""><span class="checkmark"></span>Apartment</label>
+      <label><input type="checkbox" value=""><span class="checkmark"></span>Bed & Breakfast</label>
+      <label><input type="checkbox" value=""><span class="checkmark"></span>Condo Hotel</label>
+      <label><input type="checkbox" value=""><span class="checkmark"></span>Guest House</label>
+      <label><input type="checkbox" value=""><span class="checkmark"></span>Hostel</label>
+      <label><input type="checkbox" value=""><span class="checkmark"></span>Hotel</label>
+      <label><input type="checkbox" value=""><span class="checkmark"></span>Lodge</label>
+      <label><input type="checkbox" value=""><span class="checkmark"></span>Motel</label>
+      <label><input type="checkbox" value=""><span class="checkmark"></span>Other</label>
+      <label><input type="checkbox" value=""><span class="checkmark"></span>Residence</label>
+      <label><input type="checkbox" value=""><span class="checkmark"></span>Vacation Homes</label>
+    </div>
+  </form>
 </div>
-<div style="width: 70%;">
+<div class="main-div" style="width: 70%;">
     <div *ngFor="let a of hotels.body.message.docs">
         <div style="padding-bottom: 20px; display: flex;">
-            <div style=" width:60%;">
+            <div style=" width:90%;">
                 <ul class="list-group">
-                    <li class="list-group-item">
-                        <div>
-                            <img src="{{return_img(a.images)}}" style="height: 120px; width:120px"/>
-                            Free cancellation
-                            free wifi
+                    <li class="list-group-item flex-container">
+                        <div class="image">
+                            <img src="{{return_img(a.images)}}" style="height: 200px; width:200px"/><br>
+                            <p style="color: green;">Free cancellation<br>
+                            free wifi</p>
                         </div>
-                        <div>
-                            <h3>{{a.name}}</h3>
+                        <div class="location">
+                            <h5>{{a.name}}</h5>
                             <p>{{a.location}}</p>
                             <ngb-rating [(rate)]="rate"></ngb-rating>
-                            <p>only 5 rooms left!</p>
+                            <p style="color: green;">only 5 rooms left!</p>
                         </div>
-                         <div>
-                Total price for 14 nights $5,431.59
-                <button routerLink="/user/booking/hotel/{{a._id}}" class="btn btn-primary">see available rooms</button>
+                         <div class="pricing">
+                <p>Total price for 14 nights</p> <h4>$5,431.59</h4>
+                <button routerLink="/user/booking/hotel/{{a._id}}" class="btn-available btn btn-success">see available rooms</button>
             </div>
                     </li>
                   </ul>
@@ -45,7 +124,7 @@
     </div>
 </div>
 </div>
-
+</div>
 
 
 
@@ -68,7 +147,7 @@
                 <input type="date" class="form-control" placeholder="check out"/>
                
             </div>
-            <button (click)="modal.dismiss('Cross click')" class="btn btn-primary">SEARCH</button>
+            <button (click)="modal.dismiss('Cross click')" class="btn btn-success">SEARCH</button>
         </form>
     </div>
     

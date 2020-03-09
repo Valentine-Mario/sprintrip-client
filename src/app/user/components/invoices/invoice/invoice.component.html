@@ -39,21 +39,21 @@
                     <a (click)="getReceiptDetails(a._id)" style="cursor: pointer;">{{a.location}}</a>
                 </div>
                 <pagination-controls id="date"  (pageChange)="p3 = $event;  paginateDateFilter($event)"></pagination-controls>
-                <button (click)="goBack()">go back</button>
+                <button class="btn btn-success" (click)="goBack()">go back</button>
             </div>
             <div *ngIf="loc_filter">
                 <div *ngFor="let a of LocFilterValue['docs']| paginate: {id:'loc', itemsPerPage: 10, currentPage: p4, totalItems: LocFilterValue['total']}">
                     <a (click)="getReceiptDetails(a._id)" style="cursor: pointer;">{{a.location}}</a>
                 </div>
                 <pagination-controls id="loc"  (pageChange)="p4 = $event;  paginateLocFilter($event)"></pagination-controls>
-                <button (click)="goBack()">go back</button>
+                <button class="btn btn-success" (click)="goBack()">go back</button>
             </div>
             
         </div>
 
 
         <!-- invoice object -->
-        <div>
+        <div class="invoice-object">
             <div style="width:70%; padding-left: 10px;">
                 <!-- show if no nvoice has been selected -->
                 <div *ngIf="receiptObject==undefined">Please click an Invoice</div>
@@ -62,12 +62,12 @@
                     {{receiptObject['location']}} ({{receiptObject['date']}})
                     <div class="row">
                     <div *ngFor="let a of receiptObject['images']| paginate: {id:'images', itemsPerPage: 15, currentPage: p2, totalItems:receiptObject['images'].length }" class="col-md-6 col-lg-4 ">
-                        <img style="height:300px;" class="img-fluid" src="{{a}}">
-                        <button (click)="deletePics(a)">remove</button>
+                        <img style="height:300px; width: 100%;" class="img-fluid" src="{{a}}">
+                        <button class="btn btn-success" (click)="deletePics(a)">remove</button>
                     </div>
                     </div>
                     <pagination-controls id="images"  (pageChange)="p2 = $event;"></pagination-controls>
-                    <button (click)="open(content2)">edit invoice</button>
+                    <button class="btn btn-success" (click)="open(content2)">edit invoice</button>
                 </div>
     
             </div>
@@ -100,14 +100,14 @@
           <form [formGroup]="editForm" (ngSubmit)="Edit();">
             <label>Location</label>
             <input formControlName="location" type="text" placeholder="location" class="form-control">
-            <button [disabled]="editForm.invalid" class="btn btn-primary">Submit</button>
+            <button [disabled]="editForm.invalid" class="btn btn-sucess">Submit</button>
           </form>
 
         <h2>Add images</h2>
         <input type="file" (change)="uploadExtra($event)" multiple accept="image/*" class="form-control">
-        <button (click)="addImg();" class="btn btn-primary">Submit</button>
+        <button (click)="addImg();" class="btn btn-success">Submit</button>
         <hr/>
-        <button (click)="open(content3); modal.dismiss('Cross click')">Delete invoice</button>
+        <button class="btn btn-success" (click)="open(content3); modal.dismiss('Cross click')">Delete invoice</button>
     </div>
     
   </ng-template>

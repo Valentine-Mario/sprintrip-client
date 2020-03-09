@@ -1,7 +1,7 @@
 <app-header></app-header>
-<div style="display: flex;" class="container">
-    <a (click)="showPendingTrips()">Pending trips</a>
-    <a (click)="showApprovedTrips()">Approved trips</a>
+<div style="display: flex;" class="main-container container">
+    <a (click)="showPendingTrips()">Pending trips</a>&nbsp;&nbsp;
+    <a (click)="showApprovedTrips()">Approved trips</a>&nbsp;&nbsp;
     <a (click)="showDeclinedTrips()">Declined trips</a>
 </div>
 <div align="center">
@@ -11,10 +11,10 @@
   </div>
 
 
-<div class="container">
+<div class="minor-container container">
     <div *ngIf="showPending">
        <div *ngIf="Trips.body.message.docs.length<1">
-        <p>You have no pending trips</p>
+        <h3>You have no pending trips</h3>
        </div>
        <div *ngIf="Trips.body.message.docs.length > 0">
            <h3>Pending trips</h3>
@@ -51,7 +51,7 @@
 
     <div *ngIf="showApproved">
         <div *ngIf="Trips.body.message.docs.length<1">
-            <p>You have no Approved trips</p>
+            <h3>You have no Approved trips</h3>
            </div>
            <div *ngIf="Trips.body.message.docs.length > 0">
                <h3>Approved trips</h3>
@@ -89,7 +89,7 @@
     <div *ngIf="showDeclined">
        
         <div *ngIf="Trips.body.message.docs.length<1">
-            <p>You have no declined trips</p>
+            <h3>You have no declined trips</h3>
            </div>
            <div *ngIf="Trips.body.message.docs.length > 0">
                <h3>Declined trips</h3>

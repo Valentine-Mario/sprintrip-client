@@ -1,46 +1,48 @@
 <app-header></app-header>
-<div>
-    <div align="left">
-     <h2>Choose a home</h2>
-    </div> 
-    <div style="padding-right: 10px;" align=right>
-      New York, NY, USA
-        DEC 13 - Dec 21 . 1 adult
-        <button (click)="open(content)">Edit search</button>
+<div class="container-fluid">
+    <div class="section1">
+       <div class="head1" align="left">
+        <h5>Choose a cruise</h5>
+       </div> 
+       <div class="head2" style="padding-right: 10px;" align=right>
+           <p>FRA-LOND, LOND-FRA<br>
+           dec 13 - dec 21 . Adult</p>
+       </div>
+       <button class="btn-edit btn btn-light" (click)="open(content)">Edit search</button>
     </div>
- </div>
 
  <div class="container">
     <div style="width:30%;">
         Filter options
     </div>
-    <div style="width: 70%;">
+    <div class="main-div" style="width: 70%;">
         <div *ngFor="let a of airbnb.body.message.docs">
             <div style="padding-bottom: 20px; display: flex;">
-                <div style=" width:60%;">
+                <div style=" width:90%;">
                     <ul class="list-group">
-                        <li class="list-group-item">
-                            <div>
+                        <li class="list-group-item flex-container">
+                            <div class="image">
                                 <img src="https://u.realgeeks.media/siliconbeachhomesinla/AdobeStock_164629068.jpeg" style="height: 150px; width:150px"/>
-                                Free cancellation
-                                free wifi
+                                <p>Free cancellation<br>
+                                free wifi</p>
                             </div>
-                            <div>
-                                <h3>266 Pope Road</h3>
+                            <div class="location">
+                                <h5>266 Pope Road</h5>
                                 <p>2 Avenue Of The Americas, 2 10013 New York</p>
                                <li>2 Beds</li>
                                <li>1 Bath</li>
                                <li>1000 Sqft</li>
                             </div>
-                            <div>
-                               Total price for a month $899
-                                <button routerLink="/user/booking/airbnb/{{a._id}}" class="btn btn-primary">Select</button>
+                            <div class="pricing">
+                               Total price for a month <h4>$899</h4>
+                                <button routerLink="/user/booking/airbnb/{{a._id}}" class="btn-available btn btn-success">Select</button>
                             </div>
                         </li>
                     </ul>  
                 </div>    
             </div> 
         </div>
+    </div>
     </div>
     </div>
 
@@ -62,8 +64,7 @@
                 <input type="date" class="form-control" placeholder="check out"/>
                
             </div>
-            <button (click)="modal.dismiss('Cross click')" class="btn btn-primary">book</button>
+            <button (click)="modal.dismiss('Cross click')" class="btn btn-success">book</button>
         </form>
     </div>
-    
   </ng-template>

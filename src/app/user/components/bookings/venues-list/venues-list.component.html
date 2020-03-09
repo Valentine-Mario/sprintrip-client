@@ -1,38 +1,144 @@
 <app-header></app-header>
-<div>
-    <div align="left">
-     <h2>Choose a venue</h2>
-    </div> 
-    <div style="padding-right: 10px;" align=right>
-        The Kennison
-        DEC 13
-        <button (click)="open(content)">Edit search</button>
+<div class="container-fluid">
+    <div class="section1">
+       <div class="head1" align="left">
+        <h5>Choose a venue</h5>
+       </div> 
+       <div class="head2" style="padding-right: 10px;" align=right>
+           The kennison<br>
+           dec 13
+       </div>
+       <button class="btn-edit btn btn-light" (click)="open(content)">Edit search</button>
     </div>
- </div>
+
 
  <div class="container">
     <div style="width:30%;">
-        Filter options
+        <h6>Venue name</h6>
+    <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text"><i class="fa fa-search" style="color: green; font-size: 24px"></i></div>
+        </div>
+        <input type="text" class="venue-form form-control" id="inlineFormInputGroup" placeholder="filter by venue name">
+      </div><br>
+      <h6>Date, time and duration</h6>
+    <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text"><i class="fa fa-calendar" style="color: grey; font-size: 24px"></i></div>
+        </div>
+        <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Date">
+      </div><br>
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text"><i class="fa fa-clock-o" style="color: grey; font-size: 24px"></i></div>
+        </div>
+        <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Time">
+      </div><br>
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text"><i class="fa fa-clock-o" style="color: grey; font-size: 24px"></i></div>
+        </div>
+        <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Duration">
+      </div><br><br>
+      <h6>What kind of food do you need?</h6>
+      <form>
+        <div class="checkbox">
+          <label><input type="checkbox" value=""><span class="checkmark"></span>Appetizer only</label>
+          <label><input type="checkbox" value=""><span class="checkmark"></span>Meal only</label>
+          <label><input type="checkbox" value=""><span class="checkmark"></span>Appetizer and Meal</label>
+          <label><input type="checkbox" value=""><span class="checkmark"></span>No food needed</label>
+          <label><input type="checkbox" value=""><span class="checkmark"></span>Bring your own</label>
+        </div>
+      </form><br><br>
+      <h6>How are you paying for drinks?</h6>
+      <form>
+        <div class="checkbox">
+          <label><input type="checkbox" value=""><span class="checkmark"></span>Pay as you go</label>
+          <label><input type="checkbox" value=""><span class="checkmark"></span>No drinks needed</label>
+          <label><input type="checkbox" value=""><span class="checkmark"></span>Bring your own</label>
+          <label><input type="checkbox" value=""><span class="checkmark"></span>Drink package</label>
+        </div>
+      </form><br><br>
+      <h6>Looking for a specific venue type?</h6>
+      <form>
+        <div class="checkbox">
+          <label><input type="checkbox" value=""><span class="checkmark"></span>Activity space</label>
+          <label><input type="checkbox" value=""><span class="checkmark"></span>Bar</label>
+          <label><input type="checkbox" value=""><span class="checkmark"></span>Boat</label>
+          <label><input type="checkbox" value=""><span class="checkmark"></span>General event space</label>
+          <label><input type="checkbox" value=""><span class="checkmark"></span>Hotel</label>
+          <label><input type="checkbox" value=""><span class="checkmark"></span>Raw space</label>
+          <label><input type="checkbox" value=""><span class="checkmark"></span>Restaurant</label>
+        </div>
+      </form><br><br>
+      <h6>Star rating</h6>
+      <form>
+        <div class="checkbox">
+          <label><input type="checkbox" value=""><span class="checkmark"></span></label>
+          <label><input type="checkbox" value=""><span class="checkmark"></span></label>
+          <label><input type="checkbox" value=""><span class="checkmark"></span></label>
+          <label><input type="checkbox" value=""><span class="checkmark"></span></label>
+          <label><input type="checkbox" value=""><span class="checkmark"></span></label>
+          <label><input type="checkbox" value=""><span class="checkmark"></span>Not rated</label>
+        </div>
+      </form><br><br>
+      <h6>Price</h6>
+  <input type="range" min="1" max="100" class="slider" id="myRange">
+  <p><span id="demo"></span></p><br><br>
+  <h6>Review score</h6>
+  <form>
+    <div class="checkbox">
+      <label><input type="checkbox" value=""><span class="checkmark"></span>Exceptional: 9.5+</label>
+      <label><input type="checkbox" value=""><span class="checkmark"></span>Wonderful: 9+</label>
+      <label><input type="checkbox" value=""><span class="checkmark"></span>Excellent: 8.5+</label>
+      <label><input type="checkbox" value=""><span class="checkmark"></span>Very good: 8+</label>
+      <label><input type="checkbox" value=""><span class="checkmark"></span>Good: 7.5+</label>
+      <label><input type="checkbox" value=""><span class="checkmark"></span>Pleasant: 0-7</label>
     </div>
-    <div style="width: 70%;">
+  </form><br><br>
+  <h6>What kind of event are you hosting?</h6>
+      <form>
+        <div class="checkbox">
+          <label><input type="checkbox" value=""><span class="checkmark"></span>Activity-Based Event</label>
+          <label><input type="checkbox" value=""><span class="checkmark"></span>Alumni Function</label>
+          <label><input type="checkbox" value=""><span class="checkmark"></span>Anniversary Party</label>
+          <label><input type="checkbox" value=""><span class="checkmark"></span>Baby Shower</label>
+          <label><input type="checkbox" value=""><span class="checkmark"></span>Bachelor / Bachelorette</label>
+          <label><input type="checkbox" value=""><span class="checkmark"></span>Birthday Party</label>
+          <label><input type="checkbox" value=""><span class="checkmark"></span>Bridal Shower</label>
+          <label><input type="checkbox" value=""><span class="checkmark"></span>Cocktail Party + Meal</label>
+          <label><input type="checkbox" value=""><span class="checkmark"></span>Engagement Party</label>
+          <label><input type="checkbox" value=""><span class="checkmark"></span>Graduation Party</label>
+          <label><input type="checkbox" value=""><span class="checkmark"></span>Happy Hour / Cocktail Party</label>
+          <label><input type="checkbox" value=""><span class="checkmark"></span>Meeting</label>
+          <label><input type="checkbox" value=""><span class="checkmark"></span>Networking Event</label>
+          <label><input type="checkbox" value=""><span class="checkmark"></span>Presentation or Seminar</label>
+          <label><input type="checkbox" value=""><span class="checkmark"></span>Rehearsal Dinner</label>
+          <label><input type="checkbox" value=""><span class="checkmark"></span>Wedding</label>
+          <label><input type="checkbox" value=""><span class="checkmark"></span>Workshop</label>
+          <label><input type="checkbox" value=""><span class="checkmark"></span>Other</label>
+        </div>
+      </form><br>
+    </div>
+    <div class="main-div" style="width: 70%;">
         <div *ngFor="let a of venue.body.message.docs">
             <div style="padding-bottom: 20px; display: flex;">
-                <div style=" width:60%;">
+                <div style=" width:90%;">
                     <ul class="list-group">
-                        <li class="list-group-item">
-                            <div>
-                                <img src="{{return_img(a.images)}}" style="height: 120px; width:120px"/>
-                                Free cancellation
-                                free wifi
+                        <li class="list-group-item flex-container">
+                            <div class="image">
+                                <img src="{{return_img(a.images)}}" style="height: 200px; width:200px"/>
+                                <p style="color: green">Free cancellation<br>
+                                free wifi</p>
                             </div>
-                            <div>
-                                <h3>{{a.name}}</h3>
+                            <div class="location">
+                                <h5>{{a.name}}</h5>
                                 <p>{{a.location}}</p>
                                 <ngb-rating [(rate)]="rate"></ngb-rating>
                             </div>
-                            <div>
-                               payment per day {{a.pricing}}
-                                <button routerLink="/user/booking/venue/{{a._id}}" class="btn btn-primary">Select</button>
+                            <div class="pricing">
+                               <p>payment per day</p> <h4>{{a.pricing}}</h4>
+                                <button routerLink="/user/booking/venue/{{a._id}}" class="btn-available btn btn-success">Select</button>
                             </div>
                         </li>
                       </ul>
@@ -45,7 +151,7 @@
         </div>
     </div>
     </div>
-    
+    </div>
 
  <ng-template #content let-modal>
     <div class="modal-header">
@@ -64,7 +170,7 @@
                 <input type="date" class="form-control" placeholder="date"/>
                
             </div>
-            <button (click)="modal.dismiss('Cross click')" class="btn btn-primary">book</button>
+            <button (click)="modal.dismiss('Cross click')" class="btn btn-success">book</button>
         </form>
     </div>
     

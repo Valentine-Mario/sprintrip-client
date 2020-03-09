@@ -1,4 +1,4 @@
-<div>
+<div class="container">
     <div *ngIf="trips.body.message.docs.length >0" class="container">
         <div align="center">
             <div *ngIf="spin" class="spinner-grow" role="status">
@@ -29,6 +29,6 @@
       <div align="center"><pagination-controls id="travel_now"  (pageChange)="p = $event; paginate($event)"></pagination-controls></div> 
     </div>
     <div *ngIf="trips.body.message.docs.length < 1">
-        You have no trips now
+        <h3>You have no trips now</h3>
     </div>
   </div>
