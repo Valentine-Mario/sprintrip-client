@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, PLATFORM_ID, Inject } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import {UserService} from '../../services/user.service'
 import { Validators, FormGroup, FormBuilder} from '@angular/forms';
 import {HelpersService} from '../../services/helpers.service'
 import {Router} from '@angular/router'
 import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
+import { Location, isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-header',
@@ -15,7 +15,8 @@ import { Location } from '@angular/common';
 export class HeaderComponent implements OnInit {
 
   constructor(private modalService: NgbModal, private userService:UserService, private ActiveRoute:ActivatedRoute,
-    private helper: HelpersService, private fb: FormBuilder, private router:Router, private location:Location) { }
+    private helper: HelpersService, private fb: FormBuilder, private router:Router, private location:Location,
+    @Inject(PLATFORM_ID) private _platformId: Object) { }
 closeResult:string;
 LoginForm:FormGroup;
 BusinessAccForm:FormGroup;
@@ -26,11 +27,20 @@ loggedOut:Boolean;
 user:any
   ngOnInit() {
     if(localStorage.getItem('user-token')){
-      if(this.ActiveRoute.snapshot.data['user'].status==205){
-        this.helper.infoToast('Token expired', this.ActiveRoute.snapshot.data['user'].body.message)
-        this.helper.logoutAndRedirect()
+      this.user=this.ActiveRoute.snapshot.data['user'].body.message
+      console.log(this.user)
+      if(this.user.status==205){
+        this.helper.infoToast('Token expired', '')
+        if(this.location.isCurrentPathEqualTo('/')==true){
+          localStorage.clear()
+          location.reload()
+        }else{
+          this.helper.logoutAndRedirect()
+        }
+      }else{
+        this.user= this.ActiveRoute.snapshot.data['user'].body.message;
+
       }
-      this.user= this.ActiveRoute.snapshot.data['user'].body.message;
     }
    
     if(localStorage.getItem('user-token')){
@@ -68,8 +78,12 @@ user:any
   }
   logout(){
     localStorage.clear();
-    this.router.navigate([''])
     this.helper.infoToast('', 'Logout successful')
+    if(this.location.isCurrentPathEqualTo('/')==true){
+      location.reload()
+    }else{
+      this.router.navigate([''])
+    }
   }
   AddPersonalAcc(){
     var formData= this.UserAccForm.value;
@@ -136,7 +150,14 @@ AccLogin(){
         localStorage.setItem('user-token', response.body['token'])
       }
       this.helper.successToast('Login successful', '')
-      this.location.back()
+      if(this.location.isCurrentPathEqualTo('/')==true){
+        this.router.navigate(['/user/booking/flight'])
+      }else{
+        if(isPlatformBrowser(this._platformId)){
+          location.reload();
+        }
+      }
+      //this.location.back()
     }else{
       this.helper.errorToast('Error', response.body['message'])
     }

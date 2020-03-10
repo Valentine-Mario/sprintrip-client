@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
+import { Injectable, PLATFORM_ID, Inject} from '@angular/core';
 import {AppEndpoint} from '../endpoint'
 import { HttpClient } from '@angular/common/http';
 import {HttpHeaders} from '@angular/common/http';
 import { HelpersService } from './helpers.service'
-import { Location } from '@angular/common';
+import { Location, isPlatformBrowser} from '@angular/common';
 import {Router} from '@angular/router'
 
 
@@ -12,18 +12,26 @@ import {Router} from '@angular/router'
 })
 export class UserService {
 
-  constructor(private http:HttpClient, private helper:HelpersService, private location:Location,
+  constructor( @Inject(PLATFORM_ID) private _platformId: Object, private http:HttpClient, private helper:HelpersService, private location:Location,
     private router:Router) { }
 
   google_register(){
-    window.open(AppEndpoint.API_ENDPOINT+'/user/googleadd',"mywindow","location=1,status=1,scrollbars=1, width=800,height=800")
+    if(isPlatformBrowser(this._platformId)){
+      window.open(AppEndpoint.API_ENDPOINT+'/user/googleadd',"mywindow","location=1,status=1,scrollbars=1, width=800,height=800")
     let listener = window.addEventListener('message', (message) => {
       if(message.data['code']=="00"){
         localStorage.setItem("user-token", message.data['user'])
-        this.location.back()
+         if(this.location.isCurrentPathEqualTo('/')==true){
+        this.router.navigate(['/user/booking/flight'])
+      }else{
+        if(isPlatformBrowser(this._platformId)){
+          location.reload();
+        }
+      }
         this.helper.successToast('Login successful', '')
       }
     });
+    }
    }
 
    create_user(data){
