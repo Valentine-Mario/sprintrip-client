@@ -3,10 +3,11 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import {UserService} from '../../services/user.service'
 import { Validators, FormGroup, FormBuilder} from '@angular/forms';
 import {HelpersService} from '../../services/helpers.service'
-import {Router} from '@angular/router'
-import { ActivatedRoute } from '@angular/router';
 import { Location, isPlatformBrowser } from '@angular/common';
-
+import {
+  Router,
+  ActivatedRoute
+} from '@angular/router';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -16,7 +17,9 @@ export class HeaderComponent implements OnInit {
 
   constructor(private modalService: NgbModal, private userService:UserService, private ActiveRoute:ActivatedRoute,
     private helper: HelpersService, private fb: FormBuilder, private router:Router, private location:Location,
-    @Inject(PLATFORM_ID) private _platformId: Object) { }
+    @Inject(PLATFORM_ID) private _platformId: Object) { 
+      
+    }
 closeResult:string;
 LoginForm:FormGroup;
 BusinessAccForm:FormGroup;
