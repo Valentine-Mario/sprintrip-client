@@ -34,9 +34,8 @@
     cursor: pointer;
 }
 
-.nav-link:active {
-    text-decoration: underline;
-    text-decoration-color:rgb(33, 122, 33);
+.active {
+    border-bottom: 2.5px solid green;
 }
 
 .navbar-custom {

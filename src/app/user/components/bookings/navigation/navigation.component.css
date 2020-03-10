@@ -19,8 +19,9 @@ a:hover {
 }
 
 .navigation{
-    width:86.4%;
+    width:87.47%;
     margin-right: 40px;
+    font-weight: bold;
 }
 
 .active{
