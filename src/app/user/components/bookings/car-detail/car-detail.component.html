@@ -8,7 +8,7 @@
       <div class="col-md-5">
         <div class="text py-5">
           <h3><a>{{cars.body.message.name}}</a></h3>
-         <span class="price">{{cars.body.message.price}}</span><button (click)="open(content)">Book</button>
+         <span class="price">{{cars.body.message.price}}</span><button class="btn btn-success" (click)="open(content)">Book</button>
           <p>{{cars.body.message.description}}</p>
         </div>
     </div> 
@@ -32,7 +32,7 @@
         
         <form [formGroup]="booking_form" (ngSubmit)="addBooking()">
             <label>Start date</label>
-            <input formControlName="start_date" type="date"/>
+            <input formControlName="start_date" type="date"/><br>
             <label>End date</label>
             <input formControlName="end_date" type="date"/>
             <label>quantity</label>

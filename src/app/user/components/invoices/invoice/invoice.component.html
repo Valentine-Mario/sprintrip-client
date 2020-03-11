@@ -1,22 +1,26 @@
 <app-header></app-header>
+<div class="container-fluid flex-container">
+  <div>
 <h1>Invoice</h1>
-<div class="form-row flex-column">
-    <div class="first">
+  </div>
+    <div class="input">
     <form [formGroup]="filter_loc_form" (ngSubmit)="filterViaLocation()">
         <p>Filter by location</p>
         <input formControlName="loc" type="text" class="form-control"/>
         <button class="btn-filter" [disabled]="filter_loc_form.invalid">Filter</button>
     </form>
     </div><br>
-    <div class="second">
+    <div class="input">
     <form [formGroup]="filter_date_form" (ngSubmit)="filterViaDate()">
         <p>Filter by date</p>
         <input formControlName="date" type="date" class="form-control"/>
         <button class="btn-filter" [disabled]="filter_date_form.invalid">Filter</button>
     </form>
     </div>
+    <div>
+  <button class="btn-invoice" (click)="open(content)">Add more invoice</button>
+  </div>
 </div>
-<button class="btn-invoice" (click)="open(content)">Add more invoice</button>
 
 <div align="center">
     <div *ngIf="spin" class="spinner-grow" role="status">
@@ -25,8 +29,8 @@
   </div>
 
   <div *ngIf="receipt.body.message.docs.length>0">
-    <div class="container" style="display: flex;">
-        <div style="width:30%;">
+    <div class="invoice-location container">
+        <div>
            <b>Invoice Location</b> 
             <div *ngIf="init">
                 <div *ngFor="let a of receipt.body.message.docs| paginate: {id:'receipt', itemsPerPage: 10, currentPage: p, totalItems: receipt.body.message.total}">
@@ -54,7 +58,7 @@
 
         <!-- invoice object -->
         <div class="invoice-object">
-            <div style="width:70%; padding-left: 10px;">
+            <div>
                 <!-- show if no nvoice has been selected -->
                 <div *ngIf="receiptObject==undefined">Please click an Invoice</div>
                 <!-- show when invoice is selected -->
@@ -62,7 +66,7 @@
                     {{receiptObject['location']}} ({{receiptObject['date']}})
                     <div class="row">
                     <div *ngFor="let a of receiptObject['images']| paginate: {id:'images', itemsPerPage: 15, currentPage: p2, totalItems:receiptObject['images'].length }" class="col-md-6 col-lg-4 ">
-                        <img style="height:300px; width: 100%;" class="img-fluid" src="{{a}}">
+                        <img style="height:100%; width: 100%;" class="img-fluid" src="{{a}}">
                         <button class="btn btn-success" (click)="deletePics(a)">remove</button>
                     </div>
                     </div>

@@ -26,7 +26,7 @@
                   <h5 class="card-title">{{a.type}} </h5>
                     <small>Start: {{a.start_date| date: 'dd/MM/yyyy'}} end :{{a.end_date| date: 'dd/MM/yyyy'}}</small>
                     <p>Duration:{{a.duration}}</p> 
-                    <p>Price:$ {{a.price| number}}</p>
+                    <p>Price:<b class="price">${{a.price| number}}</b></p>
                     <p *ngIf="a.group">Group: {{a.group.name}}</p>
                     <p *ngIf="a.pending == true">Status: <span style="color:greenyellow;">pending</span></p>
                     <div *ngIf="a.declined == true">
@@ -63,7 +63,7 @@
                       <h5 class="card-title">{{a.type}} </h5>
                         <small>Start: {{a.start_date| date: 'dd/MM/yyyy'}} end :{{a.end_date| date: 'dd/MM/yyyy'}}</small>
                         <p>Duration:{{a.duration}}</p> 
-                        <p>Price:$ {{a.price| number}}</p>
+                        <p>Price:<b class="price">${{a.price| number}}</b></p>
                         <p *ngIf="a.group">Group: {{a.group.name}}</p>
                         <p *ngIf="a.pending == true">Status: <span style="color:greenyellow;">pending</span></p>
                         <div *ngIf="a.declined == true">
@@ -101,7 +101,7 @@
                       <h5 class="card-title">{{a.type}} </h5>
                         <small>Start: {{a.start_date| date: 'dd/MM/yyyy'}} end :{{a.end_date| date: 'dd/MM/yyyy'}}</small>
                         <p>Duration:{{a.duration}}</p> 
-                        <p>Price:$ {{a.price| number}}</p>
+                        <p>Price:<b class="price">${{a.price| number}}</b></p>
                         <p *ngIf="a.group">Group: {{a.group.name}}</p>
                         <p *ngIf="a.pending == true">Status: <span style="color:greenyellow;">pending</span></p>
                         <div *ngIf="a.declined == true">
