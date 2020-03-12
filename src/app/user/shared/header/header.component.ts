@@ -35,7 +35,9 @@ user:any
         this.helper.infoToast('Token expired', '')
         if(this.location.isCurrentPathEqualTo('/')==true){
           localStorage.clear()
+          if(isPlatformBrowser(this._platformId)){
           location.reload()
+          }
         }else{
           this.helper.logoutAndRedirect()
         }
