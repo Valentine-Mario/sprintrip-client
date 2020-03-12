@@ -35,7 +35,7 @@
         
         <form [formGroup]="booking_form" (ngSubmit)="addBooking()">
             <label>Start date</label>
-            <input formControlName="start_date" type="date"/>
+            <input formControlName="start_date" type="date"/><br>
             <label>End date</label>
             <input formControlName="end_date" type="date"/>
            <div *ngIf="hide_group">

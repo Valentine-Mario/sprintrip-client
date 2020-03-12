@@ -12,7 +12,7 @@
         <div class="col-md-5">
             <div class="text py-5">
               <h3>266 Pope Road</h3>
-              <p class="pos">Price: <span class="price">$900</span></p><button class="btn btn-sucess" (click)="open(content)">Book</button>
+              <p class="pos">Price: <span class="price">$900</span></p><button class="btn btn-success" (click)="open(content)">Book</button>
               <p>2 Avenue Of The Americas, 2 10013 New York</p>
             </div>
         </div>
@@ -35,7 +35,7 @@
         
         <form [formGroup]="booking_form" (ngSubmit)="addBooking()">
             <label>Start date</label>
-            <input formControlName="start_date" type="date"/>
+            <input formControlName="start_date" type="date"/><br>
             <label>End date</label>
             <input formControlName="end_date" type="date"/>
            <div *ngIf="hide_group">

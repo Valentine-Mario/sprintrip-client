@@ -14,3 +14,8 @@ a{
 h3 {
     font-weight: normal;
 }
+
+.price {
+    font-size: 20px;
+    color: green;
+}
