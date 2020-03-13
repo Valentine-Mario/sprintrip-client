@@ -1,54 +1,54 @@
 <app-header></app-header>
 <div class="container">
-    <div class="first-div" align="center" style="width: 55%;">
+    <div class="first-div" align="center">
         <ul class="list-group">
-            <li class="list-group-item">
+            <li class="flex-container list-group-item">
                 <img src="{{flight.body.message.airline.image}}" style="height: 20px; width:20px"/>
-                <div>19:20-21:55 LHR-FRA
-                    {{flight.body.message.airline.name}} . {{flight.body.message.class}}
+                <div class="date">19:20-21:55 LHR-FRA<br>
+                    <p class="message">{{flight.body.message.airline.name}} . {{flight.body.message.class}}</p>
                 </div>
                 <div>
                     1h 35m
                     <p style="color: green;">Direct</p>
                 </div>
-                <div>
+                <div class="bag">
                     Carry-on bag included
                 </div>
             </li>
         
-            <li class="list-group-item">
+            <li class="flex-container list-group-item">
                 <img src="{{flight.body.message.airline.image}}" style="height: 20px; width:20px"/>
-                <div>19:20-21:55 LHR-FRA
-                    {{flight.body.message.airline.name}} . {{flight.body.message.class}}
+                <div class="date">19:20-21:55 LHR-FRA
+                    <p class="message">{{flight.body.message.airline.name}} . {{flight.body.message.class}}</p>
                 </div>
                 <div>
                     1h 35m
                     <p style="color: green;">Direct</p>
                 </div>
-                <div>
+                <div class="bag">
                     Carry-on bag included
                 </div>
             </li>
           </ul>
     </div><br><br>
 
-    <div class="main-div" style="display: flex;">
+    <div class="main-div">
         <div class="column1">
             London - Milan<br><br>
             <h5>Basic Economy</h5>
-            <p>Economy</p><br>
-            <p style="color: green;">1 carry-on bag & personal item</p>
+            Economy
+            <li style="color: green;">1 carry-on bag & personal item</li>
             <li>No checked bag include</li>
             <li>No free selection</li>
             <li>No priority boarding included</li>
             <li>Changes: Non-refundable</li>
             <li>Cancellation: Non-refundable</li>
-        </div>
+        </div><br><br>
         <div class="column2">
             London - Milan<br><br>
             <h5>Basic Economy</h5>
-            <p>Economy</p><br>
-            <p style="color: green">1 carry-on bag & personal item</p>
+            Economy
+            <li style="color: green">1 carry-on bag & personal item</li>
             <li>No checked bag include</li>
             <li>No free selection</li>
             <li>No priority boarding included</li>
@@ -58,6 +58,7 @@
     </div><br><br>
 
     <h1>{{flight.body.message.price}}</h1> <button (click)="open(content)" class="btn-book btn btn-success">Continue</button>
+    <button (click)="open(content)" class="btn-mobile-book btn btn-success">{{flight.body.message.price}}</button>
 </div>
 
 <ng-template #content let-modal>

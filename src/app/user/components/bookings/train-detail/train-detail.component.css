@@ -1,29 +1,112 @@
-.container {
-    margin-top: 100px;
-    font-weight: normal;
-    margin-left: 350px;
-}
-
-.first-div {
-    font-size: 11px;
-}
-
-.btn-book {
-    height: 50px;
-    width: 200px;
-    margin-top: -75px;
-    margin-left: 400px;
-    background-color: green;
-}
-
-h5 {
-    font-weight: bold;
-}
-
-h1 {
-    color: green;
-}
-
-.column2 {
-    margin-left: 100px;
-}
+@media screen and (min-width: 768px){
+    .container {
+        margin-top: 100px;
+        font-weight: normal;
+        margin-left: 350px;
+    }
+    
+    .first-div {
+        font-size: 11px;
+        width: 55%;
+    }
+    
+    .flex-container {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .date {
+        margin-right: 100px;
+    }
+    
+    .bag {
+        margin-left: 100px;
+    }
+    
+    .main-div {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .btn-book {
+        height: 50px;
+        width: 200px;
+        margin-top: -75px;
+        margin-left: 400px;
+        background-color: green;
+    }
+    
+    .btn-mobile-book {
+        display: none;
+    }
+    
+    .message {
+        color: rgb(168, 159, 159);
+        font-size: 9px;
+    }
+    
+    h5 {
+        font-weight: bold;
+    }
+    
+    h1 {
+        color: green;
+    }
+    
+    .column2 {
+        margin-left: 100px;
+    }
+    }
+    
+    @media screen and (max-width: 768px){
+        .container {
+            font-size: 9px;
+            margin-top: 100px;
+        }
+    
+        .flex-container {
+            display: flex;
+            flex-direction: row;
+            font-size: 8.5px;
+        }
+    
+        .first-div {
+            width: 100%;
+        }
+    
+        .message {
+            color: rgb(168, 159, 159);
+            font-size: 8.5px;
+        }
+    
+        .date {
+            margin-right: 5px;
+        }
+    
+        .bag {
+            margin-left: 5px;
+        }
+    
+        .main-div {
+            display: flex;
+            flex-direction: column;
+            margin-left: 100px;
+        }
+    
+        h5 {
+            font-size: 10px;
+        }
+    
+        .btn-book {
+            display: none;
+        }
+    
+        h1 {
+            display: none;
+        }
+    
+        .btn-mobile-book {
+            background-color: green;
+            width: 100%;
+        }
+    }

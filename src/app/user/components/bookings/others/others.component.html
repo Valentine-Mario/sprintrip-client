@@ -17,6 +17,7 @@ right:0">
         <span [ngStyle]="{'color':graphic_designer === true ? 'rgb(91, 150, 163)' : '#333' }" (click)="show_graphic_designer()" style="cursor: pointer;">&nbsp;&nbsp;Graphic Designer&nbsp;&nbsp;</span>|<span [ngStyle]="{'color':audio_visual_asst === true ? 'rgb(91, 150, 163)' : '#333' }" (click)="show_audio_video_asst()" style="cursor: pointer;">&nbsp;&nbsp;Audio & Visual Assistance</span>
     </div>
 
+    <div class="main-div">
     <div *ngIf="personal_asst">
        What kind of consultant service do you need?
        <form>
@@ -75,5 +76,6 @@ right:0">
              <textarea placeholder="type in your requrest here..." class="form-control"></textarea>
              <button type="submit" class="btn-submit btn btn-success mb-2">Book Now</button>
          </form> 
+     </div>
      </div>
 </div>

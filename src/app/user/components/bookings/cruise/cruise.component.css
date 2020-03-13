@@ -1,3 +1,4 @@
+@media screen and (min-width: 768px){
 .container {
     font-weight: bold;
     background-color: rgb(139, 236, 139);
@@ -12,10 +13,29 @@
     margin: 80px 50px 0px 80px
 }
 
+i {
+    color: black;
+    font-size: 24px;
+}
+
 .input-group-text {
     background-color: white;
     border-right: white;
 }
+
+.multi-dropdown {
+    color: rgb(139, 236, 139);
+}
+
+.multi-dropdown:hover {
+    color: rgb(90, 81, 81)
+}
+
+span {
+    color: rgb(168, 167, 167);
+      width: 20px;
+    cursor: pointer;
+  }
 
 .nav1 {
     margin-top: 50px;
@@ -50,3 +70,114 @@
     height: 50px;
     border-radius: 0px;
   }
+}
+
+@media screen and (max-width: 768px){
+    .container {
+        font-weight: bold;
+        background-color: rgb(139, 236, 139);
+        margin-top: -10px;
+        height: 55vh;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        opacity: 0.85;
+        width: 85%;
+        padding-left: 10px;
+    }
+    
+    form {
+        padding-top: 50px;
+      margin-left: 25px;
+    }
+    
+    ul{
+        display: flex;
+        padding-top: 30px;
+        font-size: 10px;
+    }
+    li{
+        list-style: none;
+        padding-left: 20px;
+    }
+    
+    .col-auto {
+        margin: 5px 5px 20px 5px;
+    }
+    
+    .input-group-text {
+        background-color: white;
+        border-right: white;
+    }
+    
+    .nav1 {
+        margin-top: 50px;
+        opacity: 0.85;
+        z-index: 7;
+    }
+    
+    i {
+      color: black;
+      font-size: 15px;
+    }
+    
+    .form-control {
+        width: 200px;
+        height: 30px;
+        border-radius: 0px;
+    }
+
+    .date-input {
+        width: 185px;
+        height: 30px;
+        border-radius: 0px;
+    }
+    
+    p {
+        font-size: 12px;
+    }
+
+    .form1 {
+        width: 240px;
+        height: 30px;
+    }
+    
+     .flex-container {
+         display: flex;
+         float: right;
+         margin-top: 30px;
+     }
+    
+     .flex-element {
+         margin: 10px 35px 0 0;
+      }
+    
+      .btn-submit {
+        width: 150px;
+        height: 50px;
+        border-radius: 7px;
+        background-color: green;
+        color: white;
+        border: 1px solid green;
+      }
+
+      .multi-dropdown {
+        color: rgb(139, 236, 139);
+        font-size: 12px;
+    }
+    
+    .multi-dropdown:hover {
+        color: rgb(90, 81, 81);
+        font-size: 12px
+    }
+    
+    span {
+        color: rgb(168, 167, 167);
+        width: 20px;
+        cursor: pointer;
+      }
+
+    .btn-submit {
+       margin-top: 30px;
+       margin-left: 50px;
+    }
+}

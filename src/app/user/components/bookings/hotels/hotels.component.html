@@ -10,45 +10,50 @@ left:0;
 right:0">
 <div class="nav1"><app-navigation></app-navigation></div>
 <div class="container">
-        <form>
-            <div class="form-row align-items-center">
-             
-              <div class="col-auto">
-                <label class="sr-only" for="inlineFormInputGroup">From</label>
-                <div class="input-group mb-2">
-                  <div class="input-group-prepend">
-                    <div class="input-group-text"><i class="fa fa-map-marker" style="color: black; font-size: 24px"></i></div>
-                  </div>
-                  <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="From">
-                </div>
-              </div>
-               <div class="multiple-dp col-auto">
-                <div class="input-group mb-2">
-                  <div class="input-group-text"><i class="fa fa-user" style="color: black; font-size: 24px"></i></div>
-                  <div type="text" class="form-control" id="inlineFormInputGroup">
-                      {{children}} Child {{room}} Room {{adult}} Adult
-                  </div>
-                </div>
-                <!-- dont use button here for increment and decrement -->
-                <p>Child&nbsp;&nbsp;&nbsp;<span (click)="editChildrenCount(1)">+</span>&nbsp;&nbsp;<span (click)="editChildrenCount(-1)">-</span></p>
-                <p>Room&nbsp;&nbsp;<span (click)="editRoomCount(1)">+</span>&nbsp;&nbsp;<span (click)="editRoomCount(-1)">-</span></p>
-                <p>Adult&nbsp;&nbsp;&nbsp;<span (click)="editAdultCount(1)">+</span>&nbsp;&nbsp;<span (click)="editAdultCount(-1)">-</span></p>
-              </div>
-             
+  <form>
+      <div class="form-row">
+       
+        <div class="col-auto">
+          <label class="sr-only" for="inlineFormInputGroup">From</label>
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text"><i class="fa fa-map-marker"></i></div>
             </div>
-            <div class="form-row align-items-center">
-                <div class="single-col col-auto">
-                    <label class="sr-only" for="inlineFormInputGroup">From</label>
-                    <div class="input-group mb-2">
-                      <div class="input-group-prepend">
-                        <div class="input-group-text"><i class="fa fa-hotel" style="color: black; font-size: 24px;"></i></div>
-                      </div>
-                      <input type="date" class="single-col-input form-control" id="inlineFormInputGroup" placeholder="Username">
-                    </div>
-                  </div>
-            </div>
-              <div>
-                <button (click)="search()" type="submit" class="btn-submit btn btn-success mb-2">Book Now</button>
-              </div>
-          </form>
+            <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="From">
+          </div>
+        </div>
+
+        <div class="col-auto">
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text"><i class="fa fa-user"></i></div>
+    </div>
+    <div type="text" class="form-control" id="inlineFormInputGroup">
+        <p>{{children}} Children {{room}} Room {{adult}} Adult</p>
+    </div>
+  </div>
+  <!-- dont use button here for increment and decrement -->
+  <div class="multi-dropdown">
+  Child&nbsp;<span (click)="editChildrenCount(1)">+</span>&nbsp;&nbsp;<span (click)="editChildrenCount(-1)">-</span>&nbsp;&nbsp;
+  Room&nbsp;<span (click)="editRoomCount(1)">+</span>&nbsp;&nbsp;<span (click)="editRoomCount(-1)">-</span>&nbsp;&nbsp;
+  Adult&nbsp;<span (click)="editAdultCount(1)">+</span>&nbsp;&nbsp;<span (click)="editAdultCount(-1)">-</span>
+  </div>
+</div>
+
+</div>
+<div class="form-row align-items-center">
+<div class="form1 col-auto">
+  <label class="sr-only" for="inlineFormInputGroup">Username</label>
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text"><i class="fa fa-bed"></i></div>
+    </div>
+    <input type="date" class="date-input" id="inlineFormInputGroup" placeholder="date">
+</div>
+<div>
+  <button (click)="search()" type="submit" class="btn-submit btn btn-success mb-2">Book Now</button>
+</div>  
+</div>
+</div>
+</form>
 </div>
