@@ -127,13 +127,14 @@
     }
 
     .logo {
-        margin-top: -10px;
+        margin-top: -60px;
+        width: 40%;
     }
 
     .navbar-toggle {
         float: right;
         background-color: rgb(18, 41, 18);
-        border: 1px solid green;
+        border: 2px solid green;
         border-radius: 5px;
         height: 50px;
         width: 70px;

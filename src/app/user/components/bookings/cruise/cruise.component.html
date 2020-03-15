@@ -17,7 +17,7 @@ right:0">
                     <label class="sr-only" for="inlineFormInputGroup">From</label>
                     <div class="input-group mb-2">
                       <div class="input-group-prepend">
-                        <div class="input-group-text"><i class="fa fa-map-marker" style="color: black; font-size: 24px;"></i></div>
+                        <div class="input-group-text"><i class="fa fa-map-marker"></i></div>
                       </div>
                       <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Destination">
                     </div>
@@ -26,16 +26,17 @@ right:0">
                   <div class="col-auto">
             <div class="input-group mb-2">
               <div class="input-group-prepend">
-                <div class="input-group-text"><i class="fa fa-user" style="color: black; font-size: 24px;"></i></div>
+                <div class="input-group-text"><i class="fa fa-user"></i></div>
               </div>
               <div type="text" class="form-control" id="inlineFormInputGroup">
                   {{children}} Children  {{adult}} Adult
               </div>
             </div>
             <!-- dont use button here for increment and decrement -->
-            <span (click)="editChildrenCount(1)">+</span>  Children  <span (click)="editChildrenCount(-1)">-</span><br/>
-            <span (click)="editAdultCount(1)">+</span>  Adult  <span (click)="editAdultCount(-1)">-</span>
-
+            <div class="multi-dropdown">
+            Child&nbsp;<span (click)="editChildrenCount(1)">+</span>&nbsp;&nbsp;<span (click)="editChildrenCount(-1)">-</span>&nbsp;&nbsp;
+            Adult&nbsp;<span (click)="editAdultCount(1)">+</span>&nbsp;&nbsp;<span (click)="editAdultCount(-1)">-</span>
+            </div>
           </div>
          
         </div>
@@ -44,7 +45,7 @@ right:0">
             <label class="sr-only" for="inlineFormInputGroup">Username</label>
             <div class="input-group mb-2">
               <div class="input-group-prepend">
-                <div class="input-group-text"><i class="fa fa-calendar" style="color: black; font-size: 24px;"></i></div>
+                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
               </div>
               <input type="date" class="date-input" id="inlineFormInputGroup" placeholder="date">
         </div>

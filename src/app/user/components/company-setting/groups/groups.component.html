@@ -15,10 +15,10 @@
                 
                 <div class="card-body">
                   <h5 class="card-title">{{a.name}} </h5>
-                  <button class="btn btn-success"(click)="selectGroup(a); open(content2)">Delete</button>&nbsp;&nbsp; <button class="btn-no btn btn-light" (click)="open(content3); selectGroup(a)">Edit</button>
+                  <button class="btn btn-light"(click)="selectGroup(a); open(content2)"><i class="fa fa-trash-o" style="color: grey; font-size: 24px"></i></button>&nbsp;&nbsp; <button class="btn btn-light" (click)="open(content3); selectGroup(a)"><i class="fa fa-edit" style="color: grey; font-size: 24px;"></i></button>
                     <div class="row">
                         <div *ngFor="let b of a.employees | paginate: {id:a._id, itemsPerPage: 15, currentPage: p2}" class="col-lg-4">
-                            {{b}} <button class="btn btn-success"(click)="deleteNameFromGroup(b, a)">delete</button>
+                            {{b}} <button class="btn btn-light"(click)="deleteNameFromGroup(b, a)"><i class="fa fa-trash-o" style="color: grey; font-size: 24px"></i></button>
                         </div>
                     </div>
                     <div align="center"><pagination-controls id="{{a._id}}"  (pageChange)="p2 = $event;"></pagination-controls></div> 

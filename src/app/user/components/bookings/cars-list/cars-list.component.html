@@ -12,7 +12,7 @@
     </div>
 
  <div class="container">
-    <div style="width:30%;">
+    <div class="aux-div">
         <h6>Brand</h6>
     <div class="input-group mb-2">
         <div class="input-group-prepend">
@@ -29,7 +29,7 @@
         </div>
       </form><br><br>
     </div>
-    <div class="main-div" style="width: 70%;">
+    <div class="main-div">
         <div *ngFor="let a of cars.body.message.docs">
             <div style="padding-bottom: 20px; display: flex;">
                 <div style=" width:90%;">
@@ -74,7 +74,7 @@
                 <input type="date" class="form-control" placeholder="date"/>
                
             </div>
-            <button (click)="modal.dismiss('Cross click')" class="btn btn-primary">book</button>
+            <button (click)="modal.dismiss('Cross click')" class="btn btn-success">book</button>
         </form>
     </div>
     

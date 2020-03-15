@@ -1,6 +1,14 @@
-ul{
+@media screen and (min-width: 768px){
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    ul{
     display: flex;
     margin-bottom: 0rem;
+    font-weight: bold;
 }
 li{
     list-style: none;
@@ -18,12 +26,54 @@ a:hover {
     color: white;
 }
 
-.navigation{
-    width:87.47%;
-    margin-right: 40px;
-    font-weight: bold;
+i {
+    display: none;
+}
+
+.navigation {
+    width: 83.5vw;
+    
 }
 
 .active{
     background-color: rgb(139, 236, 139);
+}
+}
+
+@media screen and (max-width: 768px) {
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    
+    ul{
+        display: flex;
+        margin-bottom: 0rem;
+    }
+    li{
+        list-style: none;
+        padding-top: 25px;
+        width: 40%;
+        background-color: rgb(189, 185, 185);
+        height: 80px;
+    }
+    a{
+        color: black;
+        display: none;
+    }
+    
+    a:hover {
+        cursor: pointer;
+        color: white;
+    }
+    
+    .navigation{
+        font-weight: bold;
+        width: 85vw;
+    }
+    
+    .active{
+        background-color: rgb(139, 236, 139);
+    }    
 }
