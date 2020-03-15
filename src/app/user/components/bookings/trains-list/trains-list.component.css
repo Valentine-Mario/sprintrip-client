@@ -11,6 +11,20 @@
     margin-left: 50px
 }
 
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  font-size: 12px
+}
+
+.date {
+  margin-right: 20px;
+}
+
+.bag {
+  margin-left: 20px;
+}
+
 .head1 {
     margin-left: 110px;
     margin-top: 10px;
@@ -48,7 +62,7 @@
 
 .select p {
     font-weight: bold;
-    margin-top: 110px;
+    margin-top: 50px;
 }
 
 

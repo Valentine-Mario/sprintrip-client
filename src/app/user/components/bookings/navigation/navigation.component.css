@@ -1,7 +1,14 @@
 @media screen and (min-width: 768px){
-ul{
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    ul{
     display: flex;
     margin-bottom: 0rem;
+    font-weight: bold;
 }
 li{
     list-style: none;
@@ -23,10 +30,9 @@ i {
     display: none;
 }
 
-.navigation{
-    width:87.47%;
-    margin-right: 40px;
-    font-weight: bold;
+.navigation {
+    width: 83.5vw;
+    
 }
 
 .active{
@@ -35,6 +41,12 @@ i {
 }
 
 @media screen and (max-width: 768px) {
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    
     ul{
         display: flex;
         margin-bottom: 0rem;
@@ -58,10 +70,7 @@ i {
     
     .navigation{
         font-weight: bold;
-    }
-
-    .main {
-        width: 100%;
+        width: 85vw;
     }
     
     .active{
