@@ -30,7 +30,7 @@ loggedOut:Boolean;
 user:any
   ngOnInit() {
     if(localStorage.getItem('user-token')){
-      this.user=this.ActiveRoute.snapshot.data['user'].body.message
+      this.user=this.ActiveRoute.snapshot.data['user']
       if(this.user.status==205){
         this.helper.infoToast('Token expired', '')
         if(this.location.isCurrentPathEqualTo('/')==true){
