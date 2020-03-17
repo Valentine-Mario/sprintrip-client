@@ -66,7 +66,7 @@
                     {{receiptObject['location']}} ({{receiptObject['date']}})
                     <div class="row">
                     <div *ngFor="let a of receiptObject['images']| paginate: {id:'images', itemsPerPage: 15, currentPage: p2, totalItems:receiptObject['images'].length }" class="col-md-6 col-lg-4 ">
-                        <img style="height:100%; width: 100%;" class="img-fluid" src="{{a}}">
+                        <img class="img-fluid" src="{{a}}">
                         <button class="btn btn-success" (click)="deletePics(a)">remove</button>
                     </div>
                     </div>
