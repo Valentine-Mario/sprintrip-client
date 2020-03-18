@@ -2,7 +2,7 @@
 <div class="container-fluid">
     <div class="section1">
        <div class="head1" align="left">
-        <h5>Choose a Airbnb</h5>
+        <h5>Choose an Airbnb</h5>
        </div> 
        <div class="head2" style="padding-right: 10px;" align=right>
            <p>FRA-LOND, LOND-FRA<br>
@@ -12,7 +12,7 @@
     </div>
 
  <div class="container">
-    <div style="width:30%;">
+    <div class="aux-div">
         <h6>Brand</h6>
         <div class="input-group mb-2">
             <div class="input-group-prepend">
@@ -29,14 +29,14 @@
             </div>
           </form><br><br>
     </div>
-    <div class="main-div" style="width: 70%;">
+    <div class="main-div">
         <div *ngFor="let a of airbnb.body.message.docs">
             <div style="padding-bottom: 20px; display: flex;">
-                <div style=" width:90%;">
+                <div class="content-box">
                     <ul class="list-group">
                         <li class="list-group-item flex-container">
                             <div class="image">
-                                <img src="https://u.realgeeks.media/siliconbeachhomesinla/AdobeStock_164629068.jpeg" style="height: 200px; width:200px"/>
+                                <img src="https://u.realgeeks.media/siliconbeachhomesinla/AdobeStock_164629068.jpeg"/>
                                 <p style="color: green;">Free cancellation<br>
                                 free wifi</p>
                             </div>
