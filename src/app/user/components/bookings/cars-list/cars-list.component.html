@@ -32,11 +32,11 @@
     <div class="main-div">
         <div *ngFor="let a of cars.body.message.docs">
             <div style="padding-bottom: 20px; display: flex;">
-                <div style=" width:90%;">
+                <div class="content-box">
                     <ul class="list-group">
                         <li class="list-group-item flex-container">
                             <div class="image">
-                                <img src="{{a.image}}" style="height: 200px; width:200px"/>
+                                <img src="{{a.image}}"/>
                                 <p style="color: green;">Free cancellation</p>
                             </div>
                             <div class="location">

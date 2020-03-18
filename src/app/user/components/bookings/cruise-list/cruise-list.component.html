@@ -12,7 +12,7 @@
     </div>
 
  <div class="container">
-    <div style="width:30%;">
+    <div class="aux-div">
         <h6>Cruise name</h6>
     <div class="input-group mb-2">
         <div class="input-group-prepend">
@@ -56,14 +56,14 @@
   <input type="range" min="1" max="100" class="slider" id="myRange">
   <p><span id="demo"></span></p><br><br>
     </div>
-    <div class="main-div" style="width: 70%;">
+    <div class="main-div">
         <div *ngFor="let a of cruise.body.message.docs">
             <div style="padding-bottom: 20px; display: flex;">
-                <div style=" width:90%;">
+                <div class="content-box">
                     <ul class="list-group">
                         <li class="list-group-item flex-container">
                             <div class="image">
-                                <img src="https://i.insider.com/5cbf50dfd1a2f8074406a8b2?width=1136&format=jpeg" style="height: 200px; width:200px"/>
+                                <img src="https://i.insider.com/5cbf50dfd1a2f8074406a8b2?width=1136&format=jpeg"/>
                                 <p style="color: green;">Free cancellation</p>
                             </div>
                             <div class="location">
