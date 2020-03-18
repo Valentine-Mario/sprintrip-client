@@ -13,7 +13,7 @@
 
 
  <div class="container">
-    <div style="width:30%;">
+    <div class="aux-div">
         <h6>Venue name</h6>
     <div class="input-group mb-2">
         <div class="input-group-prepend">
@@ -120,14 +120,14 @@
         </div>
       </form><br>
     </div>
-    <div class="main-div" style="width: 70%;">
+    <div class="main-div">
         <div *ngFor="let a of venue.body.message.docs">
             <div style="padding-bottom: 20px; display: flex;">
-                <div style=" width:90%;">
+                <div class="content-box">
                     <ul class="list-group">
                         <li class="list-group-item flex-container">
                             <div class="image">
-                                <img src="{{return_img(a.images)}}" style="height: 200px; width:200px"/>
+                                <img src="{{return_img(a.images)}}"/>
                                 <p style="color: green">Free cancellation<br>
                                 free wifi</p>
                             </div>

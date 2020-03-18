@@ -98,6 +98,10 @@ h4, h5 {
     margin-top: 110px;
 }
 
+img {
+  height: 200px; 
+  width:200px
+}
 
 .btn-select {
     display: block;
@@ -106,6 +110,10 @@ h4, h5 {
     width: 150px;
     height: 45px;
     background-color: green;
+}
+
+.content-box {
+  width: 90%;
 }
 
 label {
@@ -251,24 +259,21 @@ p {
 
 h4, h5 {
     font-weight: bold;
+    font-size: 12px;
 }
 
 .location {
-    margin-left: 30px;
+    margin-left: 10px;
 }
 
 .pricing {
-    margin-top: 140px;
-    margin-left: 10px;
+    margin-top: 30px;
+    font-size: 11px;
 }
 
 .form-control {
     border: 1px solid green;
     border-radius: 0px;
-}
-
-.main-div {
-   
 }
 
 ::placeholder {
@@ -277,12 +282,9 @@ h4, h5 {
 
 .btn-available {
     background-color: green;
-    height: 45px;
-    width: 120px;
-}
-
-.head1 {
-  margin-right: 100px;
+    height: 40px;
+    width: 80px;
+    font-size: 11px;
 }
 
 .head1 h5 {
@@ -290,12 +292,12 @@ h4, h5 {
     font-size: 15px;
 }
 
-.head2 {
-  margin-right: 100px;
+.head1, .head2 {
+  margin-right: 20px;
 }
 
 .head2 p{
-   font-size: 15px
+   font-size: 11px
 }
 
 .btn-edit {
@@ -305,7 +307,7 @@ h4, h5 {
     background-color: transparent;
     height: 40px;
     width: 100px;
-    margin-left: 200px;
+    font-size: 10px;
 }
 
 .section1 {
@@ -313,8 +315,11 @@ h4, h5 {
     flex-direction: row;
     margin-bottom: 50px;
     border-bottom: 1px solid rgb(236, 225, 225);
-    height: 70px;
-    width: 100vw;
+    height: 70px
+}
+
+img {
+  height: 100px; width:100px
 }
 
 .select {
@@ -326,6 +331,10 @@ h4, h5 {
 .select p {
     font-weight: bold;
     margin-top: 110px;
+}
+
+.content-box {
+  width: 98%;
 }
 
 
