@@ -27,6 +27,6 @@
       <br/>
       <div align="center"><pagination-controls id="travel_now"  (pageChange)="p = $event; paginate($event)"></pagination-controls></div> 
     </div>
-    <div *ngIf="trips.body.message.docs.length < 1">
-        You have no past trips
+    <div *ngIf="trips.body.message.docs.length < 1" class="container">
+        <h3>You have no past trips</h3>
     </div>
